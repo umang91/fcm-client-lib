@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 
 android {
   compileSdkVersion 26
-  buildToolsVersion "26.0.1"
+  buildToolsVersion '26.0.2'
 
 
   defaultConfig {
@@ -25,14 +25,17 @@ android {
 
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
-  provided 'com.android.support:appcompat-v7:26.0.2'
+  provided 'com.android.support:appcompat-v7:26.1.0'
   testImplementation 'junit:junit:4.12'
   androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
     exclude group: 'com.android.support', module: 'support-annotations'
   })
   compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-  compile 'com.google.firebase:firebase-messaging:11.2.0'
+  compile 'com.google.firebase:firebase-messaging:11.4.2'
+  implementation "com.umang:logger-lib:1.0.0"
 }
 repositories {
   mavenCentral()
 }
+
+apply plugin: 'kotlin-android-extensions'
