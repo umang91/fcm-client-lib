@@ -32,6 +32,10 @@ class FCMClientHelper internal constructor(private var context: Context) {
     }
   }
 
+  fun subscribeToTopics(topics: Array<String>) {
+    FCMClientLibWorker.subscribeToTopic(context, topics)
+  }
+
   private fun forceRegisterForPush(){
     FCMClientLibWorker.registerForPush(context)
   }
