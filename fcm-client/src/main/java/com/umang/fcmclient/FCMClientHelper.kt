@@ -24,7 +24,10 @@ class FCMClientHelper internal constructor(private var context: Context) {
   }
 
   fun registerForPushIfRequired(){
-    FCMClientLibWorker.registerForPush(context)
+    val savedToken: String? = SharedPref.newInstance(context).pushToken
+    if (savedToken == null){
+      FCMClientLibWorker.registerForPush(context)
+    }
   }
 
 
@@ -42,6 +45,9 @@ class FCMClientHelper internal constructor(private var context: Context) {
     }
   }
 
+  internal fun refreshToken(){
+    FCMClientLibWorker.registerForPush(context)
+  }
   companion object {
     private var activityCounter = 0
 

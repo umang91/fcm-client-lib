@@ -8,5 +8,6 @@ import com.google.firebase.iid.FirebaseInstanceIdService
 class FCMClientLibInstanceIDService : FirebaseInstanceIdService() {
   override fun onTokenRefresh() {
     super.onTokenRefresh()
+    FCMClientHelper.newInstance(applicationContext).refreshToken()
   }
 }
