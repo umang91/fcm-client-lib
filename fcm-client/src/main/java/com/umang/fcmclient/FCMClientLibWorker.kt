@@ -22,8 +22,8 @@ class FCMClientLibWorker : IntentService("FCMClientLibWorker") {
       when (action) {
         ACTION_REGISTER -> {
           val token: String? = FirebaseInstanceId.getInstance().token
+          SharedPref.newInstance(applicationContext).pushToken = token
           if (token != null && !token.isNullOrEmpty()) FCMClientHelper.newInstance(applicationContext).onTokenRegistered(token)
-          // todo save token
         }
         ACTION_SUBSCRIBE -> {
           val bundleExtras = intent.extras
@@ -37,7 +37,7 @@ class FCMClientLibWorker : IntentService("FCMClientLibWorker") {
 
         ACTION_UNSUBSCRIBE -> {
           val bundleExtras = intent.extras
-          if (bundleExtras != null && bundleExtras.containsKey(("topic"))){
+          if (bundleExtras != null && bundleExtras.containsKey(("topic"))) {
             val topics = bundleExtras.getStringArray("topics")
             for (topic in topics) {
               FirebaseMessaging.getInstance().unsubscribeFromTopic(topic)
