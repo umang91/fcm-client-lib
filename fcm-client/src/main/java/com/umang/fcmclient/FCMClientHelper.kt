@@ -10,7 +10,7 @@ class FCMClientHelper internal constructor(private var context: Context) {
 
   private var tokenReceivedListener: TokenReceivedListener? = null
 
-  fun registerTokenRegisterationCallbackListener(tokenReceivedListener: TokenReceivedListener) {
+  fun registerTokenRegistrationListener(tokenReceivedListener: TokenReceivedListener) {
     this.tokenReceivedListener = tokenReceivedListener
   }
 
@@ -23,18 +23,22 @@ class FCMClientHelper internal constructor(private var context: Context) {
 
   }
 
-  fun registerForPushIfRequired(){
+  private fun registerForPushIfRequired(){
     val savedToken: String? = SharedPref.newInstance(context).pushToken
     if (savedToken == null){
-      FCMClientLibWorker.registerForPush(context)
+      forceRegisterForPush()
     }
   }
 
+  private fun forceRegisterForPush(){
+    FCMClientLibWorker.registerForPush(context)
+  }
 
   internal fun onStart(){
     if (activityCounter == 0){
-      registerForPushIfRequired()
+      forceRegisterForPush()
     }
+    registerForPushIfRequired()
     activityCounter++
   }
 
