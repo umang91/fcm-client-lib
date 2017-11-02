@@ -2,25 +2,27 @@ package com.umang.fcmclient
 
 import android.app.Application
 import android.content.Context
+import java.util.concurrent.ConcurrentLinkedQueue
 
 /**
  * @author Umang Chamaria
  */
 class FCMClientHelper internal constructor(private var context: Context) {
 
-  private var tokenReceivedListener: TokenReceivedListener? = null
+  private var tokenReceivedListener: ConcurrentLinkedQueue<TokenReceivedListener> = ConcurrentLinkedQueue()
 
   fun registerTokenRegistrationListener(tokenReceivedListener: TokenReceivedListener) {
-    this.tokenReceivedListener = tokenReceivedListener
+    this.tokenReceivedListener.add(tokenReceivedListener)
   }
 
   fun onTokenRegistered(token: String) {
-    tokenReceivedListener?.onTokenReceived(token)
+    tokenReceivedListener.forEach{
+      it.onTokenReceived(token)
+    }
   }
 
-  fun enableRegistrationFallback(application: Application) {
+  fun initializeFCMClient(application: Application) {
     application.registerActivityLifecycleCallbacks(FCMClientLibActivityLifecycleCallbacks())
-
   }
 
   private fun registerForPushIfRequired(){
