@@ -35,6 +35,8 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
 
   fun initializeFCMClient(application: Application) {
     application.registerActivityLifecycleCallbacks(FCMClientLibActivityLifecycleCallbacks())
+    SmartLogHelper.LOG_TAG = "FCMClient_v1000"
+    SmartLogHelper.initializeLogger(context)
   }
 
   @Synchronized
