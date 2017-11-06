@@ -17,6 +17,12 @@ class SharedPref private constructor(private val context: Context){
     get() = pref.getString(prefKeyPushToken, null)
     set(value) = pref.edit().putString(prefKeyPushToken, value).apply()
 
+  private val prefKeyTopics = "topics"
+
+  var topics: Set<String>?
+    get() = pref.getStringSet(prefKeyTopics, null)
+    set(value) = pref.edit().putStringSet(prefKeyTopics, value).apply()
+
   companion object {
     fun newInstance(context: Context): SharedPref {
       return SharedPref(context)
