@@ -72,7 +72,7 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
    * Subscribe to the given list of topics
    * @param topics list of topics to subscribe
    */
-  fun subscribeToTopics(topics: Array<String>) {
+  fun subscribeToTopics(topics: List<String>) {
     FCMClientLibWorker.subscribeToTopic(context, topics)
     SharedPref.newInstance(context).topics = topics.toSet()
   }
@@ -131,13 +131,30 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
     FCMClientLibWorker.registerForPush(context)
   }
 
-  private fun getSubscribedTopics(): Array<String>{
+  private fun getSubscribedTopics(): List<String>{
     val subscribedSet = SharedPref.newInstance(context).topics
     val subscribedArray: MutableList<String> = mutableListOf()
     subscribedSet?.forEach{
       subscribedArray.add(it)
     }
-    return subscribedArray.toTypedArray()
+    return subscribedArray
+  }
+
+  fun unSubscribeTopic(topics: List<String>){
+    val subscribedTopics = getSubscribedTopics().toMutableList()
+    if (subscribedTopics.isNotEmpty()){
+      topics.forEach{
+        if (subscribedTopics.contains(it)){
+          subscribedTopics.remove(it)
+        }
+      }
+      updateSubscribedTopics(topics)
+      FCMClientLibWorker.unsubscribeFromTopic(context, topics)
+    }
+  }
+
+  private fun updateSubscribedTopics(topics: List<String>){
+    SharedPref.newInstance(context).topics = topics.toSet()
   }
 
   companion object {

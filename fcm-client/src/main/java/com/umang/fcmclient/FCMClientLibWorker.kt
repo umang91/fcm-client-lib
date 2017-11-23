@@ -42,7 +42,7 @@ class FCMClientLibWorker : IntentService("FCMClientLibWorker"), SmartLogger {
           }
         }
 
-        ACTION_UNSUBSCRIBE -> {
+        ACTION_UN_SUBSCRIBE -> {
           val bundleExtras = intent.extras
           if (bundleExtras != null && bundleExtras.containsKey(("topics"))) {
             val topics = bundleExtras.getStringArray("topics")
@@ -60,7 +60,7 @@ class FCMClientLibWorker : IntentService("FCMClientLibWorker"), SmartLogger {
 
     private val ACTION_REGISTER = "com.umang.fcmclient.action.REGISTER_PUSH"
     private val ACTION_SUBSCRIBE = "com.umang.fcmclient.action.SUBSCRIBE"
-    private val ACTION_UNSUBSCRIBE = "com.umang.fcmclient.action.UNSUBSCRIBE"
+    private val ACTION_UN_SUBSCRIBE = "com.umang.fcmclient.action.UNSUBSCRIBE"
 
 
     fun registerForPush(context: Context) {
@@ -69,10 +69,16 @@ class FCMClientLibWorker : IntentService("FCMClientLibWorker"), SmartLogger {
       context.startService(intent)
     }
 
-    fun subscribeToTopic(context: Context, topics: Array<String>) {
+    fun subscribeToTopic(context: Context, topics: List<String>) {
       val intent = Intent(context, FCMClientLibWorker::class.java)
-      intent.putExtra("topics", topics)
+      intent.putExtra("topics", topics.toTypedArray())
       intent.action = ACTION_SUBSCRIBE
+    }
+
+    fun unsubscribeFromTopic(context: Context, topics: List<String>){
+      val intent = Intent(context, FCMClientLibWorker::class.java)
+      intent.putExtra("topics", topics.toTypedArray())
+      intent.action = ACTION_UN_SUBSCRIBE
     }
 
   }
