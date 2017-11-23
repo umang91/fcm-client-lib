@@ -9,6 +9,7 @@ import com.umang.logger.verbose
 import java.util.concurrent.ConcurrentLinkedQueue
 
 /**
+ * Main interaction class for the FCM client
  * @author Umang Chamaria
  */
 class FCMClientHelper internal constructor(private var context: Context): SmartLogger {
@@ -140,6 +141,10 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
     return subscribedArray
   }
 
+  /**
+   * To un-subscribe from messaging topics.
+   * @param topics list of topics to be un-subscribed from.
+   */
   fun unSubscribeTopic(topics: List<String>){
     val subscribedTopics = getSubscribedTopics().toMutableList()
     if (subscribedTopics.isNotEmpty()){
