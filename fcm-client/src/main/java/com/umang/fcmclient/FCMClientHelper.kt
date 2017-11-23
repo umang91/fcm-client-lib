@@ -17,22 +17,37 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
 
   private var pushReceivedListener: ConcurrentLinkedQueue<PushReceivedListener> = ConcurrentLinkedQueue()
 
+  /**
+   * Registration for a callback on push token registration or push token change.
+   * Should be set in the application class, else token refresh callback could be missed.
+   * @param  tokenReceivedListener instance of [TokenReceivedListener]
+   */
   fun registerTokenRegistrationListener(tokenReceivedListener: TokenReceivedListener) {
     this.tokenReceivedListener.add(tokenReceivedListener)
   }
 
+  /**
+   * Registration for a callback whenever a push is received.
+   * Should be implemented in the application class, else callback might be missed if push is
+   * received when the process is killed or app is in background.
+   * @param pushReceivedListener instance of [PushReceivedListener]
+   */
   fun registerPushReceivedListener(pushReceivedListener: PushReceivedListener){
     this.pushReceivedListener.add(pushReceivedListener)
   }
 
   @Synchronized
-  fun onTokenRegistered(token: String) {
+  internal fun onTokenRegistered(token: String) {
     if (SharedPref.newInstance(context).pushToken.equals(token))return
     tokenReceivedListener.forEach {
       it.onTokenReceived(token)
     }
   }
 
+  /**
+   * Initialize the FCM client. This needs to be called from the onCreate() of [Application] class.
+   * @param application instance of the [Application]
+   */
   fun initializeFCMClient(application: Application) {
     application.registerActivityLifecycleCallbacks(FCMClientLibActivityLifecycleCallbacks())
     SmartLogHelper.LOG_TAG = "FCMClient_v1000"
@@ -40,7 +55,7 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
   }
 
   @Synchronized
-  fun onPushReceived(remoteMessage: RemoteMessage){
+  internal fun onPushReceived(remoteMessage: RemoteMessage){
     pushReceivedListener.forEach{
       it.onPushReceived(remoteMessage)
     }
@@ -53,20 +68,37 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
     }
   }
 
+  /**
+   * Subscribe to the given list of topics
+   * @param topics list of topics to subscribe
+   */
   fun subscribeToTopics(topics: Array<String>) {
     FCMClientLibWorker.subscribeToTopic(context, topics)
     SharedPref.newInstance(context).topics = topics.toSet()
   }
 
+  /**
+   * Initialize verbose logging for the FCM client. By default only info logs are enabled.
+   * This would only print logs if Build used is of type debug.
+   * To disable logs check [disableLogs]
+   * @param context instance of [Context]
+   */
   fun enableLogs(context: Context){
     SmartLogHelper.initializeLogger(context)
     SmartLogHelper.LOG_LEVEL = SmartLogHelper.LOG_LEVEL_VERBOSE
   }
 
+  /**
+   * Disable all logs for FCM Client.
+   */
   fun disableLogs(){
     SmartLogHelper.LOG_STATUS = false
   }
 
+  /**
+   * Enable verbose logging for singed builds. By default this is disabled and should be only set
+   * for testing.
+   */
   fun enableLogsForSignedBuild(){
     SmartLogHelper.LOG_STATUS = true
     SmartLogHelper.LOG_LEVEL = SmartLogHelper.LOG_LEVEL_VERBOSE
@@ -116,10 +148,20 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
     }
   }
 
+  /**
+   * Callback interface for token registration.
+   */
   interface TokenReceivedListener {
+    /**
+     * @param token Push token.
+     */
     fun onTokenReceived(token: String)
   }
 
+  /**
+   * Callback interface for receiving push messages.
+   * Should
+   */
   interface PushReceivedListener {
     fun onPushReceived(remoteMessage: RemoteMessage)
   }
