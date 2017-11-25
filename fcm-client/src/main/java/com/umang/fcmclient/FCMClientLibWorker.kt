@@ -10,12 +10,7 @@ import com.umang.logger.info
 import com.umang.logger.verbose
 
 /**
- * An [IntentService] subclass for handling asynchronous task requests in
- * a service on a separate handler thread.
- *
- *
- * TODO: Customize class - update intent actions, extra parameters and static
- * helper methods.
+ * @author Umang Chamaria
  */
 class FCMClientLibWorker : IntentService("FCMClientLibWorker"), SmartLogger {
 

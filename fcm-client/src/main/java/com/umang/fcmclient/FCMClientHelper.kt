@@ -165,6 +165,11 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
   companion object {
     private var activityCounter = 0
 
+    /**
+     * Get instance of [FCMClientHelper]
+     * @param context instance of [Context]
+     * @return instance of [FCMClientHelper]
+     */
     fun newInstance(context: Context): FCMClientHelper {
       return FCMClientHelper(context)
     }
@@ -185,6 +190,9 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
    * Should
    */
   interface PushReceivedListener {
+    /**
+     * @param remoteMessage Push payload received from FCM server
+     */
     fun onPushReceived(remoteMessage: RemoteMessage)
   }
 }
