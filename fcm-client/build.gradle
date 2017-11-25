@@ -29,8 +29,8 @@ dependencies {
   androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
     exclude group: 'com.android.support', module: 'support-annotations'
   })
-  compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-  compile 'com.google.firebase:firebase-messaging:11.6.0'
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+  implementation 'com.google.firebase:firebase-messaging:11.6.0'
   implementation "com.umang:logger-lib:1.0.0"
 }
 repositories {
