@@ -84,8 +84,7 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
    * To disable logs check [disableLogs]
    * @param context instance of [Context]
    */
-  fun enableLogs(context: Context){
-    SmartLogHelper.initializeLogger(context)
+  fun enableLogs(){
     SmartLogHelper.LOG_LEVEL = SmartLogHelper.LOG_LEVEL_VERBOSE
   }
 
@@ -165,13 +164,17 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
   companion object {
     private var activityCounter = 0
 
+    private var instance: FCMClientHelper? = null
     /**
      * Get instance of [FCMClientHelper]
      * @param context instance of [Context]
      * @return instance of [FCMClientHelper]
      */
     fun newInstance(context: Context): FCMClientHelper {
-      return FCMClientHelper(context)
+      if (instance == null){
+        instance = FCMClientHelper(context)
+      }
+      return instance!!
     }
   }
 

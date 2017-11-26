@@ -20,10 +20,10 @@ class FCMClientLibWorker : IntentService("FCMClientLibWorker"), SmartLogger {
       when (action) {
         ACTION_REGISTER -> {
           val token: String? = FirebaseInstanceId.getInstance().token
-          SharedPref.newInstance(applicationContext).pushToken = token
           if (token != null && !token.isNullOrEmpty()) {
             info("PushToken: $token")
             FCMClientHelper.newInstance(applicationContext).onTokenRegistered(token)
+            SharedPref.newInstance(applicationContext).pushToken = token
           }
         }
         ACTION_SUBSCRIBE -> {
