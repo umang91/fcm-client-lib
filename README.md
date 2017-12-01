@@ -12,3 +12,12 @@ provider.
 * Callback for FCM messages
 * Retry mechanism on timeouts or registration failures
 * Fallback for missed token rotation callback
+
+
+# Usage
+
+**Initialisation**
+
+```
+FCMClientHelper.newInstance(applicationContext).initializeFCMClient(this)
+```

@@ -6,8 +6,8 @@ import com.umang.fcmclient.FCMClientHelper
 /**
  * @author Umang Chamaria
  */
-class TokenReceiver:FCMClientHelper.TokenReceivedListener {
+class AnotherTokenReceiver: FCMClientHelper.TokenReceivedListener {
   override fun onTokenReceived(token: String) {
-    Log.v("SampleApplication", "TokenReceiver : $token")
+    Log.v("SampleApplication", "AnotherTokenReceiver : $token")
   }
 }

@@ -68,12 +68,14 @@ class FCMClientLibWorker : IntentService("FCMClientLibWorker"), SmartLogger {
       val intent = Intent(context, FCMClientLibWorker::class.java)
       intent.putExtra("topics", topics.toTypedArray())
       intent.action = ACTION_SUBSCRIBE
+      context.startService(intent)
     }
 
     fun unsubscribeFromTopic(context: Context, topics: List<String>){
       val intent = Intent(context, FCMClientLibWorker::class.java)
       intent.putExtra("topics", topics.toTypedArray())
       intent.action = ACTION_UN_SUBSCRIBE
+      context.startService(intent)
     }
 
   }
