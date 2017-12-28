@@ -1,6 +1,28 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
+ext {
+  bintrayRepo = 'umang' // your repo name
+  bintrayName = 'fcmclient' // has to be same as your library module name
+  publishedGroupId = 'com.umang' // your module package name
+  libraryName = 'FCM Client'
+  artifact = 'fcm-client'
+  libraryDescription = 'A client library for handling push notification in android.'
+
+  siteUrl = 'https://github.com/UmangChamaria/FCMClientLib'
+  gitUrl = 'https://github.com/UmangChamaria/FCMClientLib.git'
+
+  libraryVersion = '0.0.1'
+
+  developerId = 'umangchamaria'
+  developerName = 'Umang Chamaria'
+  developerEmail = 'umangchamaria@gmail.com'
+
+  licenseName = 'The Apache Software License, Version 2.0'
+  licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+  allLicenses = ["Apache-2.0"]
+}
+
 android {
   compileSdkVersion 27
   buildToolsVersion '27.0.1'
@@ -30,7 +52,7 @@ dependencies {
     exclude group: 'com.android.support', module: 'support-annotations'
   })
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-  compileOnly 'com.google.firebase:firebase-messaging:11.6.0'
+  compileOnly 'com.google.firebase:firebase-messaging:11.6.2'
   compile 'com.umang:logger-lib:1.0.0'
 }
 repositories {
@@ -38,3 +60,5 @@ repositories {
 }
 
 apply plugin: 'kotlin-android-extensions'
+apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/installv.gradle'
+apply from: '../bintray.gradle'
