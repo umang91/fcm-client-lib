@@ -21,3 +21,9 @@ provider.
 ```
 FCMClientHelper.newInstance(applicationContext).initializeFCMClient(this)
 ```
+
+**Register for token Receiver**
+
+```
+FCMClientHelper.newInstance(applicationContext).registerTokenRegistrationListener(TokenReceiver())
+```
