@@ -165,6 +165,7 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
     private var activityCounter = 0
 
     private var instance: FCMClientHelper? = null
+
     /**
      * Get instance of [FCMClientHelper]
      * @param context instance of [Context]
@@ -174,7 +175,7 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
       if (instance == null){
         instance = FCMClientHelper(context)
       }
-      return instance!!
+      return instance as FCMClientHelper
     }
   }
 
