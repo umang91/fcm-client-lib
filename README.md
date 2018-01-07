@@ -42,6 +42,7 @@ Below is a sample implementation
 class TokenReceiver:FCMClientHelper.TokenReceivedListener {
   override fun onTokenReceived(token: String) {
     Log.v("SampleApplication", "TokenReceiver : $token")
+    //save token or send to server or pass to other sdks
   }
 }
 
