@@ -31,6 +31,24 @@ To get push token from the  library you need to register for a callback listener
 recommended to register for the listener in the `onCreate()` of the application class. If the 
 listener is set in other places such as activity/fragment token refresh callbacks might be missed.
 
+**Implement listener**
+
+To get a callback your class should implement the `FCMClientHelper.TokenReceivedListener` 
+provided by the library.
+
+Below is a sample implementation 
+
+```
+class TokenReceiver:FCMClientHelper.TokenReceivedListener {
+  override fun onTokenReceived(token: String) {
+    Log.v("SampleApplication", "TokenReceiver : $token")
+  }
+}
+
+```
+
+**Register listener**
+
 Below is an example of setting a token receiver in the `onCreate()` of Application class
 
 ```
