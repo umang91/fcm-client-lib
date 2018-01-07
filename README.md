@@ -12,6 +12,7 @@ provider.
 * Callback for FCM messages
 * Retry mechanism on timeouts or registration failures
 * Fallback for missed token rotation callback
+* Subscribe/un-subscribe to topics 
 
 
 # Usage
@@ -87,6 +88,22 @@ Below is an example of setting up the callback in the  `onCreate()` of Applicati
 FCMClientHelper.newInstance(applicationContext).registerPushReceivedListener(PushReceiver())
 ```
 
+**Topics Messaging**
+
+Library supports topic messaging. The app can subscribe/un-subscribe to messages whenever required.
+
+API for subscribing to topic
+ 
+ ```
+FCMClientHelper.newInstance(applicationContext).subscribeToTopics()
+```
+
+API for un-subscribing to topic
+
+```
+FCMClientHelper.newInstance(applicationContext).unSubscribeTopic()
+```
+
 **Enable Logs**
 
 In case you need to enable logs of the library for debugging purpose you can do so by calling the
@@ -95,4 +112,11 @@ are enabled, app need not bother about disabling.
   
 ```
 FCMClientHelper.newInstance(applicationContext).enableLogs()
+```
+
+For some reason if enabling logs for signed build is required use the below API. Make sure this 
+is removed before app is published on store.
+
+```
+FCMClientHelper.newInstance(applicationContext).enableLogsForSignedBuild()
 ```
