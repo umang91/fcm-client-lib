@@ -18,11 +18,20 @@ provider.
 
 **Initialisation**
 
+Initialise the FCM client SDK in the `onCreate()` of the Application subclass. To initialise add 
+the below line.
+
 ```
 FCMClientHelper.newInstance(applicationContext).initializeFCMClient(this)
 ```
 
-**Register for token Receiver**
+**Get push token**
+
+To get push token from the  library you need to register for a callback listener. It is 
+recommended to register for the listener in the `onCreate()` of the application class. If the 
+listener is set in other places such as activity/fragment token refresh callbacks might be missed.
+
+Below is an example of setting a token receiver in the `onCreate()` of Application class
 
 ```
 FCMClientHelper.newInstance(applicationContext).registerTokenRegistrationListener(TokenReceiver())
