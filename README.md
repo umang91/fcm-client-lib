@@ -86,3 +86,13 @@ Below is an example of setting up the callback in the  `onCreate()` of Applicati
 ```
 FCMClientHelper.newInstance(applicationContext).registerPushReceivedListener(PushReceiver())
 ```
+
+**Enable Logs**
+
+In case you need to enable logs of the library for debugging purpose you can do so by calling the
+below API. The library ensures that logs are not printed when using a signed build even if logs 
+are enabled, app need not bother about disabling. 
+  
+```
+FCMClientHelper.newInstance(applicationContext).enableLogs()
+```
