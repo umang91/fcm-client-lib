@@ -27,16 +27,17 @@ FCMClientHelper.newInstance(applicationContext).initializeFCMClient(this)
 
 **Get push token**
 
-To get push token from the  library you need to register for a callback listener. It is 
-recommended to register for the listener in the `onCreate()` of the application class. If the 
+The library passes the push token to the client app via a callback. 
+It is recommended to register for the listener in the `onCreate()` of the application class. If the 
 listener is set in other places such as activity/fragment token refresh callbacks might be missed.
 
-**Implement listener**
+**Setup token callback**
 
-To get a callback your class should implement the `FCMClientHelper.TokenReceivedListener` 
-provided by the library.
+To get a callback one should implement the `FCMClientHelper.TokenReceivedListener` 
+provided by the library and pass an instance of the same to the `FCMClientHelper.newInstance
+(applicationContext).registerTokenRegistrationListener()`.
 
-Below is a sample implementation 
+Below is a sample implementation of the interface
 
 ```
 class TokenReceiver:FCMClientHelper.TokenReceivedListener {
@@ -48,10 +49,40 @@ class TokenReceiver:FCMClientHelper.TokenReceivedListener {
 
 ```
 
-**Register listener**
-
-Below is an example of setting a token receiver in the `onCreate()` of Application class
+Below is an example of setting up the callback in the  `onCreate()` of Application class
 
 ```
 FCMClientHelper.newInstance(applicationContext).registerTokenRegistrationListener(TokenReceiver())
+```
+
+**Get push payload**
+
+The library passes the push payload to the client app via a callback.
+It is recommended to register for the listener in the `onCreate()` of the application class. If the 
+listener is set in other places such as activity/fragment token refresh callbacks might be missed.
+
+**Setup push payload callback**
+
+To get a callback one should implement `FCMClientHelper.PushReceivedListener` provided by the 
+library and pass an instance of the same to `FCMClientHelper.newInstance(applicationContext)
+.registerPushReceivedListener()`
+
+Below is a sample implementation of the interface
+
+```
+class PushReceiver: FCMClientHelper.PushReceivedListener {
+  override fun onPushReceived(remoteMessage: RemoteMessage) {
+    for ((key, value) in remoteMessage.data){
+      Log.v("SampleApplication", "Key: $key, Value: $value")
+    }
+    //display push or pass to other sdks if required
+  }
+}
+
+```
+
+Below is an example of setting up the callback in the  `onCreate()` of Application class
+
+```
+FCMClientHelper.newInstance(applicationContext).registerPushReceivedListener(PushReceiver())
 ```
