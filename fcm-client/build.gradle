@@ -12,7 +12,7 @@ ext {
   siteUrl = 'https://github.com/UmangChamaria/FCMClientLib'
   gitUrl = 'https://github.com/UmangChamaria/FCMClientLib.git'
 
-  libraryVersion = '0.0.1'
+  libraryVersion = '1.0.0'
 
   developerId = 'umangchamaria'
   developerName = 'Umang Chamaria'
