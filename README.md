@@ -4,6 +4,8 @@ messages. It can be used to attach multiple push providers and deliver data and 
 all the listeners. This library is very helpful for those you use multiple push notification 
 provider.
 
+![Download](https://api.bintray.com/packages/umangchamaria/umang/fcmclient/images/download.svg)
+
 # Features
 
 * FCM token registration
