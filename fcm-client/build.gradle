@@ -32,15 +32,17 @@ dependencies {
   })
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
   compileOnly 'com.google.firebase:firebase-messaging:15.0.2'
-  compile 'com.umang:logger-lib:1.0.0'
+  implementation 'com.umang:logger-lib:1.0.0'
 }
 repositories {
   mavenCentral()
 }
 
 dokka {
+  moduleName = ''
   outputFormat = 'html'
-  outputDirectory = "$buildDir/javadoc"
+  outputDirectory = "../docs"
+  sourceDirs = files('src/main/java/com.umang.fcmclient/FCMClientHelper')
 }
 
 apply plugin: 'kotlin-android-extensions'
