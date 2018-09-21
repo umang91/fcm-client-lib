@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentLinkedQueue
  * Main interaction class for the FCM client
  * @author Umang Chamaria
  */
-class FCMClientHelper internal constructor(private var context: Context): SmartLogger {
+class FCMClientHelper internal constructor(private var context: Context) : SmartLogger {
 
   private var tokenReceivedListener: ConcurrentLinkedQueue<TokenReceivedListener> = ConcurrentLinkedQueue()
 
@@ -33,13 +33,13 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
    * received when the process is killed or app is in background.
    * @param pushReceivedListener instance of [PushReceivedListener]
    */
-  fun registerPushReceivedListener(pushReceivedListener: PushReceivedListener){
+  fun registerPushReceivedListener(pushReceivedListener: PushReceivedListener) {
     this.pushReceivedListener.add(pushReceivedListener)
   }
 
   @Synchronized
   internal fun onTokenRegistered(token: String) {
-    if (SharedPref.newInstance(context).pushToken.equals(token))return
+    if (SharedPref.newInstance(context).pushToken.equals(token)) return
     tokenReceivedListener.forEach {
       it.onTokenReceived(token)
     }
@@ -48,6 +48,12 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
   /**
    * Initialize the FCM client. This needs to be called from the onCreate() of [Application] class.
    * @param application instance of the [Application]
+   *
+   * ```
+   *
+   * FCMClientHelper.newInstance(applicationContext).initializeFCMClient(this)
+   *
+   * ```
    */
   fun initializeFCMClient(application: Application) {
     application.registerActivityLifecycleCallbacks(FCMClientLibActivityLifecycleCallbacks())
@@ -56,8 +62,8 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
   }
 
   @Synchronized
-  internal fun onPushReceived(remoteMessage: RemoteMessage){
-    pushReceivedListener.forEach{
+  internal fun onPushReceived(remoteMessage: RemoteMessage) {
+    pushReceivedListener.forEach {
       it.onPushReceived(remoteMessage)
     }
   }
@@ -82,16 +88,15 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
    * Initialize verbose logging for the FCM client. By default only info logs are enabled.
    * This would only print logs if Build used is of type debug.
    * To disable logs check [disableLogs]
-   * @param context instance of [Context]
    */
-  fun enableLogs(){
+  fun enableLogs() {
     SmartLogHelper.LOG_LEVEL = SmartLogHelper.LOG_LEVEL_VERBOSE
   }
 
   /**
    * Disable all logs for FCM Client.
    */
-  fun disableLogs(){
+  fun disableLogs() {
     SmartLogHelper.LOG_STATUS = false
   }
 
@@ -99,7 +104,7 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
    * Enable verbose logging for singed builds. By default this is disabled and should be only set
    * for testing.
    */
-  fun enableLogsForSignedBuild(){
+  fun enableLogsForSignedBuild() {
     SmartLogHelper.LOG_STATUS = true
     SmartLogHelper.LOG_LEVEL = SmartLogHelper.LOG_LEVEL_VERBOSE
   }
@@ -131,10 +136,10 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
     FCMClientLibWorker.registerForPush(context)
   }
 
-  private fun getSubscribedTopics(): List<String>{
+  private fun getSubscribedTopics(): List<String> {
     val subscribedSet = SharedPref.newInstance(context).topics
     val subscribedArray: MutableList<String> = mutableListOf()
-    subscribedSet?.forEach{
+    subscribedSet?.forEach {
       subscribedArray.add(it)
     }
     return subscribedArray
@@ -144,11 +149,11 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
    * To un-subscribe from messaging topics.
    * @param topics list of topics to be un-subscribed from.
    */
-  fun unSubscribeTopic(topics: List<String>){
+  fun unSubscribeTopic(topics: List<String>) {
     val subscribedTopics = getSubscribedTopics().toMutableList()
-    if (subscribedTopics.isNotEmpty()){
-      topics.forEach{
-        if (subscribedTopics.contains(it)){
+    if (subscribedTopics.isNotEmpty()) {
+      topics.forEach {
+        if (subscribedTopics.contains(it)) {
           subscribedTopics.remove(it)
         }
       }
@@ -157,7 +162,7 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
     }
   }
 
-  private fun updateSubscribedTopics(topics: List<String>){
+  private fun updateSubscribedTopics(topics: List<String>) {
     SharedPref.newInstance(context).topics = topics.toSet()
   }
 
@@ -172,7 +177,7 @@ class FCMClientHelper internal constructor(private var context: Context): SmartL
      * @return instance of [FCMClientHelper]
      */
     fun newInstance(context: Context): FCMClientHelper {
-      if (instance == null){
+      if (instance == null) {
         instance = FCMClientHelper(context)
       }
       return instance as FCMClientHelper
