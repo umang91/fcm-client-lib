@@ -1,0 +1,137 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FCMClientHelper - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">com.umang.fcmclient</a>&nbsp;/&nbsp;<a href="./index.html">FCMClientHelper</a><br/>
+<br/>
+<h1>FCMClientHelper</h1>
+<code><span class="keyword">class </span><span class="identifier">FCMClientHelper</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">SmartLogger</span></code>
+<p>Main interaction class for the FCM client</p>
+<p><strong>Author</strong><br/>
+Umang Chamaria</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-push-received-listener/index.html">PushReceivedListener</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">PushReceivedListener</span></code>
+<p>Callback interface for receiving push messages.
+Should</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-token-received-listener/index.html">TokenReceivedListener</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">TokenReceivedListener</span></code>
+<p>Callback interface for token registration.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="disable-logs.html">disableLogs</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">disableLogs</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Disable all logs for FCM Client.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="enable-logs.html">enableLogs</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">enableLogs</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Initialize verbose logging for the FCM client. By default only info logs are enabled.
+This would only print logs if Build used is of type debug.
+To disable logs check <a href="disable-logs.html">disableLogs</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="enable-logs-for-signed-build.html">enableLogsForSignedBuild</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">enableLogsForSignedBuild</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Enable verbose logging for singed builds. By default this is disabled and should be only set
+for testing.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="initialize-f-c-m-client.html">initializeFCMClient</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">initializeFCMClient</span><span class="symbol">(</span><span class="identifier" id="com.umang.fcmclient.FCMClientHelper$initializeFCMClient(android.app.Application)/application">application</span><span class="symbol">:</span>&nbsp;<span class="identifier">Application</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Initialize the FCM client. This needs to be called from the onCreate() of <a href="#">Application</a> class.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="register-push-received-listener.html">registerPushReceivedListener</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">registerPushReceivedListener</span><span class="symbol">(</span><span class="identifier" id="com.umang.fcmclient.FCMClientHelper$registerPushReceivedListener(com.umang.fcmclient.FCMClientHelper.PushReceivedListener)/pushReceivedListener">pushReceivedListener</span><span class="symbol">:</span>&nbsp;<a href="-push-received-listener/index.html"><span class="identifier">PushReceivedListener</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Registration for a callback whenever a push is received.
+Should be implemented in the application class, else callback might be missed if push is
+received when the process is killed or app is in background.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="register-token-registration-listener.html">registerTokenRegistrationListener</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">registerTokenRegistrationListener</span><span class="symbol">(</span><span class="identifier" id="com.umang.fcmclient.FCMClientHelper$registerTokenRegistrationListener(com.umang.fcmclient.FCMClientHelper.TokenReceivedListener)/tokenReceivedListener">tokenReceivedListener</span><span class="symbol">:</span>&nbsp;<a href="-token-received-listener/index.html"><span class="identifier">TokenReceivedListener</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Registration for a callback on push token registration or push token change.
+Should be set in the application class, else token refresh callback could be missed.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="subscribe-to-topics.html">subscribeToTopics</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">subscribeToTopics</span><span class="symbol">(</span><span class="identifier" id="com.umang.fcmclient.FCMClientHelper$subscribeToTopics(kotlin.collections.List((kotlin.String)))/topics">topics</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Subscribe to the given list of topics</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="un-subscribe-topic.html">unSubscribeTopic</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">unSubscribeTopic</span><span class="symbol">(</span><span class="identifier" id="com.umang.fcmclient.FCMClientHelper$unSubscribeTopic(kotlin.collections.List((kotlin.String)))/topics">topics</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>To un-subscribe from messaging topics.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="new-instance.html">newInstance</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">newInstance</span><span class="symbol">(</span><span class="identifier" id="com.umang.fcmclient.FCMClientHelper.Companion$newInstance(android.content.Context)/context">context</span><span class="symbol">:</span>&nbsp;<span class="identifier">Context</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">FCMClientHelper</span></a></code>
+<p>Get instance of <a href="./index.html">FCMClientHelper</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

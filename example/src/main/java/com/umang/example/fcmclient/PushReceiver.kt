@@ -12,5 +12,6 @@ class PushReceiver: FCMClientHelper.PushReceivedListener {
     for ((key, value) in remoteMessage.data){
       Log.v("SampleApplication", "Key: $key, Value: $value")
     }
+    //display push or pass to other sdks if required
   }
 }
