@@ -3,25 +3,38 @@ apply plugin: 'kotlin-android'
 apply plugin: 'org.jetbrains.dokka'
 
 ext {
-  bintrayRepo = 'umang' // your repo name
-  bintrayName = 'fcmclient' // has to be same as your library module name
-  publishedGroupId = 'com.umang' // your module package name
-  libraryName = 'FCM Client'
-  artifact = 'fcm-client'
-  libraryDescription = 'A client library for handling push notification in android.'
+  def bintrayMeta = rootProject.ext.bintrayMeta
 
-  siteUrl = 'https://github.com/UmangChamaria/FCMClientLib'
-  gitUrl = 'https://github.com/UmangChamaria/FCMClientLib.git'
+  bintrayRepo = bintrayMeta.bintrayRepo
+  bintrayName = bintrayMeta.bintrayName
+  publishedGroupId = bintrayMeta.publishedGroupId
+  libraryName = bintrayMeta.libraryName
+  artifact = bintrayMeta.artifact
+  libraryDescription = bintrayMeta.libraryDescription
 
-  libraryVersion = '1.0.0'
+  def urlMeta = rootProject.ext.urlMeta
 
-  developerId = 'umangchamaria'
-  developerName = 'Umang Chamaria'
-  developerEmail = 'umangchamaria@gmail.com'
+  siteUrl = urlMeta.siteUrl
+  gitUrl = urlMeta.gitUrl
 
-  licenseName = 'The Apache Software License, Version 2.0'
-  licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-  allLicenses = ["Apache-2.0"]
+  def versionMeta = rootProject.ext.versionMeta
+
+  libraryVersion = versionMeta.majorVersion + versionMeta.versionSeparator +
+      versionMeta.minorVersion +
+      versionMeta.versionSeparator +
+      versionMeta.patchVersion
+
+  def developerMeta = rootProject.ext.developerMeta
+
+  developerId = developerMeta.developerId
+  developerName = developerMeta.developerName
+  developerEmail = developerMeta.developerEmail
+
+  def licenseMeta = rootProject.ext.licenseMeta
+
+  licenseName = licenseMeta.licenseName
+  licenseUrl = licenseMeta.licenseUrl
+  allLicenses = licenseMeta.allLicenses
 }
 
 android {
@@ -54,20 +67,19 @@ dependencies {
   })
 
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-  compileOnly 'com.google.firebase:firebase-messaging:17.3.1'
+  compileOnly 'com.google.firebase:firebase-messaging:17.3.2'
   implementation 'com.umang:logger-lib:1.0.0'
 }
 repositories {
   mavenCentral()
 }
 
-apply plugin: 'kotlin-android-extensions'
-apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/installv.gradle'
-apply from: '../bintray.gradle'
+apply from: 'https://raw.githubusercontent.com/UmangChamaria/jcenterKotlin/master/installv.gradle'
+apply from: 'https://raw.githubusercontent.com/UmangChamaria/jcenterKotlin/master/bintray.gradle'
+
 dokka {
   moduleName = ''
   outputFormat = 'html'
   outputDirectory = "../docs"
 }
 
-apply plugin: 'kotlin-android-extensions'

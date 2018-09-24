@@ -28,6 +28,6 @@ dependencies {
   implementation 'com.android.support:appcompat-v7:27.0.1'
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
   implementation 'com.umang:fcm-client:1.0.0'
-  implementation 'com.google.firebase:firebase-messaging:17.3.1'
+  implementation 'com.google.firebase:firebase-messaging:17.3.2'
 }
 apply plugin: 'com.google.gms.google-services'

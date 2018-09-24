@@ -57,7 +57,7 @@ class FCMClientHelper internal constructor(private var context: Context) : Smart
    */
   fun initializeFCMClient(application: Application) {
     application.registerActivityLifecycleCallbacks(FCMClientLibActivityLifecycleCallbacks())
-    SmartLogHelper.LOG_TAG = "FCMClient_v1000"
+    SmartLogHelper.LOG_TAG = "FCMClient_v$LIBRARY_VERSION"
     SmartLogHelper.initializeLogger(context)
   }
 
@@ -205,3 +205,5 @@ class FCMClientHelper internal constructor(private var context: Context) : Smart
     fun onPushReceived(remoteMessage: RemoteMessage)
   }
 }
+
+const val LIBRARY_VERSION = 1000
