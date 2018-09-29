@@ -6,7 +6,7 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
   compileSdkVersion 27
-  buildToolsVersion '27.0.3'
+  buildToolsVersion '28.0.2'
   defaultConfig {
     applicationId "com.umang.example.fcmclient"
     minSdkVersion 16
@@ -27,7 +27,9 @@ dependencies {
   implementation fileTree(include: ['*.jar'], dir: 'libs')
   implementation 'com.android.support:appcompat-v7:27.0.1'
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-  implementation 'com.umang:fcm-client:1.0.0'
+  implementation project (':fcm-client')
   implementation 'com.google.firebase:firebase-messaging:17.3.2'
+  implementation 'com.google.firebase:firebase-core:16.0.3'
+  implementation 'com.umang:logger-lib:1.0.0'
 }
 apply plugin: 'com.google.gms.google-services'

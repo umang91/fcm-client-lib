@@ -2,10 +2,9 @@ package com.umang.fcmclient
 
 import android.app.Application
 import android.content.Context
+import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.messaging.RemoteMessage
-import com.umang.logger.SmartLogHelper
-import com.umang.logger.SmartLogger
-import com.umang.logger.verbose
+import com.umang.logger.*
 import java.util.concurrent.ConcurrentLinkedQueue
 
 /**
@@ -110,8 +109,7 @@ class FCMClientHelper internal constructor(private var context: Context) : Smart
   }
 
   private fun forceRegisterForPush() {
-    FCMClientLibWorker.registerForPush(context)
-    subscribeToTopics(getSubscribedTopics())
+    registerForPush()
   }
 
   internal fun onStart() {
@@ -133,7 +131,7 @@ class FCMClientHelper internal constructor(private var context: Context) : Smart
 
   internal fun refreshToken() {
     SharedPref.newInstance(context).pushToken = null
-    FCMClientLibWorker.registerForPush(context)
+    registerForPush()
   }
 
   private fun getSubscribedTopics(): List<String> {
@@ -160,6 +158,35 @@ class FCMClientHelper internal constructor(private var context: Context) : Smart
       updateSubscribedTopics(topics)
       FCMClientLibWorker.unsubscribeFromTopic(context, topics)
     }
+  }
+
+  private fun registerForPush(){
+
+    FirebaseInstanceId.getInstance().instanceId.addOnCompleteListener { task ->
+      try {
+        if (task.isSuccessful){
+          val token = task.result.token
+          if (!token.isNullOrEmpty()){
+            info("Push Token: $token")
+            onNewToken(token)
+          }
+        }else{
+          error("registerForPush(): Task completion wasn't successful")
+        }
+      }catch (e: Exception){
+        error("registerForPush(): Exception: ", e)
+      }
+    }
+  }
+
+  internal fun onNewToken(token: String){
+    onTokenRegistered(token)
+    writeTokenToStorage(token)
+    subscribeToTopics(getSubscribedTopics())
+  }
+
+  private fun writeTokenToStorage(token: String) {
+    SharedPref.newInstance(context).pushToken = token
   }
 
   private fun updateSubscribedTopics(topics: List<String>) {

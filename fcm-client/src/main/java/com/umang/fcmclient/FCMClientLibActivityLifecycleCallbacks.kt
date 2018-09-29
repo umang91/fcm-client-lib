@@ -24,15 +24,15 @@ class FCMClientLibActivityLifecycleCallbacks:Application.ActivityLifecycleCallba
   override fun onActivityCreated(p0: Activity?, p1: Bundle?) {
   }
 
-  override fun onActivityStarted(p0: Activity?) {
-    val context: Context? = p0?.applicationContext
+  override fun onActivityStarted(activity: Activity?) {
+    val context: Context? = activity?.applicationContext
     if (context != null) {
       FCMClientHelper.newInstance(context).onStart()
     }
   }
 
-  override fun onActivityStopped(p0: Activity?) {
-    val context: Context? = p0?.applicationContext
+  override fun onActivityStopped(activity: Activity?) {
+    val context: Context? = activity?.applicationContext
     if (context != null) {
       FCMClientHelper.newInstance(context).onStop()
     }

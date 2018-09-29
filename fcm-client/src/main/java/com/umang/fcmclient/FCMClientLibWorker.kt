@@ -3,10 +3,8 @@ package com.umang.fcmclient
 import android.app.IntentService
 import android.content.Context
 import android.content.Intent
-import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.messaging.FirebaseMessaging
 import com.umang.logger.SmartLogger
-import com.umang.logger.info
 import com.umang.logger.verbose
 
 /**
@@ -18,14 +16,6 @@ class FCMClientLibWorker : IntentService("FCMClientLibWorker"), SmartLogger {
     if (intent != null) {
       val action = intent.action
       when (action) {
-        ACTION_REGISTER -> {
-          val token: String? = FirebaseInstanceId.getInstance().token
-          if (token != null && !token.isNullOrEmpty()) {
-            info("PushToken: $token")
-            FCMClientHelper.newInstance(applicationContext).onTokenRegistered(token)
-            SharedPref.newInstance(applicationContext).pushToken = token
-          }
-        }
         ACTION_SUBSCRIBE -> {
           val bundleExtras = intent.extras
           if (bundleExtras != null && bundleExtras.containsKey("topics")) {
@@ -53,16 +43,9 @@ class FCMClientLibWorker : IntentService("FCMClientLibWorker"), SmartLogger {
 
   companion object {
 
-    private val ACTION_REGISTER = "com.umang.fcmclient.action.REGISTER_PUSH"
     private val ACTION_SUBSCRIBE = "com.umang.fcmclient.action.SUBSCRIBE"
     private val ACTION_UN_SUBSCRIBE = "com.umang.fcmclient.action.UNSUBSCRIBE"
 
-
-    fun registerForPush(context: Context) {
-      val intent = Intent(context, FCMClientLibWorker::class.java)
-      intent.action = ACTION_REGISTER
-      context.startService(intent)
-    }
 
     fun subscribeToTopic(context: Context, topics: List<String>) {
       val intent = Intent(context, FCMClientLibWorker::class.java)
