@@ -233,4 +233,4 @@ class FCMClientHelper internal constructor(private var context: Context) : Smart
   }
 }
 
-const val LIBRARY_VERSION = 1000
+const val LIBRARY_VERSION = 1100

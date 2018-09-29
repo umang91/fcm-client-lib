@@ -27,9 +27,8 @@ dependencies {
   implementation fileTree(include: ['*.jar'], dir: 'libs')
   implementation 'com.android.support:appcompat-v7:27.0.1'
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-  implementation project (':fcm-client')
+  implementation 'com.umang:fcm-client:1.1.0'
   implementation 'com.google.firebase:firebase-messaging:17.3.2'
   implementation 'com.google.firebase:firebase-core:16.0.3'
-  implementation 'com.umang:logger-lib:1.0.0'
 }
 apply plugin: 'com.google.gms.google-services'
