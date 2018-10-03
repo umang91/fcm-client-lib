@@ -24,7 +24,7 @@ provider.
 Add the below line in the dependency block of your app's `build.gradle`
 
 ```
-implementation 'com.umang:fcm-client:1.1.0'
+implementation 'com.umang:fcm-client:1.2.0'
 ```
 
 **Initialisation**

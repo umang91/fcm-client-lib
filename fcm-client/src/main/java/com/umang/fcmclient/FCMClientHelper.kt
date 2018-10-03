@@ -165,10 +165,10 @@ class FCMClientHelper internal constructor(private var context: Context) : Smart
     FirebaseInstanceId.getInstance().instanceId.addOnCompleteListener { task ->
       try {
         if (task.isSuccessful){
-          val token = task.result.token
+          val token = task.result?.token
           if (!token.isNullOrEmpty()){
             info("Push Token: $token")
-            onNewToken(token)
+            onNewToken(token!!)
           }
         }else{
           error("registerForPush(): Task completion wasn't successful")
