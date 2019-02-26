@@ -39,8 +39,6 @@ ext {
 
 android {
   compileSdkVersion 27
-  buildToolsVersion '28.0.2'
-
 
   defaultConfig {
     minSdkVersion 16
@@ -74,8 +72,8 @@ repositories {
   mavenCentral()
 }
 
-apply from: 'https://raw.githubusercontent.com/UmangChamaria/jcenterKotlin/master/installv.gradle'
-apply from: 'https://raw.githubusercontent.com/UmangChamaria/jcenterKotlin/master/bintray.gradle'
+apply from: 'https://raw.githubusercontent.com/umang91/jcenterScripts/master/installv.gradle'
+apply from: 'https://raw.githubusercontent.com/umang91/jcenterScripts/master/bintray-kotlin.gradle'
 
 dokka {
   moduleName = ''
@@ -83,3 +81,6 @@ dokka {
   outputDirectory = "../docs"
 }
 
+task print {
+  println rootProject
+}
