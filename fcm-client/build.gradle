@@ -66,7 +66,7 @@ dependencies {
 
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
   compileOnly 'com.google.firebase:firebase-messaging:17.3.3'
-  implementation 'com.umang:logger-lib:1.2.0'
+  api 'com.umang:logger-lib:1.2.0'
 }
 repositories {
   mavenCentral()
