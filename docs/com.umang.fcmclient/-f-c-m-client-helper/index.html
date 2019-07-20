@@ -22,7 +22,7 @@ Umang Chamaria</p>
 <td>
 <code><span class="keyword">interface </span><span class="identifier">PushReceivedListener</span></code>
 <p>Callback interface for receiving push messages.
-Should</p>
+Should be registered in the onCreate() of <a href="https://developer.android.com/reference/android/app/Application.html">Application</a> class.</p>
 </td>
 </tr>
 <tr>
@@ -31,7 +31,8 @@ Should</p>
 </td>
 <td>
 <code><span class="keyword">interface </span><span class="identifier">TokenReceivedListener</span></code>
-<p>Callback interface for token registration.</p>
+<p>Callback interface for token registration.
+Should be registered in the onCreate() of <a href="https://developer.android.com/reference/android/app/Application.html">Application</a> class.</p>
 </td>
 </tr>
 </tbody>

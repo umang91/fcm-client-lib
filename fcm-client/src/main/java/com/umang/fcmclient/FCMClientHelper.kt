@@ -213,6 +213,7 @@ class FCMClientHelper internal constructor(private var context: Context) : Smart
 
   /**
    * Callback interface for token registration.
+   * Should be registered in the onCreate() of [Application] class.
    */
   interface TokenReceivedListener {
     /**
@@ -223,7 +224,7 @@ class FCMClientHelper internal constructor(private var context: Context) : Smart
 
   /**
    * Callback interface for receiving push messages.
-   * Should
+   * Should be registered in the onCreate() of [Application] class.
    */
   interface PushReceivedListener {
     /**
