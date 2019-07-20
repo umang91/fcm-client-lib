@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'org.jetbrains.dokka'
+apply plugin: 'org.jetbrains.dokka-android'
 
 ext {
   def bintrayMeta = rootProject.ext.bintrayMeta
@@ -79,8 +79,4 @@ dokka {
   moduleName = ''
   outputFormat = 'html'
   outputDirectory = "../docs"
-}
-
-task print {
-  println rootProject
 }
