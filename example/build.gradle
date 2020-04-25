@@ -30,5 +30,6 @@ dependencies {
   implementation project(':fcm-client')
   implementation 'com.google.firebase:firebase-messaging:17.3.3'
   implementation 'com.google.firebase:firebase-core:16.0.4'
+  implementation "com.moetest:integration-verifier:1.0.0"
 }
 apply plugin: 'com.google.gms.google-services'
