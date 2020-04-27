@@ -5,15 +5,15 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-  compileSdkVersion 27
+  compileSdkVersion 28
 
   defaultConfig {
     applicationId "com.umang.example.fcmclient"
     minSdkVersion 16
-    targetSdkVersion 27
+    targetSdkVersion 28
     versionCode 1
     versionName "1.0"
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
   buildTypes {
     release {
@@ -25,11 +25,10 @@ android {
 
 dependencies {
   implementation fileTree(include: ['*.jar'], dir: 'libs')
-  implementation 'com.android.support:appcompat-v7:27.1.1'
+  implementation 'androidx.appcompat:appcompat:1.0.0'
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
   implementation project(':fcm-client')
-  implementation 'com.google.firebase:firebase-messaging:17.3.3'
-  implementation 'com.google.firebase:firebase-core:16.0.4'
-  implementation "com.moetest:integration-verifier:1.0.0"
+  implementation 'com.google.firebase:firebase-messaging:20.1.6'
+  implementation 'com.google.firebase:firebase-core:17.4.0'
 }
 apply plugin: 'com.google.gms.google-services'

@@ -1,8 +1,8 @@
 package com.umang.example.fcmclient
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import com.umang.fcmclient.FCMClientHelper
+import androidx.appcompat.app.AppCompatActivity
+import com.umang.fcmclient.FcmClientHelper
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,6 +13,6 @@ class MainActivity : AppCompatActivity() {
     topics.add("topic1")
     topics.add("topic2")
     topics.add("topic3")
-    FCMClientHelper.newInstance(applicationContext).subscribeToTopics(topics)
+    FcmClientHelper.getInstance(applicationContext).subscribeToTopics(topics)
   }
 }

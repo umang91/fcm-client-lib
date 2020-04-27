@@ -3,14 +3,10 @@
     package="com.umang.fcmclient">
 
   <application>
-    <service android:name=".FCMClientLibMessageService">
+    <service android:name=".FcmClientMessageService">
       <intent-filter>
         <action android:name="com.google.firebase.MESSAGING_EVENT"/>
       </intent-filter>
-    </service>
-    <service
-        android:name=".FCMClientLibWorker"
-        android:exported="false">
     </service>
   </application>
 
