@@ -8,15 +8,15 @@ import android.content.Context
  */
 class Repository(private val context: Context) {
 
-  private val sharedPref = SharedPref(context)
+    private val sharedPref = SharedPref(context)
 
-  fun saveToken(token: String) {
-    sharedPref.putString(PREF_KEY_PUSH_TOKEN, token)
-  }
+    fun saveToken(token: String) {
+        sharedPref.putString(PREF_KEY_PUSH_TOKEN, token)
+    }
 
-  fun getToken(): String {
-    return sharedPref.getString(PREF_KEY_PUSH_TOKEN, "") as String
-  }
+    fun getToken(): String {
+        return sharedPref.getString(PREF_KEY_PUSH_TOKEN, "") as String
+    }
 }
 
 const val PREF_KEY_PUSH_TOKEN = "push_token"

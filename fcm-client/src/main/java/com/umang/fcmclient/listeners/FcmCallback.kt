@@ -9,15 +9,15 @@ import com.google.firebase.messaging.RemoteMessage
  * Date: 27/04/20
  */
 interface FcmCallback {
-  /**
-   * Callback for new token generated.
-   * @param token Token generated received from FCM callback.
-   */
-  fun onTokenAvailable(token: String)
+    /**
+     * Callback for new token generated.
+     * @param token Token generated received from FCM callback.
+     */
+    fun onTokenAvailable(token: String)
 
-  /**
-   * Callback for Push Message received from FCM
-   * @param remoteMessage instance of [RemoteMessage] received from firebase.
-   */
-  fun onPushReceived(remoteMessage: RemoteMessage)
+    /**
+     * Callback for Push Message received from FCM
+     * @param remoteMessage instance of [RemoteMessage] received from firebase.
+     */
+    fun onPushReceived(remoteMessage: RemoteMessage)
 }

@@ -2,22 +2,23 @@ package com.umang.fcmclient
 
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.umang.logger.SmartLogger
-import com.umang.logger.verbose
+import com.umang.fcmclient.util.Logger
 
 /**
  * @author Umang Chamaria
  */
-class FcmClientMessageService : FirebaseMessagingService(), SmartLogger {
+class FcmClientMessageService : FirebaseMessagingService() {
 
-  override fun onMessageReceived(remoteMessage: RemoteMessage) {
-    super.onMessageReceived(remoteMessage)
-    FcmClientHelper.getInstance(applicationContext).onPushReceived(remoteMessage)
-  }
+    private val logger = Logger.getLogger("FcmClientMessageService")
 
-  override fun onNewToken(token: String) {
-    super.onNewToken(token)
-    verbose("onNewToken(): $token")
-    FcmClientHelper.getInstance(applicationContext).onNewToken(token)
-  }
+    override fun onMessageReceived(remoteMessage: RemoteMessage) {
+        super.onMessageReceived(remoteMessage)
+        FcmClientHelper.getInstance(applicationContext).onPushReceived(remoteMessage)
+    }
+
+    override fun onNewToken(token: String) {
+        super.onNewToken(token)
+        logger.verbose("onNewToken(): $token")
+        FcmClientHelper.getInstance(applicationContext).onNewToken(token)
+    }
 }

@@ -2,81 +2,76 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'org.jetbrains.dokka-android'
 
+def versionMeta = rootProject.ext.versionMeta
 ext {
-  def bintrayMeta = rootProject.ext.bintrayMeta
+    def bintrayMeta = rootProject.ext.bintrayMeta
 
-  bintrayRepo = bintrayMeta.bintrayRepo
-  bintrayName = bintrayMeta.bintrayName
-  publishedGroupId = bintrayMeta.publishedGroupId
-  libraryName = bintrayMeta.libraryName
-  artifact = bintrayMeta.artifact
-  libraryDescription = bintrayMeta.libraryDescription
+    bintrayRepo = bintrayMeta.bintrayRepo
+    bintrayName = bintrayMeta.bintrayName
+    publishedGroupId = bintrayMeta.publishedGroupId
+    libraryName = bintrayMeta.libraryName
+    artifact = bintrayMeta.artifact
+    libraryDescription = bintrayMeta.libraryDescription
 
-  def urlMeta = rootProject.ext.urlMeta
+    def urlMeta = rootProject.ext.urlMeta
 
-  siteUrl = urlMeta.siteUrl
-  gitUrl = urlMeta.gitUrl
+    siteUrl = urlMeta.siteUrl
+    gitUrl = urlMeta.gitUrl
 
-  def versionMeta = rootProject.ext.versionMeta
+    libraryVersion = versionMeta.versionName
 
-  libraryVersion = versionMeta.majorVersion + versionMeta.versionSeparator +
-      versionMeta.minorVersion +
-      versionMeta.versionSeparator +
-      versionMeta.patchVersion
+    def developerMeta = rootProject.ext.developerMeta
 
-  def developerMeta = rootProject.ext.developerMeta
+    developerId = developerMeta.developerId
+    developerName = developerMeta.developerName
+    developerEmail = developerMeta.developerEmail
 
-  developerId = developerMeta.developerId
-  developerName = developerMeta.developerName
-  developerEmail = developerMeta.developerEmail
+    def licenseMeta = rootProject.ext.licenseMeta
 
-  def licenseMeta = rootProject.ext.licenseMeta
-
-  licenseName = licenseMeta.licenseName
-  licenseUrl = licenseMeta.licenseUrl
-  allLicenses = licenseMeta.allLicenses
+    licenseName = licenseMeta.licenseName
+    licenseUrl = licenseMeta.licenseUrl
+    allLicenses = licenseMeta.allLicenses
 }
 
 android {
-  compileSdkVersion 28
+    compileSdkVersion 28
 
-  defaultConfig {
-    minSdkVersion 16
-    targetSdkVersion 28
-    versionCode 1
-    versionName "1.0"
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode versionMeta.versionCode
+        versionName versionMeta.versionName
 
-    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-  }
-
-  buildTypes {
-    release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-  }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
 }
 
 dependencies {
-  implementation fileTree(include: ['*.jar'], dir: 'libs')
-  testImplementation 'junit:junit:4.13'
-  androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
-    exclude group: 'com.android.support', module: 'support-annotations'
-  })
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
 
-  implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version")
-  compileOnly("com.google.firebase:firebase-messaging:20.1.6")
-  api("com.umang:logger-lib:1.4.0")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version")
+    implementation("com.google.firebase:firebase-messaging:20.1.6")
 }
 repositories {
-  mavenCentral()
+    mavenCentral()
 }
 
 apply from: 'https://raw.githubusercontent.com/umang91/jcenterScripts/master/installv.gradle'
 apply from: 'https://raw.githubusercontent.com/umang91/jcenterScripts/master/bintray-kotlin.gradle'
 
 dokka {
-  moduleName = ''
-  outputFormat = 'html'
-  outputDirectory = "../docs"
+    moduleName = ''
+    outputFormat = 'html'
+    outputDirectory = "../docs"
 }

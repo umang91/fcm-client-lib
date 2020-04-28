@@ -5,10 +5,10 @@ import java.util.concurrent.Executors
 import java.util.concurrent.Future
 
 internal object AsyncExecutor {
-  private var executor: ExecutorService =
-    Executors.newCachedThreadPool()
+    private var executor: ExecutorService =
+            Executors.newCachedThreadPool()
 
-  fun <T> submit(task: () -> T): Future<T> {
-    return executor.submit(task)
-  }
+    fun <T> submit(task: () -> T): Future<T> {
+        return executor.submit(task)
+    }
 }
