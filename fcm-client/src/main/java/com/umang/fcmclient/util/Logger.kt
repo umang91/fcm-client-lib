@@ -1,6 +1,7 @@
 package com.umang.fcmclient.util
 
 import android.util.Log
+import com.umang.fcmclient.BuildConfig
 
 /**
  * @author Umang Chamaria
@@ -78,8 +79,8 @@ class Logger private constructor(private val className: String) {
     companion object {
         fun getLogger(className: String) = Logger(className)
 
-        internal var logLevel: Logger.LogLevel = LogLevel.ERROR
+        internal var logLevel: LogLevel = LogLevel.ERROR
 
-        private const val tag = "FcmClient"
+        private const val tag = "FcmClient_v${BuildConfig.FCM_CLIENT_VERSION}"
     }
 }

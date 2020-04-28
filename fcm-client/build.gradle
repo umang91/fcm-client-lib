@@ -43,7 +43,9 @@ android {
         versionName versionMeta.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "FCM_CLIENT_VERSION", "\"${versionMeta.versionName}\""
     }
+
 
     buildTypes {
         release {
