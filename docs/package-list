@@ -2,3 +2,6 @@ $dokka.format:html
 $dokka.linkExtension:html
 
 com.umang.fcmclient
+com.umang.fcmclient.listeners
+com.umang.fcmclient.repository
+com.umang.fcmclient.util
