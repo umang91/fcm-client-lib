@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.umang.fcmclient.util.Logger
 
 /**
+ * Observer for activity lifecycle
  * @author Umang Chamaria
  */
 class ActivityLifecycleCallbacks : Application.ActivityLifecycleCallbacks {
