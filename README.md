@@ -21,7 +21,7 @@ The library internally manages token registration, token refresh and also has a 
 
 Add the below line in the dependency block of your app's `build.gradle`
 
-```
+```groovy
 implementation "com.umang:fcm-client:$sdkVersion"
 ```
 
@@ -38,7 +38,7 @@ for more details.
 Initialise the FCM client SDK in the `onCreate()` of the Application subclass. To initialise add 
 the below line.
 
-```
+```kotlin
 FcmClientHelper.getInstance(applicationContext).initialise(this)
 ```
 
@@ -50,14 +50,39 @@ To receive a callback whenever a token is generated or notification is received 
    Application sub-class of your application. 
 Below is an example of setting up the callback in the  `onCreate()` of Application class
 
-```
+```kotlin
 FcmClientHelper.getInstance(applicationContext).addListener(FirebaseListener())
 ```
 
 <b>Token callback:</b> `onTokenAvailable()` is called whenever a new token is available.
 
- <b>Push Payload callback:</b> `onPushReceived` is called a push notification is received on the
-  device. 
+<b>Push Payload callback:</b> `onPushReceived` is called a push notification is received on the
+  device.
+  
+## Excluding files from back-up
+Auto Backup for Apps automatically backs up a user's data from apps that target and run on
+Android 6.0 (API level 23) or later. As a general recommendation push tokens should not be
+backed up as it gets invalidated over time. So to ensure token is not backed up exclude the
+shared preference file from the back-up.
+
+To exclude the file include the below in your app's backup descriptor
+
+```xml
+    <exclude
+        domain="sharedpref"
+        path="umang_fcm_client_lib" />
+
+``` 
+
+If your app does not have a back-up descriptor already you can directly add the back-up
+ descriptor provided by the SDK as shown below
+ 
+```xml
+<application
+
+  android:fullBackupContent="@xml/fcm_client_backup_descriptor">
+</application>
+```
 
 ## Topics Messaging
 
@@ -65,14 +90,21 @@ Library supports topic messaging. The app can subscribe/un-subscribe to messages
 
 API for subscribing to topic
  
- ```
+ ```kotlin
 FcmClientHelper.getInstance(applicationContext).subscribeToTopics()
 ```
 
 API for un-subscribing to topic
 
-```
+```kotlin
 FcmClientHelper.getInstance(applicationContext).unSubscribeTopic()
 ```
 
-**Enable Logs**
+## Enable logging
+
+By default only info logs are enabled to enable verbose logging pass in the log-level in the
+ `initialise()` as shown below
+ 
+ ```kotlin
+FcmClientHelper.getInstance(applicationContext).initialise(this, Logger.LogLevel.VERBOSE)
+```  
