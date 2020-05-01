@@ -5,9 +5,10 @@ import android.content.Context
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.RemoteMessage
-import com.umang.fcmclient.listeners.FcmCallback
+import com.umang.fcmclient.listeners.FirebaseMessageListener
 import com.umang.fcmclient.repository.Repository
 import com.umang.fcmclient.util.Logger
+import com.umang.fcmclient.util.isDebugBuild
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
@@ -21,7 +22,7 @@ class FcmClientHelper internal constructor(private var context: Context) {
 
     private var activityCounter = 0
 
-    private val listeners = mutableListOf<FcmCallback>()
+    private val listeners = mutableListOf<FirebaseMessageListener>()
 
     private var scheduledExecutor = Executors.newScheduledThreadPool(1)
 
@@ -32,20 +33,20 @@ class FcmClientHelper internal constructor(private var context: Context) {
 
     /**
      * Register a callback for FCM events.
-     * @param listener instance of [FcmCallback]
+     * @param listener instance of [FirebaseMessageListener]
      */
     @Suppress("SENSELESS_COMPARISON")
-    fun addListener(listener: FcmCallback) {
+    fun addListener(listener: FirebaseMessageListener) {
         if (listener == null) return
         listeners.add(listener)
     }
 
     /**
      * Remove of a registered callback for FCM events
-     * @param listener instance of registered [FcmCallback]
+     * @param listener instance of registered [FirebaseMessageListener]
      */
     @Suppress("SENSELESS_COMPARISON")
-    fun removeListener(listener: FcmCallback) {
+    fun removeListener(listener: FirebaseMessageListener) {
         if (listener == null) return
         listeners.remove(listener)
     }
@@ -63,6 +64,7 @@ class FcmClientHelper internal constructor(private var context: Context) {
     fun initialise(application: Application, logLevel: Logger.LogLevel = Logger.LogLevel.ERROR) {
         application.registerActivityLifecycleCallbacks(ActivityLifecycleCallbacks())
         Logger.logLevel = logLevel
+        Logger.isLogEnabled = isDebugBuild(application.applicationContext)
         logger.verbose(" initialise() Initialising fcm client library. Log level - $logLevel")
     }
 
@@ -207,5 +209,3 @@ class FcmClientHelper internal constructor(private var context: Context) {
         }
     }
 }
-
-const val LIBRARY_VERSION = 1100

@@ -12,5 +12,7 @@ class ExampleApplication : Application() {
         super.onCreate()
         // initialize sdk
         FcmClientHelper.getInstance(applicationContext).initialise(this, Logger.LogLevel.VERBOSE)
+        FcmClientHelper.getInstance(applicationContext).addListener(FcmListener1())
+        FcmClientHelper.getInstance(applicationContext).addListener(FcmListener2())
     }
 }

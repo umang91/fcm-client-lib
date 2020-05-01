@@ -8,7 +8,7 @@ import com.google.firebase.messaging.RemoteMessage
  * @author Umang Chamaria
  * Date: 27/04/20
  */
-interface FcmCallback {
+interface FirebaseMessageListener {
     /**
      * Callback for new token generated.
      * @param token Token generated received from FCM callback.

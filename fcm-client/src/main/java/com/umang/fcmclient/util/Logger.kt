@@ -46,32 +46,32 @@ class Logger private constructor(private val className: String) {
      *
      */
     fun verbose(message: String) {
-        if (logLevel >= LogLevel.VERBOSE) {
+        if (logLevel >= LogLevel.VERBOSE && isLogEnabled) {
             Log.v(tag, "$className $message")
         }
     }
 
     fun debug(message: String) {
-        if (logLevel >= LogLevel.DEBUG) {
+        if (logLevel >= LogLevel.DEBUG && isLogEnabled) {
             Log.d(tag, "$className $message")
         }
     }
 
     fun info(message: String) {
-        if (logLevel >= LogLevel.INFO) {
+        if (logLevel >= LogLevel.INFO && isLogEnabled) {
             Log.i(tag, "$className $message")
         }
     }
 
     fun error(message: String, throwable: Throwable? = null) {
-        if (logLevel >= LogLevel.ERROR) {
+        if (logLevel >= LogLevel.ERROR && isLogEnabled) {
             if (throwable != null) Log.e(tag, "$className $message", throwable)
             else Log.e(tag, "$className $message")
         }
     }
 
     fun warn(message: String) {
-        if (logLevel >= LogLevel.WARN) {
+        if (logLevel >= LogLevel.WARN && isLogEnabled) {
             Log.w(tag, "$className $message")
         }
     }
@@ -80,6 +80,8 @@ class Logger private constructor(private val className: String) {
         fun getLogger(className: String) = Logger(className)
 
         internal var logLevel: LogLevel = LogLevel.ERROR
+
+        internal var isLogEnabled = false
 
         private const val tag = "FcmClient_v${BuildConfig.FCM_CLIENT_VERSION}"
     }

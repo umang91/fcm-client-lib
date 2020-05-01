@@ -1,10 +1,8 @@
-# FCMClientLib
-A library which helps you register for Firebase Cloud Messaging(FCM) and listen for FCM 
-messages. It can be used to attach multiple push providers and deliver data and token to 
-all the listeners. This library is very helpful for those you use multiple push notification 
-provider.
-
 ![Download](https://api.bintray.com/packages/umangchamaria/umang/fcmclient/images/download.svg)
+
+# Firebase Messaging Client
+A library which helps you handle Firebase Cloud Messaging(FCM). This library helps in abstracting out the logic firebase message lifecycle, it takes care of token lifecycle and delivers the notification payload received from FCM to the application via a callback listener.
+The library internally manages token registration, token refresh and also has a retry mechanism in case of registration failure.   
 
 # Features
 
@@ -19,114 +17,62 @@ provider.
 
 # Usage
 
-**Installation**
+## Installation
 
 Add the below line in the dependency block of your app's `build.gradle`
 
 ```
-implementation 'com.umang:fcm-client:+'
+implementation "com.umang:fcm-client:$sdkVersion"
 ```
 
-**Initialisation**
+replace `$sdkVersion` with the latest version of the SDK
+
+## Set-up Firebase
+Before initialising the library make sure you have added the required plugins and `google-services.json` file into your project. Refer to the [documentation](https://firebase.google.com/docs/android/setup)
+for more details.
+<b>Note:</b> Dependencies and listeners required for the Firebase Messaging to work is already
+ added in the library, you need not add it again. 
+
+## Initialisation
 
 Initialise the FCM client SDK in the `onCreate()` of the Application subclass. To initialise add 
 the below line.
 
 ```
-FCMClientHelper.newInstance(applicationContext).initializeFCMClient(this)
+FcmClientHelper.getInstance(applicationContext).initialise(this)
 ```
 
-**Get push token**
+## Set-up Callback Listener
 
-The library passes the push token to the client app via a callback. 
-It is recommended to register for the listener in the `onCreate()` of the application class. If the 
-listener is set in other places such as activity/fragment token refresh callbacks might be missed.
-
-**Setup token callback**
-
-To get a callback one should implement the `FCMClientHelper.TokenReceivedListener` 
-provided by the library and pass an instance of the same to the `FCMClientHelper.newInstance
-(applicationContext).registerTokenRegistrationListener()`.
-
-Below is a sample implementation of the interface
-
-```
-class TokenReceiver:FCMClientHelper.TokenReceivedListener {
-  override fun onTokenReceived(token: String) {
-    Log.v("SampleApplication", "TokenReceiver : $token")
-    //save token or send to server or pass to other sdks
-  }
-}
-
-```
-
+To receive a callback whenever a token is generated or notification is received implement the
+ `FirebaseMessageListener` interface and register a listener using the `addListener()` of the
+  `FcmClientHelper`. Please ensure this callback is registered in the `onCreate()` of the
+   Application sub-class of your application. 
 Below is an example of setting up the callback in the  `onCreate()` of Application class
 
 ```
-FCMClientHelper.newInstance(applicationContext).registerTokenRegistrationListener(TokenReceiver())
+FcmClientHelper.getInstance(applicationContext).addListener(FirebaseListener())
 ```
 
-**Get push payload**
+<b>Token callback:</b> `onTokenAvailable()` is called whenever a new token is available.
 
-The library passes the push payload to the client app via a callback.
-It is recommended to register for the listener in the `onCreate()` of the application class. If the 
-listener is set in other places such as activity/fragment token refresh callbacks might be missed.
+ <b>Push Payload callback:</b> `onPushReceived` is called a push notification is received on the
+  device. 
 
-**Setup push payload callback**
-
-To get a callback one should implement `FCMClientHelper.PushReceivedListener` provided by the 
-library and pass an instance of the same to `FCMClientHelper.newInstance(applicationContext)
-.registerPushReceivedListener()`
-
-Below is a sample implementation of the interface
-
-```
-class PushReceiver: FCMClientHelper.PushReceivedListener {
-  override fun onPushReceived(remoteMessage: RemoteMessage) {
-    for ((key, value) in remoteMessage.data){
-      Log.v("SampleApplication", "Key: $key, Value: $value")
-    }
-    //display push or pass to other sdks if required
-  }
-}
-
-```
-
-Below is an example of setting up the callback in the  `onCreate()` of Application class
-
-```
-FCMClientHelper.newInstance(applicationContext).registerPushReceivedListener(PushReceiver())
-```
-
-**Topics Messaging**
+## Topics Messaging
 
 Library supports topic messaging. The app can subscribe/un-subscribe to messages whenever required.
 
 API for subscribing to topic
  
  ```
-FCMClientHelper.newInstance(applicationContext).subscribeToTopics()
+FcmClientHelper.getInstance(applicationContext).subscribeToTopics()
 ```
 
 API for un-subscribing to topic
 
 ```
-FCMClientHelper.newInstance(applicationContext).unSubscribeTopic()
+FcmClientHelper.getInstance(applicationContext).unSubscribeTopic()
 ```
 
 **Enable Logs**
-
-In case you need to enable logs of the library for debugging purpose you can do so by calling the
-below API. The library ensures that logs are not printed when using a signed build even if logs 
-are enabled, app need not bother about disabling. 
-  
-```
-FCMClientHelper.newInstance(applicationContext).enableLogs()
-```
-
-For some reason if enabling logs for signed build is required use the below API. Make sure this 
-is removed before app is published on store.
-
-```
-FCMClientHelper.newInstance(applicationContext).enableLogsForSignedBuild()
-```
