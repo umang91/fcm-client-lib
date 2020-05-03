@@ -62,10 +62,14 @@ class FcmClientHelper internal constructor(private var context: Context) {
      * ```
      */
     fun initialise(application: Application, logLevel: Logger.LogLevel = Logger.LogLevel.ERROR) {
-        application.registerActivityLifecycleCallbacks(ActivityLifecycleCallbacks())
-        Logger.logLevel = logLevel
-        Logger.isLogEnabled = isDebugBuild(application.applicationContext)
-        logger.verbose(" initialise() Initialising fcm client library. Log level - $logLevel")
+        try {
+            application.registerActivityLifecycleCallbacks(ActivityLifecycleCallbacks())
+            Logger.logLevel = logLevel
+            Logger.isLogEnabled = isDebugBuild(application.applicationContext)
+            logger.verbose(" initialise() Initialising fcm client library. Log level - $logLevel")
+        } catch (e: Exception) {
+            logger.error(" initialise() ", e)
+        }
     }
 
     @Synchronized
@@ -85,9 +89,13 @@ class FcmClientHelper internal constructor(private var context: Context) {
      */
     fun subscribeToTopics(topics: List<String>) {
         AsyncExecutor.submit {
-            for (topic in topics) {
-                logger.verbose("Subscribing to $topic")
-                FirebaseMessaging.getInstance().subscribeToTopic(topic)
+            try {
+                for (topic in topics) {
+                    logger.verbose("Subscribing to $topic")
+                    FirebaseMessaging.getInstance().subscribeToTopic(topic)
+                }
+            } catch (e: Exception) {
+                logger.error(" subscribeToTopic() ", e)
             }
         }
     }
@@ -98,32 +106,48 @@ class FcmClientHelper internal constructor(private var context: Context) {
      */
     fun unSubscribeTopic(topics: List<String>) {
         AsyncExecutor.submit {
-            for (topic in topics) {
-                logger.verbose("Un-subscribing to $topic")
-                FirebaseMessaging.getInstance().unsubscribeFromTopic(topic)
+            try {
+                for (topic in topics) {
+                    logger.verbose("Un-subscribing to $topic")
+                    FirebaseMessaging.getInstance().unsubscribeFromTopic(topic)
+                }
+            } catch (e: Exception) {
+                logger.error(" unSubscribeTopic() ", e)
             }
         }
     }
 
     internal fun onStart() {
-        if (activityCounter == 0) {
-            registerForPush()
+        try {
+            if (activityCounter == 0) {
+                registerForPush()
+            }
+            activityCounter++
+            logger.verbose("onStart(): activity counter: $activityCounter")
+        } catch (e: Exception) {
+            logger.error(" onStart() ", e)
         }
-        activityCounter++
-        logger.verbose("onStart(): activity counter: $activityCounter")
     }
 
     internal fun onStop() {
-        activityCounter--
-        logger.verbose("onStop(): activity counter: $activityCounter")
-        if (activityCounter == 0) {
-            onAppBackground()
+        try {
+            activityCounter--
+            logger.verbose("onStop(): activity counter: $activityCounter")
+            if (activityCounter == 0) {
+                onAppBackground()
+            }
+        } catch (e: Exception) {
+            logger.error(" onStop() ", e)
         }
     }
 
     internal fun onNewToken(token: String) {
-        notifyListenersIfRequired(token)
-        repository.saveToken(token)
+        try {
+            notifyListenersIfRequired(token)
+            repository.saveToken(token)
+        } catch (e: Exception) {
+            logger.error(" onNewToken() ", e)
+        }
     }
 
     private fun registerForPushIfRequired() {
@@ -177,16 +201,20 @@ class FcmClientHelper internal constructor(private var context: Context) {
     }
 
     private fun notifyListenersIfRequired(token: String) {
-        val savedToken = repository.getToken()
         AsyncExecutor.submit {
-            if (token == savedToken) return@submit
-            logger.verbose(" notifyListenersIfRequired() : Notifying listeners")
-            for (listener in listeners) {
-                try {
-                    listener.onTokenAvailable(token)
-                } catch (e: Exception) {
-                    logger.error(" notifyListenersIfRequired() : ", e)
+            try {
+                val savedToken = repository.getToken()
+                if (token == savedToken) return@submit
+                logger.verbose(" notifyListenersIfRequired() : Notifying listeners")
+                for (listener in listeners) {
+                    try {
+                        listener.onTokenAvailable(token)
+                    } catch (e: Exception) {
+                        logger.error(" notifyListenersIfRequired() : ", e)
+                    }
                 }
+            } catch (e: Exception) {
+                logger.error(" notifyListenersIfRequired() ", e)
             }
         }
     }

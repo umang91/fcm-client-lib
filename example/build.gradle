@@ -27,6 +27,6 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation project(':fcm-client')
+    implementation project(":fcm-client")
 }
 apply plugin: 'com.google.gms.google-services'

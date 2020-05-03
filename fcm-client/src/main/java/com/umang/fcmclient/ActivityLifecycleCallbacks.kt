@@ -29,12 +29,20 @@ class ActivityLifecycleCallbacks : Application.ActivityLifecycleCallbacks {
     }
 
     override fun onActivityStarted(activity: Activity) {
-        logger.verbose(" onActivityStarted() Activity Started ${activity::class.qualifiedName}")
-        FcmClientHelper.getInstance(activity.applicationContext).onStart()
+        try {
+            logger.verbose(" onActivityStarted() Activity Started ${activity::class.qualifiedName}")
+            FcmClientHelper.getInstance(activity.applicationContext).onStart()
+        } catch (e: Exception) {
+            logger.error(" onActivityStarted() ", e)
+        }
     }
 
     override fun onActivityStopped(activity: Activity) {
-        logger.verbose(" onActivityStopped() Activity Stopped ${activity::class.qualifiedName}")
-        FcmClientHelper.getInstance(activity.applicationContext).onStop()
+        try {
+            logger.verbose(" onActivityStopped() Activity Stopped ${activity::class.qualifiedName}")
+            FcmClientHelper.getInstance(activity.applicationContext).onStop()
+        } catch (e: Exception) {
+            logger.error("onActivityStopped() ", e)
+        }
     }
 }

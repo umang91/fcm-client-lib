@@ -13,6 +13,7 @@ class FcmClientMessageService : FirebaseMessagingService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
+        logger.verbose(" onMessageReceived() Firebase message received.")
         FcmClientHelper.getInstance(applicationContext).onPushReceived(remoteMessage)
     }
 

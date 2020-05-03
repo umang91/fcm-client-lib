@@ -1,4 +1,7 @@
-## 2.0.0
+## 2.0.1 (03-05-2020)
+- Additional exception handling
+
+## 2.0.0 (01-05-2020)
 - Migration to AndroidX
 - Migrating to all callbacks to a single listener
 - Internal re-structuring
