@@ -42,6 +42,9 @@ the below line.
 FcmClientHelper.getInstance(applicationContext).initialise(this)
 ```
 
+Optionally you can set the log level and retry interval in the initialise API, refer to the API
+ documentation for more details.
+
 ## Set-up Callback Listener
 
 To receive a callback whenever a token is generated or notification is received implement the

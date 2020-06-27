@@ -9,6 +9,9 @@ import com.umang.fcmclient.BuildConfig
  */
 class Logger private constructor(private val className: String) {
 
+    /**
+     * Logging level
+     */
     enum class LogLevel {
         /**
          * Priority constant for printing no logs.

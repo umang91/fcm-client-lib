@@ -11,7 +11,8 @@ class ExampleApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         // initialize sdk
-        FcmClientHelper.getInstance(applicationContext).initialise(this, Logger.LogLevel.VERBOSE)
+        FcmClientHelper.getInstance(applicationContext).initialise(this, Logger.LogLevel.VERBOSE,
+                4)
         FcmClientHelper.getInstance(applicationContext).addListener(FcmListener1())
         FcmClientHelper.getInstance(applicationContext).addListener(FcmListener2())
     }

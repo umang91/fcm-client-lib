@@ -31,6 +31,8 @@ class FcmClientHelper internal constructor(private var context: Context) {
 
     private val repository = Repository(context)
 
+    private var retryInterval: Long = 30
+
     /**
      * Register a callback for FCM events.
      * @param listener instance of [FirebaseMessageListener]
@@ -54,6 +56,12 @@ class FcmClientHelper internal constructor(private var context: Context) {
     /**
      * Initialize the FCM client. This needs to be called from the onCreate() of [Application] class.
      * @param application instance of the [Application]
+     * @param logLevel optional parameter takes in the level of logs which should be printed by the
+     * SDK when the application is running in debug mode. By default, only error logs are printed.
+     * Refer to [Logger.LogLevel] for more details.
+     * @param retryInterval optional parameter which takes the time interval(in seconds) after
+     * which the SDK should retry registering for Push Token in case of any failure. Default
+     * value is 30 seconds.
      *
      * ```
      *
@@ -61,11 +69,15 @@ class FcmClientHelper internal constructor(private var context: Context) {
      *
      * ```
      */
-    fun initialise(application: Application, logLevel: Logger.LogLevel = Logger.LogLevel.ERROR) {
+    fun initialise(application: Application, logLevel: Logger.LogLevel = Logger.LogLevel.ERROR,
+                   retryInterval: Long = 30) {
         try {
             application.registerActivityLifecycleCallbacks(ActivityLifecycleCallbacks())
             Logger.logLevel = logLevel
             Logger.isLogEnabled = isDebugBuild(application.applicationContext)
+            if (retryInterval >= 5){
+                this.retryInterval = retryInterval
+            }
             logger.verbose(" initialise() Initialising fcm client library. Log level - $logLevel")
         } catch (e: Exception) {
             logger.error(" initialise() ", e)
@@ -163,15 +175,17 @@ class FcmClientHelper internal constructor(private var context: Context) {
     }
 
     private fun registerForPush() {
-        logger.verbose(" registerForPush() Will register for push.")
+        logger.verbose(" registerForPush(): Will register for push.")
         FirebaseInstanceId.getInstance().instanceId.addOnCompleteListener { task ->
             try {
                 if (!task.isSuccessful) {
+                    logger.verbose(" registerForPush(): Token registration failed.")
                     scheduleRetry()
                     return@addOnCompleteListener
                 }
                 val token = task.result?.token
                 if (token.isNullOrEmpty()) {
+                    logger.verbose(" registerForPush(): Token null or empty.")
                     scheduleRetry()
                     return@addOnCompleteListener
                 }
@@ -190,7 +204,7 @@ class FcmClientHelper internal constructor(private var context: Context) {
             scheduledExecutor = Executors.newScheduledThreadPool(1)
         }
         logger.verbose(" scheduleRetry() Will schedule retry.")
-        scheduledExecutor.schedule({ registerForPush() }, 1, TimeUnit.MINUTES)
+        scheduledExecutor.schedule({ registerForPush() }, retryInterval, TimeUnit.SECONDS)
     }
 
     private fun shutdownRetryScheduler() {
