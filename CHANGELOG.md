@@ -1,3 +1,6 @@
+## 2.0.2 (27-06-2020)
+- Added an optional parameter in the `initialise()` to take in the retry interval.
+
 ## 2.0.1 (03-05-2020)
 - Additional exception handling
 
