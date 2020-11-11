@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit
  * Main interaction class for the FCM client
  * @author Umang Chamaria
  */
-class FcmClientHelper internal constructor(private var context: Context) {
+public class FcmClientHelper internal constructor(private var context: Context) {
 
     private val logger = Logger.getLogger("FcmClientHelper")
 
@@ -38,7 +38,7 @@ class FcmClientHelper internal constructor(private var context: Context) {
      * @param listener instance of [FirebaseMessageListener]
      */
     @Suppress("SENSELESS_COMPARISON")
-    fun addListener(listener: FirebaseMessageListener) {
+    public fun addListener(listener: FirebaseMessageListener) {
         if (listener == null) return
         listeners.add(listener)
     }
@@ -48,7 +48,7 @@ class FcmClientHelper internal constructor(private var context: Context) {
      * @param listener instance of registered [FirebaseMessageListener]
      */
     @Suppress("SENSELESS_COMPARISON")
-    fun removeListener(listener: FirebaseMessageListener) {
+    public fun removeListener(listener: FirebaseMessageListener) {
         if (listener == null) return
         listeners.remove(listener)
     }
@@ -69,7 +69,7 @@ class FcmClientHelper internal constructor(private var context: Context) {
      *
      * ```
      */
-    fun initialise(application: Application, logLevel: Logger.LogLevel = Logger.LogLevel.ERROR,
+    public fun initialise(application: Application, logLevel: Logger.LogLevel = Logger.LogLevel.ERROR,
                    retryInterval: Long = 30) {
         try {
             application.registerActivityLifecycleCallbacks(ActivityLifecycleCallbacks())
@@ -99,7 +99,7 @@ class FcmClientHelper internal constructor(private var context: Context) {
      * Subscribe to the given list of topics
      * @param topics list of topics to subscribe
      */
-    fun subscribeToTopics(topics: List<String>) {
+    public fun subscribeToTopics(topics: List<String>) {
         AsyncExecutor.submit {
             try {
                 for (topic in topics) {
@@ -116,7 +116,7 @@ class FcmClientHelper internal constructor(private var context: Context) {
      * To un-subscribe from messaging topics.
      * @param topics list of topics to be un-subscribed from.
      */
-    fun unSubscribeTopic(topics: List<String>) {
+    public fun unSubscribeTopic(topics: List<String>) {
         AsyncExecutor.submit {
             try {
                 for (topic in topics) {
@@ -233,7 +233,7 @@ class FcmClientHelper internal constructor(private var context: Context) {
         }
     }
 
-    companion object {
+    public companion object {
         private var instance: FcmClientHelper? = null
 
         /**
@@ -241,7 +241,7 @@ class FcmClientHelper internal constructor(private var context: Context) {
          * @param context instance of [Context]
          * @return instance of [FcmClientHelper]
          */
-        fun getInstance(context: Context): FcmClientHelper {
+        public fun getInstance(context: Context): FcmClientHelper {
             if (instance == null) {
                 synchronized(FcmClientHelper::class.java) {
                     if (instance == null) instance = FcmClientHelper(context)

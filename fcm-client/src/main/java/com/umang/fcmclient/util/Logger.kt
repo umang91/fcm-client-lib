@@ -7,12 +7,12 @@ import com.umang.fcmclient.BuildConfig
  * @author Umang Chamaria
  * Date: 28/04/20
  */
-class Logger private constructor(private val className: String) {
+public class Logger private constructor(private val className: String) {
 
     /**
      * Logging level
      */
-    enum class LogLevel {
+    public enum class LogLevel {
         /**
          * Priority constant for printing no logs.
          */
@@ -48,39 +48,39 @@ class Logger private constructor(private val className: String) {
     /**
      *
      */
-    fun verbose(message: String) {
+    public fun verbose(message: String) {
         if (logLevel >= LogLevel.VERBOSE && isLogEnabled) {
             Log.v(tag, "$className $message")
         }
     }
 
-    fun debug(message: String) {
+    public fun debug(message: String) {
         if (logLevel >= LogLevel.DEBUG && isLogEnabled) {
             Log.d(tag, "$className $message")
         }
     }
 
-    fun info(message: String) {
+    public fun info(message: String) {
         if (logLevel >= LogLevel.INFO && isLogEnabled) {
             Log.i(tag, "$className $message")
         }
     }
 
-    fun error(message: String, throwable: Throwable? = null) {
+    public fun error(message: String, throwable: Throwable? = null) {
         if (logLevel >= LogLevel.ERROR && isLogEnabled) {
             if (throwable != null) Log.e(tag, "$className $message", throwable)
             else Log.e(tag, "$className $message")
         }
     }
 
-    fun warn(message: String) {
+    public fun warn(message: String) {
         if (logLevel >= LogLevel.WARN && isLogEnabled) {
             Log.w(tag, "$className $message")
         }
     }
 
-    companion object {
-        fun getLogger(className: String) = Logger(className)
+    public companion object {
+        internal fun getLogger(className: String) = Logger(className)
 
         internal var logLevel: LogLevel = LogLevel.ERROR
 

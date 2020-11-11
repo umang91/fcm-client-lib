@@ -53,6 +53,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    kotlinOptions {
+        freeCompilerArgs += '-Xexplicit-api=strict'
+    }
 }
 
 dependencies {

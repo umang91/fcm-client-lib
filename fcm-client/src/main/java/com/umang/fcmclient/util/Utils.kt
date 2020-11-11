@@ -15,6 +15,6 @@ import android.content.pm.ApplicationInfo
  *
  * @return true is the application is debuggable else false.
  */
-fun isDebugBuild(context: Context): Boolean {
+internal fun isDebugBuild(context: Context): Boolean {
     return 0 != context.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE
 }

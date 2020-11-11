@@ -1,0 +1,33 @@
+ext{
+
+  developerMeta = [
+      developerId: 'umangchamaria',
+      developerName: 'Umang Chamaria',
+      developerEmail: 'umangchamaria@gmail.com'
+  ]
+
+  licenseMeta = [
+      licenseName: 'The Apache Software License, Version 2.0',
+      licenseUrl: 'http://www.apache.org/licenses/LICENSE-2.0.txt',
+      allLicenses: ['Apache-2.0']
+  ]
+
+  bintrayMeta = [
+      bintrayRepo: 'umang',
+      bintrayName: 'fcmclient',
+      publishedGroupId: 'com.umang',
+      libraryName: 'FCM Client',
+      artifact: 'fcm-client',
+      libraryDescription: 'A client library for handling push notification in android.'
+  ]
+
+  urlMeta = [
+      siteUrl: 'https://github.com/umang91/fcm-client-lib',
+      gitUrl: 'https://github.com/umang91/fcm-client-lib.git'
+  ]
+
+  versionMeta = [
+      versionName: "2.0.2",
+      versionCode: 202
+  ]
+}

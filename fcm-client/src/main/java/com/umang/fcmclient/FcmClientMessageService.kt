@@ -7,7 +7,7 @@ import com.umang.fcmclient.util.Logger
 /**
  * @author Umang Chamaria
  */
-class FcmClientMessageService : FirebaseMessagingService() {
+public class FcmClientMessageService : FirebaseMessagingService() {
 
     private val logger = Logger.getLogger("FcmClientMessageService")
 
