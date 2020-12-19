@@ -6,11 +6,11 @@ import com.google.firebase.messaging.RemoteMessage
  * Interface definition for Firebase Cloud Messaging(FCM) Callbacks
  *
  * @author Umang Chamaria
- * Date: 27/04/20
+ * @since 2.0.00
  */
 public interface FirebaseMessageListener {
     /**
-     * Callback for new token generated.
+     * Callback for new token generation.
      * @param token Token generated received from FCM callback.
      */
     public fun onTokenAvailable(token: String)

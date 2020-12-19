@@ -1,8 +1,10 @@
 package com.umang.fcmclient.repository
 
 import android.content.Context
+import com.umang.fcmclient.AsyncExecutor
 
 /**
+ *
  * @author Umang Chamaria
  * Date: 28/04/20
  */
@@ -11,7 +13,9 @@ internal class Repository(private val context: Context) {
     private val sharedPref = SharedPref(context)
 
     internal fun saveToken(token: String) {
-        sharedPref.putString(PREF_KEY_PUSH_TOKEN, token)
+        AsyncExecutor.submit {
+            sharedPref.putString(PREF_KEY_PUSH_TOKEN, token)
+        }
     }
 
     internal fun getToken(): String {

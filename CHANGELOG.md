@@ -1,3 +1,8 @@
+## 2.1.0 (14-12-2020)
+- Strict Mode violation fixed.
+- Initialization in Application class is no longer mandatory
+- Firebase dependency updated to `21.0.1` 
+
 ## 2.0.2 (27-06-2020)
 - Added an optional parameter in the `initialise()` to take in the retry interval.
 

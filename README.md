@@ -6,13 +6,13 @@ The library internally manages token registration, token refresh and also has a 
 
 # Features
 
-* FCM token registration
-* FCM token rotation
-* Callback for token registration change
-* Callback for FCM messages
-* Retry mechanism on timeouts or registration failures
-* Fallback for missed token rotation callback
-* Subscribe/un-subscribe to topics 
+- FCM token registration
+- FCM token rotation
+- Callback for token registration change
+- Callback for FCM messages
+- Retry mechanism on timeouts or registration failures
+- Fallback for missed token rotation callback
+- Subscribe/un-subscribe to topics
 
 
 # Usage
@@ -30,6 +30,7 @@ replace `$sdkVersion` with the latest version of the SDK
 ## Set-up Firebase
 Before initialising the library make sure you have added the required plugins and `google-services.json` file into your project. Refer to the [documentation](https://firebase.google.com/docs/android/setup)
 for more details.
+
 <b>Note:</b> Dependencies and listeners required for the Firebase Messaging to work is already
  added in the library, you need not add it again. 
 

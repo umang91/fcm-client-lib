@@ -5,6 +5,8 @@ import com.google.firebase.messaging.RemoteMessage
 import com.umang.fcmclient.util.Logger
 
 /**
+ * Class to handle callbacks from Firebase Messaging Library.
+ *
  * @author Umang Chamaria
  */
 public class FcmClientMessageService : FirebaseMessagingService() {
