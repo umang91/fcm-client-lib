@@ -17,8 +17,8 @@ object BintrayConfig {
     val allLicenses: Array<String> = arrayOf(licenseName)
 
     const val artifactId = "fcm-client"
-    const val artifactName = "fcm-client"
+    const val artifactName = "fcmclient"
     const val description = "A client library for handling push notification in android."
-    const val versionName = "2.0.2"
-    const val versionCode = 202
+    const val versionName = "2.1.0"
+    const val versionCode = 210
 }

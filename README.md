@@ -113,4 +113,4 @@ By default only info logs are enabled to enable verbose logging pass in the log-
 FcmClientHelper.getInstance(applicationContext).initialise(this, Logger.LogLevel.VERBOSE)
 ```  
 
-Refer to the API [documentation](https://umang91.github.io/fcm-client-lib/) for more details.
+Refer to the API [documentation](https://umang91.github.io/fcm-client-lib/fcm-client/) for more details.
