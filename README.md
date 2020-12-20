@@ -40,7 +40,7 @@ Initialise the FCM client SDK in the `onCreate()` of the Application subclass. T
 the below line.
 
 ```kotlin
-FcmClientHelper.getInstance(applicationContext).initialise(this)
+FcmClientHelper.getInstance(applicationContext).initialise()
 ```
 
 Optionally you can set the log level and retry interval in the initialise API, refer to the API
