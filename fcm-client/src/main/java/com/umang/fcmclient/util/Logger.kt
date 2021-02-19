@@ -5,7 +5,6 @@ import com.umang.fcmclient.BuildConfig
 
 /**
  * @author Umang Chamaria
- * Date: 28/04/20
  */
 public class Logger private constructor(private val className: String) {
 

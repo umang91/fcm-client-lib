@@ -5,25 +5,10 @@ plugins {
 }
 
 ext {
-    set("bintrayRepo", BintrayConfig.repoName)
-    set("publishedGroupId", BintrayConfig.publisherId)
-
-    set("bintrayName", BintrayConfig.artifactName)
-    set("libraryName", BintrayConfig.artifactId)
-    set("artifact", BintrayConfig.artifactId)
-    set("libraryDescription", BintrayConfig.description)
-    set("libraryVersion", BintrayConfig.versionName)
-
-    set("siteUrl", BintrayConfig.siteUrl)
-    set("gitUrl", BintrayConfig.gitUrl)
-
-    set("developerId", BintrayConfig.developerId)
-    set("developerName", BintrayConfig.developerName)
-    set("developerEmail", BintrayConfig.developerEmail)
-
-    set("licenseName", BintrayConfig.licenseName)
-    set("licenseUrl", BintrayConfig.licenseUrl)
-    set("allLicenses", BintrayConfig.allLicenses)
+    set(PomKeys.artifactId, ReleaseConfig.artifactId)
+    set(PomKeys.description, ReleaseConfig.description)
+    set(PomKeys.name, ReleaseConfig.artifactName)
+    set(PomKeys.versionName, ReleaseConfig.versionName)
 }
 
 android {
@@ -31,9 +16,9 @@ android {
     defaultConfig {
         minSdkVersion(16)
         targetSdkVersion(28)
-        versionCode = BintrayConfig.versionCode
-        versionName = BintrayConfig.versionName
-        buildConfigField("String", "FCM_CLIENT_VERSION", "\"${BintrayConfig.versionName}\"")
+        versionCode = ReleaseConfig.versionCode
+        versionName = ReleaseConfig.versionName
+        buildConfigField("String", "FCM_CLIENT_VERSION", "\"${ReleaseConfig.versionName}\"")
     }
     buildTypes {
         getByName("release") {
@@ -50,9 +35,9 @@ dependencies {
     api(Deps.fcm)
     api(Deps.processLifecycle)
 }
-apply(from = "https://raw.githubusercontent.com/umang91/jcenterScripts/master/installv.gradle")
-apply(from = "https://raw.githubusercontent.com/umang91/jcenterScripts/master/bintray-kotlin.gradle")
 
 tasks.dokkaHtml.configure {
     outputDirectory.set(rootDir.resolve("docs"))
 }
+
+apply(plugin = "com.vanniktech.maven.publish")

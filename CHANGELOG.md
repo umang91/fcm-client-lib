@@ -1,3 +1,7 @@
+## 2.2.0 (19-02-2021)
+- Artifact Publishing moved to Maven Central
+- Moved to a new group-id `dev.assemblage`
+
 ## 2.1.0 (19-12-2020)
 - Strict Mode violation fixed.
 - Initialization in Application class is no longer mandatory

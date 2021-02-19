@@ -1,4 +1,4 @@
-![Download](https://api.bintray.com/packages/umangchamaria/umang/fcmclient/images/download.svg)
+![MavenBadge](https://maven-badges.herokuapp.com/maven-central/dev.assemblage/fcm-client/badge.svg)
 
 # Firebase Messaging Client
 A library which helps you handle Firebase Cloud Messaging(FCM). This library helps in abstracting out the logic firebase message lifecycle, it takes care of token lifecycle and delivers the notification payload received from FCM to the application via a callback listener.
@@ -22,7 +22,7 @@ The library internally manages token registration, token refresh and also has a 
 Add the below line in the dependency block of your app's `build.gradle`
 
 ```groovy
-implementation "com.umang:fcm-client:$sdkVersion"
+implementation("dev.assemblage:fcm-client:$sdkVersion")
 ```
 
 replace `$sdkVersion` with the latest version of the SDK
@@ -60,7 +60,7 @@ FcmClientHelper.getInstance(applicationContext).addListener(FirebaseListener())
 
 <b>Token callback:</b> `onTokenAvailable()` is called whenever a new token is available.
 
-<b>Push Payload callback:</b> `onPushReceived` is called a push notification is received on the
+<b>Push Payload callback:</b> `onPushReceived()` is called a push notification is received on the
   device.
   
 ## Excluding files from back-up
