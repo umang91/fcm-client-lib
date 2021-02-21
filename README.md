@@ -1,10 +1,10 @@
 ![MavenBadge](https://maven-badges.herokuapp.com/maven-central/dev.assemblage/fcm-client/badge.svg)
 
-# Firebase Messaging Client
+## Firebase Messaging Client
 A library which helps you handle Firebase Cloud Messaging(FCM). This library helps in abstracting out the logic firebase message lifecycle, it takes care of token lifecycle and delivers the notification payload received from FCM to the application via a callback listener.
 The library internally manages token registration, token refresh and also has a retry mechanism in case of registration failure.   
 
-# Features
+## Features
 
 - FCM token registration
 - FCM token rotation
@@ -13,9 +13,6 @@ The library internally manages token registration, token refresh and also has a 
 - Retry mechanism on timeouts or registration failures
 - Fallback for missed token rotation callback
 - Subscribe/un-subscribe to topics
-
-
-# Usage
 
 ## Installation
 
