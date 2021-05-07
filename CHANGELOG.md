@@ -3,7 +3,7 @@
 - Target SDK version and Compile SDK version bumped to API Level `29`
 - Gradle version updated to `7.0`
 - Enabling Java 8
-- Enabling Explicit Mode for e  
+- Enabling Explicit API Mode
 - Moving dependency management to version catalog
 
 ## 2.2.0 (19-02-2021)
