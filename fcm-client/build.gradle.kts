@@ -12,10 +12,10 @@ ext {
 }
 
 android {
-    compileSdkVersion(28)
+    compileSdkVersion(29)
     defaultConfig {
         minSdkVersion(16)
-        targetSdkVersion(28)
+        targetSdkVersion(29)
         versionCode = ReleaseConfig.versionCode
         versionName = ReleaseConfig.versionName
         buildConfigField("String", "FCM_CLIENT_VERSION", "\"${ReleaseConfig.versionName}\"")
@@ -26,14 +26,23 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs += "-Xexplicit-api=strict"
+    }
 }
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     implementation(Deps.kotlin)
-    api(Deps.fcm)
-    api(Deps.processLifecycle)
+    api(libs.processLifecycle)
+    api(libs.fcm)
 }
 
 tasks.dokkaHtml.configure {

@@ -1,0 +1,7 @@
+[versions]
+processLifecycle = "2.2.0"
+fcm = "21.0.1"
+
+[libraries]
+fcm = { module = "com.google.firebase:firebase-messaging", version.ref = "fcm" }
+processLifecycle = { module = "androidx.lifecycle:lifecycle-process", version.ref = "processLifecycle" }

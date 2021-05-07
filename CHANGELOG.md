@@ -1,3 +1,11 @@
+## 3.0.0
+- Support for Lifecycle Callback `2.3.0` and above
+- Target SDK version and Compile SDK version bumped to API Level `29`
+- Gradle version updated to `7.0`
+- Enabling Java 8
+- Enabling Explicit Mode for e  
+- Moving dependency management to version catalog
+
 ## 2.2.0 (19-02-2021)
 - Artifact Publishing moved to Maven Central
 - Moved to a new group-id `dev.assemblage`

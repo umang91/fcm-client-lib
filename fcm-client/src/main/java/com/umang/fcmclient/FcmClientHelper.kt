@@ -2,6 +2,8 @@ package com.umang.fcmclient
 
 import android.app.Application
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import androidx.lifecycle.ProcessLifecycleOwner
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.RemoteMessage
@@ -94,9 +96,8 @@ public class FcmClientHelper internal constructor(private var context: Context) 
         retryInterval: Long = 30
     ) {
         try {
-            ProcessLifecycleOwner.get().lifecycle.addObserver(AppLifecycleObserver(context.applicationContext))
-            Logger.logLevel = logLevel
-            Logger.isLogEnabled = isDebugBuild(context.applicationContext)
+            setupLogging(logLevel)
+            registerLifecycleCallback()
             if (retryInterval >= 5) {
                 this.retryInterval = retryInterval
             }
@@ -248,6 +249,22 @@ public class FcmClientHelper internal constructor(private var context: Context) 
         }
     }
 
+    private fun setupLogging(logLevel: Logger.LogLevel) {
+        Logger.logLevel = logLevel
+        Logger.isLogEnabled = isDebugBuild(context.applicationContext)
+    }
+
+    private fun registerLifecycleCallback() {
+        val mainThread = Handler(Looper.getMainLooper())
+        mainThread.post {
+            try {
+                ProcessLifecycleOwner.get().lifecycle.addObserver(AppLifecycleObserver(context.applicationContext))
+            } catch (e: Exception) {
+                logger.error("Exception: ", e)
+            }
+        }
+    }
+
     public companion object {
         private var instance: FcmClientHelper? = null
 
@@ -257,7 +274,7 @@ public class FcmClientHelper internal constructor(private var context: Context) 
          * @return instance of [FcmClientHelper]
          */
         public fun getInstance(context: Context): FcmClientHelper {
-            return instance ?: synchronized(FcmClientHelper::class.java){
+            return instance ?: synchronized(FcmClientHelper::class.java) {
                 val inst = instance ?: FcmClientHelper(context)
                 instance = inst
                 inst
