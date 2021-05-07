@@ -1,6 +1,54 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
-
+$dokka.location:com.umang.fcmclient.listeners////PointingToDeclaration/fcm-client/com.umang.fcmclient.listeners/index.html
+$dokka.location:com.umang.fcmclient.listeners/FirebaseMessageListener///PointingToDeclaration/fcm-client/com.umang.fcmclient.listeners/-firebase-message-listener/index.html
+$dokka.location:com.umang.fcmclient.listeners/FirebaseMessageListener/onPushReceived/#com.google.firebase.messaging.RemoteMessage/PointingToDeclaration/fcm-client/com.umang.fcmclient.listeners/-firebase-message-listener/on-push-received.html
+$dokka.location:com.umang.fcmclient.listeners/FirebaseMessageListener/onTokenAvailable/#kotlin.String/PointingToDeclaration/fcm-client/com.umang.fcmclient.listeners/-firebase-message-listener/on-token-available.html
+$dokka.location:com.umang.fcmclient.util////PointingToDeclaration/fcm-client/com.umang.fcmclient.util/index.html
+$dokka.location:com.umang.fcmclient.util/Logger.Companion///PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-companion/index.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.DEBUG///PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/-d-e-b-u-g/index.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.DEBUG/name/#/PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/-d-e-b-u-g/name.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.DEBUG/ordinal/#/PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/-d-e-b-u-g/ordinal.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.ERROR///PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/-e-r-r-o-r/index.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.ERROR/name/#/PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/-e-r-r-o-r/name.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.ERROR/ordinal/#/PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/-e-r-r-o-r/ordinal.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.INFO///PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/-i-n-f-o/index.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.INFO/name/#/PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/-i-n-f-o/name.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.INFO/ordinal/#/PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/-i-n-f-o/ordinal.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.NONE///PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/-n-o-n-e/index.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.NONE/name/#/PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/-n-o-n-e/name.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.NONE/ordinal/#/PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/-n-o-n-e/ordinal.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.VERBOSE///PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/-v-e-r-b-o-s-e/index.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.VERBOSE/name/#/PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/-v-e-r-b-o-s-e/name.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.VERBOSE/ordinal/#/PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/-v-e-r-b-o-s-e/ordinal.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.WARN///PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/-w-a-r-n/index.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.WARN/name/#/PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/-w-a-r-n/name.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.WARN/ordinal/#/PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/-w-a-r-n/ordinal.html
+$dokka.location:com.umang.fcmclient.util/Logger.LogLevel///PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/index.html
+$dokka.location:com.umang.fcmclient.util/Logger///PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/index.html
+$dokka.location:com.umang.fcmclient.util/Logger/debug/#kotlin.String/PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/debug.html
+$dokka.location:com.umang.fcmclient.util/Logger/error/#kotlin.String#kotlin.Throwable?/PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/error.html
+$dokka.location:com.umang.fcmclient.util/Logger/info/#kotlin.String/PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/info.html
+$dokka.location:com.umang.fcmclient.util/Logger/verbose/#kotlin.String/PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/verbose.html
+$dokka.location:com.umang.fcmclient.util/Logger/warn/#kotlin.String/PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/warn.html
+$dokka.location:com.umang.fcmclient////PointingToDeclaration/fcm-client/com.umang.fcmclient/index.html
+$dokka.location:com.umang.fcmclient/AppLifecycleObserver///PointingToDeclaration/fcm-client/com.umang.fcmclient/-app-lifecycle-observer/index.html
+$dokka.location:com.umang.fcmclient/AppLifecycleObserver/AppLifecycleObserver/#android.content.Context/PointingToDeclaration/fcm-client/com.umang.fcmclient/-app-lifecycle-observer/-app-lifecycle-observer.html
+$dokka.location:com.umang.fcmclient/AppLifecycleObserver/onAppBackGround/#/PointingToDeclaration/fcm-client/com.umang.fcmclient/-app-lifecycle-observer/on-app-back-ground.html
+$dokka.location:com.umang.fcmclient/AppLifecycleObserver/onAppForeGround/#/PointingToDeclaration/fcm-client/com.umang.fcmclient/-app-lifecycle-observer/on-app-fore-ground.html
+$dokka.location:com.umang.fcmclient/FcmClientHelper.Companion///PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/-companion/index.html
+$dokka.location:com.umang.fcmclient/FcmClientHelper.Companion/getInstance/#android.content.Context/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/-companion/get-instance.html
+$dokka.location:com.umang.fcmclient/FcmClientHelper///PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/index.html
+$dokka.location:com.umang.fcmclient/FcmClientHelper/addListener/#com.umang.fcmclient.listeners.FirebaseMessageListener/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/add-listener.html
+$dokka.location:com.umang.fcmclient/FcmClientHelper/initialise/#android.app.Application#com.umang.fcmclient.util.Logger.LogLevel#kotlin.Long/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/initialise.html
+$dokka.location:com.umang.fcmclient/FcmClientHelper/initialise/#com.umang.fcmclient.util.Logger.LogLevel#kotlin.Long/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/initialise.html
+$dokka.location:com.umang.fcmclient/FcmClientHelper/removeListener/#com.umang.fcmclient.listeners.FirebaseMessageListener/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/remove-listener.html
+$dokka.location:com.umang.fcmclient/FcmClientHelper/subscribeToTopics/#kotlin.collections.List[kotlin.String]/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/subscribe-to-topics.html
+$dokka.location:com.umang.fcmclient/FcmClientHelper/unSubscribeTopic/#kotlin.collections.List[kotlin.String]/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/un-subscribe-topic.html
+$dokka.location:com.umang.fcmclient/FcmClientMessageService///PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-message-service/index.html
+$dokka.location:com.umang.fcmclient/FcmClientMessageService/FcmClientMessageService/#/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-message-service/-fcm-client-message-service.html
+$dokka.location:com.umang.fcmclient/FcmClientMessageService/onMessageReceived/#com.google.firebase.messaging.RemoteMessage/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-message-service/on-message-received.html
+$dokka.location:com.umang.fcmclient/FcmClientMessageService/onNewToken/#kotlin.String/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-message-service/on-new-token.html
 com.umang.fcmclient
 com.umang.fcmclient.listeners
 com.umang.fcmclient.util

@@ -4,7 +4,6 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        jcenter()
     }
     dependencies {
         classpath("com.android.tools.build:gradle:4.1.3")
@@ -13,7 +12,7 @@ buildscript {
         // publishing plugin
         classpath("com.vanniktech:gradle-maven-publish-plugin:0.14.2")
         // dokka plugin for documentation
-        classpath("org.jetbrains.dokka:dokka-gradle-plugin:1.4.20")
+        classpath("org.jetbrains.dokka:dokka-gradle-plugin:1.4.32")
     }
 }
 
@@ -21,7 +20,6 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        jcenter()
     }
 }
 
