@@ -1,10 +1,13 @@
 ## 3.0.0
-- Support for Lifecycle Callback `2.3.0` and above
+- Support for Lifecycle Callback `2.3.1` and above
 - Target SDK version and Compile SDK version bumped to API Level `29`
 - Gradle version updated to `7.0`
+- Kotlin version updated `1.5.0`  
 - Enabling Java 8
 - Enabling Explicit API Mode
 - Moving dependency management to version catalog
+- Removed `jcenter()` dependency from the project
+- Dokka version updated to 1.4.32
 
 ## 2.2.0 (19-02-2021)
 - Artifact Publishing moved to Maven Central

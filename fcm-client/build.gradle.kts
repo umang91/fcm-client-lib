@@ -1,14 +1,16 @@
+import java.io.FileInputStream
+import java.util.*
+
 plugins {
     id("com.android.library")
     id("kotlin-android")
     id("org.jetbrains.dokka")
 }
 
-ext {
-    set(PomKeys.artifactId, ReleaseConfig.artifactId)
-    set(PomKeys.description, ReleaseConfig.description)
-    set(PomKeys.name, ReleaseConfig.artifactName)
-    set(PomKeys.versionName, ReleaseConfig.versionName)
+fun getVersionName(): String {
+    val properties = Properties()
+    properties.load(FileInputStream("gradle.properties"))
+    return properties.getProperty("VERSION_NAME") ?: ""
 }
 
 android {
@@ -16,9 +18,7 @@ android {
     defaultConfig {
         minSdkVersion(16)
         targetSdkVersion(29)
-        versionCode = ReleaseConfig.versionCode
-        versionName = ReleaseConfig.versionName
-        buildConfigField("String", "FCM_CLIENT_VERSION", "\"${ReleaseConfig.versionName}\"")
+        buildConfigField("String", "FCM_CLIENT_VERSION", "\"${getVersionName()}\"")
     }
     buildTypes {
         getByName("release") {
@@ -40,7 +40,7 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-    implementation(Deps.kotlin)
+    implementation(libs.kotlin)
     api(libs.processLifecycle)
     api(libs.fcm)
 }
