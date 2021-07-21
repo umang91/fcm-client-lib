@@ -9,8 +9,10 @@ plugins {
 
 fun getVersionName(): String {
     val properties = Properties()
-    properties.load(FileInputStream("gradle.properties"))
-    return properties.getProperty("VERSION_NAME") ?: ""
+    properties.load(FileInputStream("./fcm-client/gradle.properties"))
+    return properties.getProperty("VERSION_NAME") ?: throw GradleException(
+        "VERSION_NAME not found in ./fcm-client/gradle.properties"
+    )
 }
 
 android {
