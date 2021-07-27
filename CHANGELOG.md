@@ -1,3 +1,6 @@
+## Next Release
+- Gradle plugins moved to version catalog.
+
 ## 3.0.0 (08-05-2021)
 - Support for Lifecycle Callback `2.3.1` and above
 - Target SDK version and Compile SDK version bumped to API Level `29`

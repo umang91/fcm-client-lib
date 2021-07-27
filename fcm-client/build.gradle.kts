@@ -42,7 +42,7 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-    implementation(libs.kotlin)
+    implementation(libs.kotlin.stdLib)
     api(libs.processLifecycle)
     api(libs.fcm)
 }
