@@ -16,10 +16,10 @@ fun getVersionName(): String {
 }
 
 android {
-    compileSdkVersion(29)
+    compileSdk = 30
     defaultConfig {
-        minSdkVersion(16)
-        targetSdkVersion(29)
+        minSdk = 21
+        targetSdk = 30
         buildConfigField("String", "FCM_CLIENT_VERSION", "\"${getVersionName()}\"")
     }
     buildTypes {
@@ -35,7 +35,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
-        freeCompilerArgs += "-Xexplicit-api=strict"
+        freeCompilerArgs = freeCompilerArgs + "-Xexplicit-api=strict"
     }
 }
 
