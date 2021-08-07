@@ -34,9 +34,7 @@ public class FcmClientHelper internal constructor(private var context: Context) 
      * Register a callback for FCM events.
      * @param listener instance of [FirebaseMessageListener]
      */
-    @Suppress("SENSELESS_COMPARISON")
     public fun addListener(listener: FirebaseMessageListener) {
-        if (listener == null) return
         listeners.add(listener)
     }
 
@@ -44,41 +42,8 @@ public class FcmClientHelper internal constructor(private var context: Context) 
      * Remove of a registered callback for FCM events
      * @param listener instance of registered [FirebaseMessageListener]
      */
-    @Suppress("SENSELESS_COMPARISON")
     public fun removeListener(listener: FirebaseMessageListener) {
-        if (listener == null) return
         listeners.remove(listener)
-    }
-
-    /**
-     * Initialize the FCM client. This needs to be called from the onCreate() of [Application] class.
-     * @param application instance of the [Application]
-     * @param logLevel optional parameter takes in the level of logs which should be printed by the
-     * SDK when the application is running in debug mode. By default, only error logs are printed.
-     * Refer to [Logger.LogLevel] for more details.
-     * @param retryInterval optional parameter which takes the time interval(in seconds) after
-     * which the SDK should retry registering for Push Token in case of any failure. Default
-     * value is 30 seconds.
-     *
-     */
-    @Deprecated(
-        "This API has been deprecated since 2.1.00",
-        ReplaceWith(
-            "FcmClientHelper.getInstance(applicationContext).initialise()",
-            "com.umang.fcmclient.FcmClientHelper"
-        ),
-        DeprecationLevel.WARNING
-    )
-    public fun initialise(
-        application: Application,
-        logLevel: Logger.LogLevel = Logger.LogLevel.ERROR,
-        retryInterval: Long = 30
-    ) {
-        try {
-            initialise(logLevel, retryInterval)
-        } catch (e: Exception) {
-            logger.error(" initialise() ", e)
-        }
     }
 
     /**
@@ -177,8 +142,8 @@ public class FcmClientHelper internal constructor(private var context: Context) 
     internal fun onAppForeGround() {
         try {
             logger.verbose("onAppForeGround(): Application coming to foreground.")
-            registerForPush()
             isAppInForeground = true
+            registerForPush()
         } catch (e: Exception) {
             logger.error(" onAppForeGround(): Exception: ", e)
         }
