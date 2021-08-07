@@ -40,7 +40,6 @@ $dokka.location:com.umang.fcmclient/FcmClientHelper.Companion///PointingToDeclar
 $dokka.location:com.umang.fcmclient/FcmClientHelper.Companion/getInstance/#android.content.Context/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/-companion/get-instance.html
 $dokka.location:com.umang.fcmclient/FcmClientHelper///PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/index.html
 $dokka.location:com.umang.fcmclient/FcmClientHelper/addListener/#com.umang.fcmclient.listeners.FirebaseMessageListener/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/add-listener.html
-$dokka.location:com.umang.fcmclient/FcmClientHelper/initialise/#android.app.Application#com.umang.fcmclient.util.Logger.LogLevel#kotlin.Long/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/initialise.html
 $dokka.location:com.umang.fcmclient/FcmClientHelper/initialise/#com.umang.fcmclient.util.Logger.LogLevel#kotlin.Long/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/initialise.html
 $dokka.location:com.umang.fcmclient/FcmClientHelper/removeListener/#com.umang.fcmclient.listeners.FirebaseMessageListener/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/remove-listener.html
 $dokka.location:com.umang.fcmclient/FcmClientHelper/subscribeToTopics/#kotlin.collections.List[kotlin.String]/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/subscribe-to-topics.html

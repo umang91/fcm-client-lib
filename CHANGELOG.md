@@ -1,4 +1,4 @@
-## Next Release
+## 4.0.0 (07-08-2021)
 - Gradle plugins moved to version catalog.
 - Update Android Gradle Plugin to 7.0
 - Gradle version updated to 7.1.1

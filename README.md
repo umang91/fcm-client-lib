@@ -73,15 +73,31 @@ To exclude the file include the below in your app's backup descriptor
         domain="sharedpref"
         path="umang_fcm_client_lib" />
 
-``` 
+```
+
+If your application is targeting API level 31 along with the above add the below in the new format back up 
+configuration. 
+
+```xml
+  <cloud-backup>
+    <exclude
+        domain="sharedpref"
+        path="umang_fcm_client_lib" />
+  </cloud-backup>
+  <device-transfer>
+    <exclude
+        domain="sharedpref"
+        path="umang_fcm_client_lib" />
+  </device-transfer>
+```
 
 If your app does not have a back-up descriptor already you can directly add the back-up
  descriptor provided by the SDK as shown below
  
 ```xml
 <application
-
-  android:fullBackupContent="@xml/fcm_client_backup_descriptor">
+  android:fullBackupContent="@xml/fcm_client_backup_descriptor"
+  android:dataExtractionRules="@xml/fcm_client_data_extraction_rules"
 </application>
 ```
 
