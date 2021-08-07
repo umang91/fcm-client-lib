@@ -91,6 +91,7 @@ public class FcmClientHelper internal constructor(private var context: Context) 
      * which the SDK should retry registering for Push Token in case of any failure. Default
      * value is 30 seconds.
      */
+    @JvmOverloads
     public fun initialise(
         logLevel: Logger.LogLevel = Logger.LogLevel.ERROR,
         retryInterval: Long = 30
@@ -273,6 +274,7 @@ public class FcmClientHelper internal constructor(private var context: Context) 
          * @param context instance of [Context]
          * @return instance of [FcmClientHelper]
          */
+        @JvmStatic
         public fun getInstance(context: Context): FcmClientHelper {
             return instance ?: synchronized(FcmClientHelper::class.java) {
                 val inst = instance ?: FcmClientHelper(context)

@@ -5,6 +5,7 @@
 - Target SDK version updated to 30
 - Compile SDK version updated to 30
 - Minimum SDK version updated to 21
+- Manifest components updated for Android 12.
 
 ## 3.0.0 (08-05-2021)
 - Support for Lifecycle Callback `2.3.1` and above
