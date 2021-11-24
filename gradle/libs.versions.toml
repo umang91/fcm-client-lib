@@ -1,7 +1,7 @@
 [versions]
 processLifecycle = "2.3.1"
 fcm = "22.0.0"
-kotlin = "1.5.21"
+kotlin = "1.6.0"
 
 [libraries]
 fcm = { module = "com.google.firebase:firebase-messaging", version.ref = "fcm" }
@@ -9,10 +9,10 @@ processLifecycle = { module = "androidx.lifecycle:lifecycle-process", version.re
 kotlin-stdLib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 
 kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-android-gradlePlugin = { module = "com.android.tools.build:gradle", version = "7.0.0" }
+android-gradlePlugin = { module = "com.android.tools.build:gradle", version = "7.0.3" }
 mavenPublish-gradlePlugin = "com.vanniktech:gradle-maven-publish-plugin:0.14.2"
 googleService-gradlePlugin = "com.google.gms:google-services:4.3.5"
-dokka-gradlePlugin = "org.jetbrains.dokka:dokka-gradle-plugin:1.4.32"
+dokka-gradlePlugin = "org.jetbrains.dokka:dokka-gradle-plugin:1.6.0"
 
 [bundles]
 gradlePlugins = ["kotlin-gradlePlugin", "android-gradlePlugin", "mavenPublish-gradlePlugin",

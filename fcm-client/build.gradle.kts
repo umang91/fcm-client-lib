@@ -9,7 +9,7 @@ plugins {
 
 fun getVersionName(): String {
     val properties = Properties()
-    properties.load(FileInputStream("./fcm-client/gradle.properties"))
+    properties.load(FileInputStream("${project.rootDir.absolutePath}/fcm-client/gradle.properties"))
     return properties.getProperty("VERSION_NAME") ?: throw GradleException(
         "VERSION_NAME not found in ./fcm-client/gradle.properties"
     )
@@ -45,6 +45,8 @@ dependencies {
     implementation(libs.kotlin.stdLib)
     api(libs.processLifecycle)
     api(libs.fcm)
+    implementation("com.moengage:moe-android-sdk:11.3.00")
+    implementation("com.moengage:inbox-ui:1.0.01-dev")
 }
 
 tasks.dokkaHtml.configure {
