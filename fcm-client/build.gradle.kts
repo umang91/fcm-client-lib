@@ -45,8 +45,6 @@ dependencies {
     implementation(libs.kotlin.stdLib)
     api(libs.processLifecycle)
     api(libs.fcm)
-    implementation("com.moengage:moe-android-sdk:11.3.00")
-    implementation("com.moengage:inbox-ui:1.0.01-dev")
 }
 
 tasks.dokkaHtml.configure {
