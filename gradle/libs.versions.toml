@@ -9,7 +9,7 @@ processLifecycle = { module = "androidx.lifecycle:lifecycle-process", version.re
 kotlin-stdLib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 
 kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-android-gradlePlugin = { module = "com.android.tools.build:gradle", version = "7.0.3" }
+android-gradlePlugin = { module = "com.android.tools.build:gradle", version = "7.0.4" }
 mavenPublish-gradlePlugin = "com.vanniktech:gradle-maven-publish-plugin:0.14.2"
 googleService-gradlePlugin = "com.google.gms:google-services:4.3.5"
 dokka-gradlePlugin = "org.jetbrains.dokka:dokka-gradle-plugin:1.6.0"
