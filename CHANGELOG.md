@@ -1,3 +1,7 @@
+## 4.1.0
+- Android Gradle Plugin updated to `7.1.0`
+- Gradle version updated to `7.2`
+
 ## 4.0.0 (17-09-2021)
 - Gradle plugins moved to version catalog.
 - Update Android Gradle Plugin to 7.0

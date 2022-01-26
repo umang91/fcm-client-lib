@@ -8,13 +8,13 @@ fcm = { module = "com.google.firebase:firebase-messaging", version.ref = "fcm" }
 processLifecycle = { module = "androidx.lifecycle:lifecycle-process", version.ref = "processLifecycle" }
 kotlin-stdLib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 
-kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-android-gradlePlugin = { module = "com.android.tools.build:gradle", version = "7.0.4" }
-mavenPublish-gradlePlugin = "com.vanniktech:gradle-maven-publish-plugin:0.14.2"
-googleService-gradlePlugin = "com.google.gms:google-services:4.3.5"
-dokka-gradlePlugin = "org.jetbrains.dokka:dokka-gradle-plugin:1.6.0"
+kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+android-gradle = { module = "com.android.tools.build:gradle", version = "7.1.0" }
+mavenPublish-gradle = "com.vanniktech:gradle-maven-publish-plugin:0.18.0"
+googleService-gradle = "com.google.gms:google-services:4.3.5"
+dokka-gradle = "org.jetbrains.dokka:dokka-gradle-plugin:1.6.10"
 
 [bundles]
-gradlePlugins = ["kotlin-gradlePlugin", "android-gradlePlugin", "mavenPublish-gradlePlugin",
-    "googleService-gradlePlugin", "dokka-gradlePlugin"]
+gradlePlugins = ["kotlin-gradle", "android-gradle", "mavenPublish-gradle",
+    "googleService-gradle", "dokka-gradle"]
 
