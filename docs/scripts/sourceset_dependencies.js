@@ -1,1 +1,1 @@
-sourceset_dependencies='{":fcm-client:dokkaHtml/androidTestRelease":[],":fcm-client:dokkaHtml/debug":[],":fcm-client:dokkaHtml/main":[],":fcm-client:dokkaHtml/release":[]}'
+sourceset_dependencies='{":fcm-client:dokkaHtml/androidTestRelease":[],":fcm-client:dokkaHtml/debug":[],":fcm-client:dokkaHtml/main":[],":fcm-client:dokkaHtml/release":[],":fcm-client:dokkaHtml/testFixtures":[],":fcm-client:dokkaHtml/testFixturesDebug":[],":fcm-client:dokkaHtml/testFixturesRelease":[]}'
