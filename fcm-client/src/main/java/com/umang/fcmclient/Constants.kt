@@ -8,3 +8,5 @@ package com.umang.fcmclient
  * Shared Preference file name.
  */
 internal const val SHARED_PREFERENCE_FILE_NAME = "umang_fcm_client_lib"
+
+internal const val DEFAULT_RETRY_INTERVAL: Long = 30

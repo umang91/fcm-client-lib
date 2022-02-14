@@ -15,13 +15,13 @@ public class FcmClientMessageService : FirebaseMessagingService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
-        logger.verbose(" onMessageReceived() Firebase message received.")
+        logger.log { " onMessageReceived() Firebase message received." }
         FcmClientHelper.getInstance(applicationContext).onPushReceived(remoteMessage)
     }
 
     override fun onNewToken(token: String) {
         super.onNewToken(token)
-        logger.verbose("onNewToken(): $token")
+        logger.log { " onNewToken(): $token" }
         FcmClientHelper.getInstance(applicationContext).onNewToken(token)
     }
 }

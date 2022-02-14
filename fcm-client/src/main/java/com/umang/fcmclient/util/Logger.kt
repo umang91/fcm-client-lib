@@ -43,38 +43,34 @@ public class Logger private constructor(private val className: String) {
         VERBOSE
     }
 
+    public fun log(
+        level: LogLevel = LogLevel.VERBOSE,
+        throwable: Throwable? = null,
+        message: () -> String
+    ) {
+        try {
+            if (level < logLevel) return
+            when (level) {
+                LogLevel.VERBOSE -> {
+                    Log.v(tag, "$className ${message()}")
+                }
+                LogLevel.INFO -> {
+                    Log.i(tag, "$className ${message()}")
+                }
+                LogLevel.ERROR -> {
+                    Log.e(tag, "$className ${message()}", throwable)
+                }
+                LogLevel.WARN -> {
+                    Log.w(tag, "$className ${message()}")
+                }
+                LogLevel.DEBUG -> {
+                    Log.d(tag, "$className ${message()}")
+                }
+                LogLevel.NONE -> {
 
-    /**
-     *
-     */
-    public fun verbose(message: String) {
-        if (logLevel >= LogLevel.VERBOSE && isLogEnabled) {
-            Log.v(tag, "$className $message")
-        }
-    }
-
-    public fun debug(message: String) {
-        if (logLevel >= LogLevel.DEBUG && isLogEnabled) {
-            Log.d(tag, "$className $message")
-        }
-    }
-
-    public fun info(message: String) {
-        if (logLevel >= LogLevel.INFO && isLogEnabled) {
-            Log.i(tag, "$className $message")
-        }
-    }
-
-    public fun error(message: String, throwable: Throwable? = null) {
-        if (logLevel >= LogLevel.ERROR && isLogEnabled) {
-            if (throwable != null) Log.e(tag, "$className $message", throwable)
-            else Log.e(tag, "$className $message")
-        }
-    }
-
-    public fun warn(message: String) {
-        if (logLevel >= LogLevel.WARN && isLogEnabled) {
-            Log.w(tag, "$className $message")
+                }
+            }
+        } catch (e: Exception) {
         }
     }
 

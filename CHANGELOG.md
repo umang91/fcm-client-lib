@@ -1,6 +1,8 @@
 ## 4.1.0
-- Android Gradle Plugin updated to `7.1.0`
+- Android Gradle Plugin updated to `7.1.1`
 - Gradle version updated to `7.2`
+- `androidx.lifecycle:lifecycle-process` updated `2.3.1` --> `2.4.0`
+- Logging performance improvement
 
 ## 4.0.0 (17-09-2021)
 - Gradle plugins moved to version catalog.

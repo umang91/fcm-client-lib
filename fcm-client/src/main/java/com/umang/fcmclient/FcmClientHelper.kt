@@ -28,7 +28,7 @@ public class FcmClientHelper internal constructor(private var context: Context) 
 
     private var isAppInForeground: Boolean = false
 
-    private var retryInterval: Long = 30
+    private var retryInterval: Long = DEFAULT_RETRY_INTERVAL
 
     /**
      * Register a callback for FCM events.
@@ -59,7 +59,7 @@ public class FcmClientHelper internal constructor(private var context: Context) 
     @JvmOverloads
     public fun initialise(
         logLevel: Logger.LogLevel = Logger.LogLevel.ERROR,
-        retryInterval: Long = 30
+        retryInterval: Long = DEFAULT_RETRY_INTERVAL
     ) {
         try {
             setupLogging(logLevel)
@@ -67,9 +67,9 @@ public class FcmClientHelper internal constructor(private var context: Context) 
             if (retryInterval >= 5) {
                 this.retryInterval = retryInterval
             }
-            logger.verbose(" initialise() Initialising fcm client library. Log level - $logLevel")
+            logger.log { " initialise() Initialising fcm client library. Log level - $logLevel" }
         } catch (e: Exception) {
-            logger.error(" initialise() ", e)
+            logger.log(Logger.LogLevel.ERROR, e) { " initialise() " }
         }
     }
 
@@ -79,7 +79,7 @@ public class FcmClientHelper internal constructor(private var context: Context) 
             try {
                 listener.onPushReceived(remoteMessage)
             } catch (e: Exception) {
-                logger.error("onPushReceived() ", e)
+                logger.log(Logger.LogLevel.ERROR, e) { " onPushReceived() " }
             }
         }
     }
@@ -92,14 +92,14 @@ public class FcmClientHelper internal constructor(private var context: Context) 
         AsyncExecutor.submit {
             try {
                 for (topic in topics) {
-                    logger.verbose("Subscribing to $topic")
+                    logger.log { "Subscribing to $topic" }
                     FirebaseMessaging.getInstance().subscribeToTopic(topic)
                         .addOnCompleteListener { task ->
-                            logger.verbose("subscribeToTopic() isSuccess ${task.isSuccessful}")
+                            logger.log { "subscribeToTopic() isSuccess ${task.isSuccessful}" }
                         }
                 }
             } catch (e: Exception) {
-                logger.error(" subscribeToTopic() ", e)
+                logger.log(Logger.LogLevel.ERROR, e) { " subscribeToTopic()" }
             }
         }
     }
@@ -112,11 +112,11 @@ public class FcmClientHelper internal constructor(private var context: Context) 
         AsyncExecutor.submit {
             try {
                 for (topic in topics) {
-                    logger.verbose("Un-subscribing to $topic")
+                    logger.log { "Un-subscribing to $topic" }
                     FirebaseMessaging.getInstance().unsubscribeFromTopic(topic)
                 }
             } catch (e: Exception) {
-                logger.error(" unSubscribeTopic() ", e)
+                logger.log(Logger.LogLevel.ERROR, e) { " unSubscribeTopic()" }
             }
         }
     }
@@ -127,7 +127,7 @@ public class FcmClientHelper internal constructor(private var context: Context) 
                 Provider.getRepository(context).saveToken(token)
                 notifyListeners(token)
             } catch (e: Exception) {
-                logger.error(" onNewToken() ", e)
+                logger.log(Logger.LogLevel.ERROR, e) { " onNewToken()" }
             }
         }
     }
@@ -141,44 +141,44 @@ public class FcmClientHelper internal constructor(private var context: Context) 
 
     internal fun onAppForeGround() {
         try {
-            logger.verbose("onAppForeGround(): Application coming to foreground.")
+            logger.log { "onAppForeGround(): Application coming to foreground." }
             isAppInForeground = true
             registerForPush()
         } catch (e: Exception) {
-            logger.error(" onAppForeGround(): Exception: ", e)
+            logger.log(Logger.LogLevel.ERROR, e) { " onAppForeGround()" }
         }
     }
 
     internal fun onAppBackground() {
         try {
-            logger.verbose("onAppBackground(): Application going to background.")
+            logger.log { "onAppBackground(): Application going to background." }
             isAppInForeground = false
             shutdownRetryScheduler()
             registerForPushIfRequired()
         } catch (e: Exception) {
-            logger.error(" onAppBackground(): Exception: ", e)
+            logger.log(Logger.LogLevel.ERROR, e) { " onAppBackground():" }
         }
     }
 
     private fun registerForPush() {
-        logger.verbose(" registerForPush(): Will register for push.")
+        logger.log { " registerForPush(): Will register for push." }
         FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
             try {
                 if (!task.isSuccessful) {
-                    logger.verbose(" registerForPush(): Token registration failed.")
+                    logger.log { " registerForPush(): Token registration failed." }
                     scheduleRetry()
                     return@addOnCompleteListener
                 }
                 val token = task.result
                 if (token.isNullOrEmpty()) {
-                    logger.verbose(" registerForPush(): Token null or empty.")
+                    logger.log { " registerForPush(): Token null or empty." }
                     scheduleRetry()
                     return@addOnCompleteListener
                 }
-                logger.info(" registerForPush() Token: $token")
+                logger.log(Logger.LogLevel.INFO) { " registerForPush() Token: $token" }
                 onNewToken(token)
             } catch (e: Exception) {
-                logger.error("registerForPush(): ", e)
+                logger.log(Logger.LogLevel.ERROR, e) { "registerForPush(): " }
                 scheduleRetry()
             }
         }
@@ -189,29 +189,29 @@ public class FcmClientHelper internal constructor(private var context: Context) 
         if (scheduledExecutor.isShutdown) {
             scheduledExecutor = Executors.newScheduledThreadPool(1)
         }
-        logger.verbose(" scheduleRetry() Will schedule retry.")
+        logger.log { " scheduleRetry() Will schedule retry." }
         scheduledExecutor.schedule({ registerForPush() }, retryInterval, TimeUnit.SECONDS)
     }
 
     private fun shutdownRetryScheduler() {
         if (!scheduledExecutor.isShutdown) {
-            logger.verbose(" shutdownRetryScheduler() Shutting down retry scheduler.")
+            logger.log(Logger.LogLevel.ERROR) { " shutdownRetryScheduler() Shutting down retry scheduler." }
             scheduledExecutor.shutdownNow()
         }
     }
 
     private fun notifyListeners(token: String) {
         try {
-            logger.verbose(" notifyListenersIfRequired() : Notifying listeners")
+            logger.log { " notifyListenersIfRequired() : Notifying listeners" }
             for (listener in listeners) {
                 try {
                     listener.onTokenAvailable(token)
                 } catch (e: Exception) {
-                    logger.error(" notifyListenersIfRequired() : ", e)
+                    logger.log(Logger.LogLevel.ERROR, e) { " notifyListenersIfRequired() : " }
                 }
             }
         } catch (e: Exception) {
-            logger.error(" notifyListenersIfRequired() ", e)
+            logger.log(Logger.LogLevel.ERROR, e) { " notifyListenersIfRequired() " }
         }
     }
 
@@ -226,7 +226,7 @@ public class FcmClientHelper internal constructor(private var context: Context) 
             try {
                 ProcessLifecycleOwner.get().lifecycle.addObserver(AppLifecycleObserver(context.applicationContext))
             } catch (e: Exception) {
-                logger.error("Exception: ", e)
+                logger.log(Logger.LogLevel.ERROR, e) { " registerLifecycleCallback() " }
             }
         }
     }

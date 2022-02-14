@@ -14,9 +14,8 @@
 package com.umang.fcmclient
 
 import android.content.Context
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 
 /**
  * Observer for application background and foreground.
@@ -24,15 +23,15 @@ import androidx.lifecycle.OnLifecycleEvent
  * @author Umang Chamaria
  * @since 2.1.00
  */
-public class AppLifecycleObserver(private val context: Context) : LifecycleObserver {
+public class AppLifecycleObserver(private val context: Context) : DefaultLifecycleObserver {
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    public fun onAppForeGround() {
+    override fun onStart(owner: LifecycleOwner) {
+        super.onStart(owner)
         FcmClientHelper.getInstance(context).onAppForeGround()
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    public fun onAppBackGround() {
+    override fun onStop(owner: LifecycleOwner) {
+        super.onStop(owner)
         FcmClientHelper.getInstance(context).onAppBackground()
     }
 }
