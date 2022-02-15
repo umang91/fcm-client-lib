@@ -1,22 +1,14 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
     dependencies {
-        val libs = project.extensions.getByType<VersionCatalogsExtension>()
-            .named("libs") as org.gradle.accessors.dm.LibrariesForLibs
         classpath(libs.bundles.gradlePlugins)
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
+plugins {
+    id("com.android.application") version "7.1.1" apply false
+    id("com.android.library") version "7.1.1" apply false
+    id("org.jetbrains.kotlin.android") version libs.versions.kotlinVersion apply false
 }
 
 tasks.register<Delete>("clean") {
