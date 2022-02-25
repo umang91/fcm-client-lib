@@ -2,8 +2,8 @@ import java.io.FileInputStream
 import java.util.*
 
 plugins {
-    id("com.android.library")
-    id("kotlin-android")
+    alias(libs.plugins.plugin.android.library)
+    alias(libs.plugins.plugin.kotlin.android)
     id("org.jetbrains.dokka")
 }
 
