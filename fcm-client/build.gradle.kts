@@ -1,10 +1,11 @@
 import java.io.FileInputStream
 import java.util.*
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.plugin.android.library)
     alias(libs.plugins.plugin.kotlin.android)
-    id("org.jetbrains.dokka")
+    alias(libs.plugins.plugin.dokka)
 }
 
 fun getVersionName(): String {

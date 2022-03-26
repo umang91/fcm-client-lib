@@ -23,4 +23,4 @@ gradlePlugins = ["mavenPublish-gradle", "googleService-gradle", "dokka-gradle"]
 plugin-android-application = { id = "com.android.application", version.ref = "android-build-tools-plugins" }
 plugin-android-library = { id = "com.android.library", version.ref = "android-build-tools-plugins" }
 plugin-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinVersion" }
-
+plugin-dokka = { id = "org.jetbrains.dokka", version.ref = "kotlin-dokka" }
