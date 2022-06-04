@@ -2,8 +2,8 @@
 processLifecycle = "2.4.0"
 fcm = "22.0.0"
 kotlinVersion = "1.6.0"
-android-build-tools-plugins = "7.1.2"
-kotlin-dokka = "1.6.10"
+android-build-tools-plugins = "7.2.1"
+kotlin-dokka = "1.6.21"
 
 [libraries]
 fcm = { module = "com.google.firebase:firebase-messaging", version.ref = "fcm" }
