@@ -4,6 +4,7 @@
 - Gradle version updated to `7.4`
 - `androidx.lifecycle:lifecycle-process` updated `2.3.1` --> `2.4.0`
 - Logging performance improvement
+- Kotlin version updated to `1.6.0`
 
 ## 4.0.0 (17-09-2021)
 - Gradle plugins moved to version catalog.

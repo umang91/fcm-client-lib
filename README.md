@@ -95,7 +95,7 @@ If your app does not have a back-up descriptor already you can directly add the 
  descriptor provided by the SDK as shown below
  
 ```xml
-<application
+<application>
   android:fullBackupContent="@xml/fcm_client_backup_descriptor"
   android:dataExtractionRules="@xml/fcm_client_data_extraction_rules"
 </application>
