@@ -11,7 +11,6 @@ processLifecycle = { module = "androidx.lifecycle:lifecycle-process", version.re
 kotlin-stdLib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlinVersion" }
 
 kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinVersion" }
-android-gradle = { module = "com.android.tools.build:gradle", version = "7.1.1" }
 googleService-gradle = "com.google.gms:google-services:4.3.5"
 dokka-gradle = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "kotlin-dokka" }
 
