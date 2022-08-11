@@ -26,11 +26,11 @@ val scmDevConnection = project.findProperty("SCM_DEV_CONNECTION") as String
 
 
 android {
-    compileSdk = 30
+    compileSdk = 31
     namespace = "dev.assemblage.fcm.client"
     defaultConfig {
         minSdk = 21
-        targetSdk = 30
+        targetSdk = 31
         buildConfigField("String", "FCM_CLIENT_VERSION", "\"$libVersionName\"")
     }
     buildTypes {
