@@ -1,7 +1,7 @@
 package com.umang.fcmclient.util
 
 import android.util.Log
-import com.umang.fcmclient.BuildConfig
+import dev.assemblage.fcm.client.BuildConfig
 
 /**
  * @author Umang Chamaria

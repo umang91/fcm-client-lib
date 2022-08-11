@@ -12,12 +12,11 @@ kotlin-stdLib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "
 
 kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinVersion" }
 android-gradle = { module = "com.android.tools.build:gradle", version = "7.1.1" }
-mavenPublish-gradle = "com.vanniktech:gradle-maven-publish-plugin:0.18.0"
 googleService-gradle = "com.google.gms:google-services:4.3.5"
 dokka-gradle = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "kotlin-dokka" }
 
 [bundles]
-gradlePlugins = ["mavenPublish-gradle", "googleService-gradle", "dokka-gradle"]
+gradlePlugins = ["googleService-gradle", "dokka-gradle"]
 
 [plugins]
 plugin-android-application = { id = "com.android.application", version.ref = "android-build-tools-plugins" }
