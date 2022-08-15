@@ -1,6 +1,6 @@
 [versions]
 processLifecycle = "2.4.0"
-fcm = "22.0.0"
+fcm = "23.0.7"
 kotlinVersion = "1.6.0"
 android-build-tools-plugins = "7.2.1"
 kotlin-dokka = "1.7.10"
