@@ -7,6 +7,7 @@
 - Kotlin version updated to `1.6.0`
 - Move from vanniktech plugin to maven-publish plugin.
 - Target SDK Version updated to API level 31.
+- Firebase Cloud Messaging version updated, `22.0.0` --> `23.0.7`
 
 ## 4.0.0 (17-09-2021)
 - Gradle plugins moved to version catalog.
