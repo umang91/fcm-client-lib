@@ -14,3 +14,4 @@ dependencyResolutionManagement {
 }
 
 include(":example", ":fcm-client")
+includeBuild("publishing-plugin")
