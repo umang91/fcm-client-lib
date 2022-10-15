@@ -3,6 +3,10 @@ plugins {
     signing
 }
 
+val mavenCentralUrl = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+val mavenSnapshotUrl = uri("https://oss.sonatype.org/content/repositories/snapshots/")
+val snapshotIdentifier = "-SNAPSHOT"
+
 val libVersionName = project.findProperty("VERSION_NAME") as String
 val group = project.findProperty("GROUP") as String
 val artifactName = project.findProperty("ARTIFACT_NAME") as String
@@ -61,10 +65,13 @@ publishing {
                     username = repositoryUsername
                     password = repositoryPassword
                 }
-                url = if (libVersionName.endsWith("-SNAPSHOT")) {
-                    uri("https://oss.sonatype.org/content/repositories/snapshots/")
-                } else {
-                    uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+                url = when {
+                    libVersionName.endsWith(snapshotIdentifier) -> {
+                        mavenSnapshotUrl
+                    }
+                    else -> {
+                        mavenCentralUrl
+                    }
                 }
             }
         }
