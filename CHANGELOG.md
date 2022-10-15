@@ -1,6 +1,6 @@
 ## 4.1.0
-- Android Gradle Plugin updated to `7.2.1`
-- Moved project structure to updated structure in Android Studio Bumblebee.
+- Android Gradle Plugin updated to `7.3.1`
+- Moved project structure to updated structure in Android Studio Bumblebee and above.
 - Gradle version updated to `7.4`
 - `androidx.lifecycle:lifecycle-process` updated `2.3.1` --> `2.4.0`
 - Logging performance improvement
