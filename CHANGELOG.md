@@ -8,6 +8,8 @@
 - Move from vanniktech plugin to maven-publish plugin.
 - Target SDK Version updated to API level 31.
 - Firebase Cloud Messaging version updated, `22.0.0` --> `23.0.7`
+- Bugfix
+  - [Issue #3](https://github.com/umang91/fcm-client-lib/issues/3): Strict Mode Violation: File read on the main thread
 
 ## 4.0.0 (17-09-2021)
 - Gradle plugins moved to version catalog.

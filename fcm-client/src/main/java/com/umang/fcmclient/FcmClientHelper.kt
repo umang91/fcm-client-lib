@@ -133,9 +133,11 @@ public class FcmClientHelper internal constructor(private var context: Context) 
     }
 
     private fun registerForPushIfRequired() {
-        val savedToken = Provider.getRepository(context).getToken()
-        if (savedToken.isEmpty()) {
-            registerForPush()
+        AsyncExecutor.submit {
+            val savedToken = Provider.getRepository(context).getToken()
+            if (savedToken.isEmpty()) {
+                registerForPush()
+            }
         }
     }
 
