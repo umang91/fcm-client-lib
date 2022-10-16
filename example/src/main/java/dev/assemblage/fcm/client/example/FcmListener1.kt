@@ -1,8 +1,8 @@
-package com.umang.example.fcmclient
+package dev.assemblage.fcm.client.example
 
 import android.util.Log
 import com.google.firebase.messaging.RemoteMessage
-import com.umang.fcmclient.listeners.FirebaseMessageListener
+import dev.assemblage.fcm.client.listener.FirebaseMessageListener
 
 /**
  * @author Umang Chamaria

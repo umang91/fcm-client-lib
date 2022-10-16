@@ -3,11 +3,11 @@
   <cloud-backup>
     <exclude
         domain="sharedpref"
-        path="umang_fcm_client_lib" />
+        path="dev_assemblage_fcm_client_pref" />
   </cloud-backup>
   <device-transfer>
     <exclude
         domain="sharedpref"
-        path="umang_fcm_client_lib" />
+        path="dev_assemblage_fcm_client_pref" />
   </device-transfer>
 </data-extraction-rules>

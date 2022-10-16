@@ -1,4 +1,4 @@
-package com.umang.fcmclient.util
+package dev.assemblage.fcm.client.util
 
 import android.util.Log
 import dev.assemblage.fcm.client.BuildConfig

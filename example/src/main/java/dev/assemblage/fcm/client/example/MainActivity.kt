@@ -1,8 +1,8 @@
-package com.umang.example.fcmclient
+package dev.assemblage.fcm.client.example
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.umang.fcmclient.FcmClientHelper
+import dev.assemblage.fcm.client.FcmClientHelper
 
 class MainActivity : AppCompatActivity() {
 

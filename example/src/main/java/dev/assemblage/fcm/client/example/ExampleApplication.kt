@@ -1,9 +1,9 @@
-package com.umang.example.fcmclient
+package dev.assemblage.fcm.client.example
 
 import android.app.Application
 import android.os.StrictMode
-import com.umang.fcmclient.FcmClientHelper
-import com.umang.fcmclient.util.Logger
+import dev.assemblage.fcm.client.FcmClientHelper
+import dev.assemblage.fcm.client.util.Logger
 
 /**
  * @author Umang Chamaria

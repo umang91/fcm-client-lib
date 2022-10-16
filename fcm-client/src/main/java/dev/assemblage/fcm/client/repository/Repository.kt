@@ -1,7 +1,7 @@
-package com.umang.fcmclient.repository
+package dev.assemblage.fcm.client.repository
 
 import android.content.Context
-import com.umang.fcmclient.AsyncExecutor
+import dev.assemblage.fcm.client.AsyncExecutor
 
 /**
  *

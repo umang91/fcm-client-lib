@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.umang.example.fcmclient">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:name=".ExampleApplication"
@@ -10,8 +9,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:fullBackupContent="@xml/fcm_client_backup_descriptor"
-        android:dataExtractionRules="@xml/fcm_client_data_extraction_rules"
+        android:fullBackupContent="@xml/dev_assemblage_fcm_client_backup_descriptor"
+        android:dataExtractionRules="@xml/dev_assemblage_fcm_client_data_extraction_rules"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"
             android:exported="true">

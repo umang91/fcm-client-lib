@@ -1,4 +1,4 @@
-package com.umang.fcmclient
+package dev.assemblage.fcm.client
 
 import android.app.Application
 import android.content.Context
@@ -7,10 +7,11 @@ import android.os.Looper
 import androidx.lifecycle.ProcessLifecycleOwner
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.RemoteMessage
-import com.umang.fcmclient.listeners.FirebaseMessageListener
-import com.umang.fcmclient.repository.Provider
-import com.umang.fcmclient.util.Logger
-import com.umang.fcmclient.util.isDebugBuild
+import com.umang.fcmclient.DEFAULT_RETRY_INTERVAL
+import dev.assemblage.fcm.client.listener.FirebaseMessageListener
+import dev.assemblage.fcm.client.repository.Provider
+import dev.assemblage.fcm.client.util.Logger
+import dev.assemblage.fcm.client.util.isDebugBuild
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 

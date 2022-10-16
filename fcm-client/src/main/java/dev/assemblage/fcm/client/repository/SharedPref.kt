@@ -1,4 +1,4 @@
-package com.umang.fcmclient.repository
+package dev.assemblage.fcm.client.repository
 
 import android.content.Context
 import android.content.SharedPreferences

@@ -1,8 +1,8 @@
-package com.umang.fcmclient
+package dev.assemblage.fcm.client
 
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.umang.fcmclient.util.Logger
+import dev.assemblage.fcm.client.util.Logger
 
 /**
  * Class to handle callbacks from Firebase Messaging Library.

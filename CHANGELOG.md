@@ -1,4 +1,4 @@
-## 4.1.0
+## 5.0.0
 - Android Gradle Plugin updated to `7.3.1`
 - Moved project structure to updated structure in Android Studio Bumblebee and above.
 - Gradle version updated to `7.4`
@@ -8,6 +8,12 @@
 - Move from vanniktech plugin to maven-publish plugin.
 - Target SDK Version updated to API level 31.
 - Firebase Cloud Messaging version updated, `22.0.0` --> `23.0.7`
+- Breaking changes
+  - Updating base package to `dev.assemblage.fcm.client`. Fix/Update imports when updating to this version.
+  - Shared preference file renamed `umang_fcm_client_lib` --> `dev_assemblage_fcm_client_pref`. Update your data backup and extraction rules.
+  - Data backup and extraction files renamed. Update your manifest file if you are using these files.
+    - `fcm_client_backup_descriptor` --> `dev_assemblage_fcm_client_backup_descriptor`  
+    - `fcm_client_data_extraction_rules` --> `dev_assemblage_fcm_client_data_extraction_rules`
 - Bugfix
   - [Issue #3](https://github.com/umang91/fcm-client-lib/issues/3): Strict Mode Violation: File read on the main thread
 

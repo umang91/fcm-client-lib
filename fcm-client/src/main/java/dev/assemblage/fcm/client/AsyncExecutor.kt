@@ -1,4 +1,4 @@
-package com.umang.fcmclient
+package dev.assemblage.fcm.client
 
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors

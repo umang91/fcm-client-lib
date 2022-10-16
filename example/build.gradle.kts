@@ -8,7 +8,8 @@ android {
     compileSdk = 31
 
     defaultConfig {
-        applicationId = "com.umang.example.fcmclient"
+        namespace = "dev.assemblage.fcm.client.example"
+        applicationId = "dev.assemblage.fcm.client.example"
         minSdk = 21
         targetSdk = 31
         versionCode = 1

@@ -1,4 +1,4 @@
-package com.umang.fcmclient.listeners
+package dev.assemblage.fcm.client.listener
 
 import com.google.firebase.messaging.RemoteMessage
 
