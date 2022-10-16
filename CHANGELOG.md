@@ -1,4 +1,4 @@
-## 5.0.0
+## 5.0.0(16-10-2022)
 - Android Gradle Plugin updated to `7.3.1`
 - Moved project structure to updated structure in Android Studio Bumblebee and above.
 - Gradle version updated to `7.4`
