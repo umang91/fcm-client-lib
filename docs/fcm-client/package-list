@@ -1,38 +1,38 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
-$dokka.location:com.umang.fcmclient.listeners////PointingToDeclaration/fcm-client/com.umang.fcmclient.listeners/index.html
-$dokka.location:com.umang.fcmclient.listeners/FirebaseMessageListener///PointingToDeclaration/fcm-client/com.umang.fcmclient.listeners/-firebase-message-listener/index.html
-$dokka.location:com.umang.fcmclient.listeners/FirebaseMessageListener/onPushReceived/#com.google.firebase.messaging.RemoteMessage/PointingToDeclaration/fcm-client/com.umang.fcmclient.listeners/-firebase-message-listener/on-push-received.html
-$dokka.location:com.umang.fcmclient.listeners/FirebaseMessageListener/onTokenAvailable/#kotlin.String/PointingToDeclaration/fcm-client/com.umang.fcmclient.listeners/-firebase-message-listener/on-token-available.html
-$dokka.location:com.umang.fcmclient.util////PointingToDeclaration/fcm-client/com.umang.fcmclient.util/index.html
-$dokka.location:com.umang.fcmclient.util/Logger.Companion///PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-companion/index.html
-$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.DEBUG///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}fcm-client/com.umang.fcmclient.util/-logger/-log-level/-d-e-b-u-g/index.html
-$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.ERROR///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}fcm-client/com.umang.fcmclient.util/-logger/-log-level/-e-r-r-o-r/index.html
-$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.INFO///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}fcm-client/com.umang.fcmclient.util/-logger/-log-level/-i-n-f-o/index.html
-$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.NONE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}fcm-client/com.umang.fcmclient.util/-logger/-log-level/-n-o-n-e/index.html
-$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.VERBOSE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}fcm-client/com.umang.fcmclient.util/-logger/-log-level/-v-e-r-b-o-s-e/index.html
-$dokka.location:com.umang.fcmclient.util/Logger.LogLevel.WARN///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}fcm-client/com.umang.fcmclient.util/-logger/-log-level/-w-a-r-n/index.html
-$dokka.location:com.umang.fcmclient.util/Logger.LogLevel///PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/-log-level/index.html
-$dokka.location:com.umang.fcmclient.util/Logger///PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/index.html
-$dokka.location:com.umang.fcmclient.util/Logger/log/#com.umang.fcmclient.util.Logger.LogLevel#kotlin.Throwable?#kotlin.Function0[kotlin.String]/PointingToDeclaration/fcm-client/com.umang.fcmclient.util/-logger/log.html
-$dokka.location:com.umang.fcmclient////PointingToDeclaration/fcm-client/com.umang.fcmclient/index.html
-$dokka.location:com.umang.fcmclient/AppLifecycleObserver///PointingToDeclaration/fcm-client/com.umang.fcmclient/-app-lifecycle-observer/index.html
-$dokka.location:com.umang.fcmclient/AppLifecycleObserver/AppLifecycleObserver/#android.content.Context/PointingToDeclaration/fcm-client/com.umang.fcmclient/-app-lifecycle-observer/-app-lifecycle-observer.html
-$dokka.location:com.umang.fcmclient/AppLifecycleObserver/onStart/#androidx.lifecycle.LifecycleOwner/PointingToDeclaration/fcm-client/com.umang.fcmclient/-app-lifecycle-observer/on-start.html
-$dokka.location:com.umang.fcmclient/AppLifecycleObserver/onStop/#androidx.lifecycle.LifecycleOwner/PointingToDeclaration/fcm-client/com.umang.fcmclient/-app-lifecycle-observer/on-stop.html
-$dokka.location:com.umang.fcmclient/FcmClientHelper.Companion///PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/-companion/index.html
-$dokka.location:com.umang.fcmclient/FcmClientHelper.Companion/getInstance/#android.content.Context/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/-companion/get-instance.html
-$dokka.location:com.umang.fcmclient/FcmClientHelper///PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/index.html
-$dokka.location:com.umang.fcmclient/FcmClientHelper/addListener/#com.umang.fcmclient.listeners.FirebaseMessageListener/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/add-listener.html
-$dokka.location:com.umang.fcmclient/FcmClientHelper/initialise/#com.umang.fcmclient.util.Logger.LogLevel#kotlin.Long/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/initialise.html
-$dokka.location:com.umang.fcmclient/FcmClientHelper/removeListener/#com.umang.fcmclient.listeners.FirebaseMessageListener/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/remove-listener.html
-$dokka.location:com.umang.fcmclient/FcmClientHelper/subscribeToTopics/#kotlin.collections.List[kotlin.String]/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/subscribe-to-topics.html
-$dokka.location:com.umang.fcmclient/FcmClientHelper/unSubscribeTopic/#kotlin.collections.List[kotlin.String]/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-helper/un-subscribe-topic.html
-$dokka.location:com.umang.fcmclient/FcmClientMessageService///PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-message-service/index.html
-$dokka.location:com.umang.fcmclient/FcmClientMessageService/FcmClientMessageService/#/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-message-service/-fcm-client-message-service.html
-$dokka.location:com.umang.fcmclient/FcmClientMessageService/onMessageReceived/#com.google.firebase.messaging.RemoteMessage/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-message-service/on-message-received.html
-$dokka.location:com.umang.fcmclient/FcmClientMessageService/onNewToken/#kotlin.String/PointingToDeclaration/fcm-client/com.umang.fcmclient/-fcm-client-message-service/on-new-token.html
-com.umang.fcmclient
-com.umang.fcmclient.listeners
-com.umang.fcmclient.util
+$dokka.location:dev.assemblage.fcm.client.listener////PointingToDeclaration/fcm-client/dev.assemblage.fcm.client.listener/index.html
+$dokka.location:dev.assemblage.fcm.client.listener/FirebaseMessageListener///PointingToDeclaration/fcm-client/dev.assemblage.fcm.client.listener/-firebase-message-listener/index.html
+$dokka.location:dev.assemblage.fcm.client.listener/FirebaseMessageListener/onPushReceived/#com.google.firebase.messaging.RemoteMessage/PointingToDeclaration/fcm-client/dev.assemblage.fcm.client.listener/-firebase-message-listener/on-push-received.html
+$dokka.location:dev.assemblage.fcm.client.listener/FirebaseMessageListener/onTokenAvailable/#kotlin.String/PointingToDeclaration/fcm-client/dev.assemblage.fcm.client.listener/-firebase-message-listener/on-token-available.html
+$dokka.location:dev.assemblage.fcm.client.util////PointingToDeclaration/fcm-client/dev.assemblage.fcm.client.util/index.html
+$dokka.location:dev.assemblage.fcm.client.util/Logger.Companion///PointingToDeclaration/fcm-client/dev.assemblage.fcm.client.util/-logger/-companion/index.html
+$dokka.location:dev.assemblage.fcm.client.util/Logger.LogLevel.DEBUG///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}fcm-client/dev.assemblage.fcm.client.util/-logger/-log-level/-d-e-b-u-g/index.html
+$dokka.location:dev.assemblage.fcm.client.util/Logger.LogLevel.ERROR///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}fcm-client/dev.assemblage.fcm.client.util/-logger/-log-level/-e-r-r-o-r/index.html
+$dokka.location:dev.assemblage.fcm.client.util/Logger.LogLevel.INFO///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}fcm-client/dev.assemblage.fcm.client.util/-logger/-log-level/-i-n-f-o/index.html
+$dokka.location:dev.assemblage.fcm.client.util/Logger.LogLevel.NONE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}fcm-client/dev.assemblage.fcm.client.util/-logger/-log-level/-n-o-n-e/index.html
+$dokka.location:dev.assemblage.fcm.client.util/Logger.LogLevel.VERBOSE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}fcm-client/dev.assemblage.fcm.client.util/-logger/-log-level/-v-e-r-b-o-s-e/index.html
+$dokka.location:dev.assemblage.fcm.client.util/Logger.LogLevel.WARN///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}fcm-client/dev.assemblage.fcm.client.util/-logger/-log-level/-w-a-r-n/index.html
+$dokka.location:dev.assemblage.fcm.client.util/Logger.LogLevel///PointingToDeclaration/fcm-client/dev.assemblage.fcm.client.util/-logger/-log-level/index.html
+$dokka.location:dev.assemblage.fcm.client.util/Logger///PointingToDeclaration/fcm-client/dev.assemblage.fcm.client.util/-logger/index.html
+$dokka.location:dev.assemblage.fcm.client.util/Logger/log/#dev.assemblage.fcm.client.util.Logger.LogLevel#kotlin.Throwable?#kotlin.Function0[kotlin.String]/PointingToDeclaration/fcm-client/dev.assemblage.fcm.client.util/-logger/log.html
+$dokka.location:dev.assemblage.fcm.client////PointingToDeclaration/fcm-client/dev.assemblage.fcm.client/index.html
+$dokka.location:dev.assemblage.fcm.client/AppLifecycleObserver///PointingToDeclaration/fcm-client/dev.assemblage.fcm.client/-app-lifecycle-observer/index.html
+$dokka.location:dev.assemblage.fcm.client/AppLifecycleObserver/AppLifecycleObserver/#android.content.Context/PointingToDeclaration/fcm-client/dev.assemblage.fcm.client/-app-lifecycle-observer/-app-lifecycle-observer.html
+$dokka.location:dev.assemblage.fcm.client/AppLifecycleObserver/onStart/#androidx.lifecycle.LifecycleOwner/PointingToDeclaration/fcm-client/dev.assemblage.fcm.client/-app-lifecycle-observer/on-start.html
+$dokka.location:dev.assemblage.fcm.client/AppLifecycleObserver/onStop/#androidx.lifecycle.LifecycleOwner/PointingToDeclaration/fcm-client/dev.assemblage.fcm.client/-app-lifecycle-observer/on-stop.html
+$dokka.location:dev.assemblage.fcm.client/FcmClientHelper.Companion///PointingToDeclaration/fcm-client/dev.assemblage.fcm.client/-fcm-client-helper/-companion/index.html
+$dokka.location:dev.assemblage.fcm.client/FcmClientHelper.Companion/getInstance/#android.content.Context/PointingToDeclaration/fcm-client/dev.assemblage.fcm.client/-fcm-client-helper/-companion/get-instance.html
+$dokka.location:dev.assemblage.fcm.client/FcmClientHelper///PointingToDeclaration/fcm-client/dev.assemblage.fcm.client/-fcm-client-helper/index.html
+$dokka.location:dev.assemblage.fcm.client/FcmClientHelper/addListener/#dev.assemblage.fcm.client.listener.FirebaseMessageListener/PointingToDeclaration/fcm-client/dev.assemblage.fcm.client/-fcm-client-helper/add-listener.html
+$dokka.location:dev.assemblage.fcm.client/FcmClientHelper/initialise/#dev.assemblage.fcm.client.util.Logger.LogLevel#kotlin.Long/PointingToDeclaration/fcm-client/dev.assemblage.fcm.client/-fcm-client-helper/initialise.html
+$dokka.location:dev.assemblage.fcm.client/FcmClientHelper/removeListener/#dev.assemblage.fcm.client.listener.FirebaseMessageListener/PointingToDeclaration/fcm-client/dev.assemblage.fcm.client/-fcm-client-helper/remove-listener.html
+$dokka.location:dev.assemblage.fcm.client/FcmClientHelper/subscribeToTopics/#kotlin.collections.List[kotlin.String]/PointingToDeclaration/fcm-client/dev.assemblage.fcm.client/-fcm-client-helper/subscribe-to-topics.html
+$dokka.location:dev.assemblage.fcm.client/FcmClientHelper/unSubscribeTopic/#kotlin.collections.List[kotlin.String]/PointingToDeclaration/fcm-client/dev.assemblage.fcm.client/-fcm-client-helper/un-subscribe-topic.html
+$dokka.location:dev.assemblage.fcm.client/FcmClientMessageService///PointingToDeclaration/fcm-client/dev.assemblage.fcm.client/-fcm-client-message-service/index.html
+$dokka.location:dev.assemblage.fcm.client/FcmClientMessageService/FcmClientMessageService/#/PointingToDeclaration/fcm-client/dev.assemblage.fcm.client/-fcm-client-message-service/-fcm-client-message-service.html
+$dokka.location:dev.assemblage.fcm.client/FcmClientMessageService/onMessageReceived/#com.google.firebase.messaging.RemoteMessage/PointingToDeclaration/fcm-client/dev.assemblage.fcm.client/-fcm-client-message-service/on-message-received.html
+$dokka.location:dev.assemblage.fcm.client/FcmClientMessageService/onNewToken/#kotlin.String/PointingToDeclaration/fcm-client/dev.assemblage.fcm.client/-fcm-client-message-service/on-new-token.html
+dev.assemblage.fcm.client
+dev.assemblage.fcm.client.listener
+dev.assemblage.fcm.client.util
 
