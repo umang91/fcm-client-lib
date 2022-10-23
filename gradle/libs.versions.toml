@@ -10,13 +10,6 @@ fcm = { module = "com.google.firebase:firebase-messaging", version.ref = "fcm" }
 processLifecycle = { module = "androidx.lifecycle:lifecycle-process", version.ref = "processLifecycle" }
 kotlin-stdLib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlinVersion" }
 
-kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinVersion" }
-googleService-gradle = "com.google.gms:google-services:4.3.5"
-dokka-gradle = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "kotlin-dokka" }
-
-[bundles]
-gradlePlugins = ["googleService-gradle", "dokka-gradle"]
-
 [plugins]
 plugin-android-application = { id = "com.android.application", version.ref = "android-build-tools-plugins" }
 plugin-android-library = { id = "com.android.library", version.ref = "android-build-tools-plugins" }

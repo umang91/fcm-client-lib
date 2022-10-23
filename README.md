@@ -71,7 +71,7 @@ To exclude the file include the below in your app's backup descriptor
 ```xml
     <exclude
         domain="sharedpref"
-        path="umang_fcm_client_lib" />
+        path="dev_assemblage_fcm_client_pref" />
 
 ```
 
@@ -82,12 +82,12 @@ configuration.
   <cloud-backup>
     <exclude
         domain="sharedpref"
-        path="umang_fcm_client_lib" />
+        path="dev_assemblage_fcm_client_pref" />
   </cloud-backup>
   <device-transfer>
     <exclude
         domain="sharedpref"
-        path="umang_fcm_client_lib" />
+        path="dev_assemblage_fcm_client_pref" />
   </device-transfer>
 ```
 
