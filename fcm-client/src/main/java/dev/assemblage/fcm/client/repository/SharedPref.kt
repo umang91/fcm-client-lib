@@ -10,8 +10,7 @@ import com.umang.fcmclient.SHARED_PREFERENCE_FILE_NAME
  */
 internal class SharedPref(private val context: Context) {
 
-    private val pref = context.getSharedPreferences(SHARED_PREFERENCE_FILE_NAME, Context
-            .MODE_PRIVATE)
+    private val pref = context.getSharedPreferences(SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE)
 
     internal fun putString(key: String, value: String?) {
         pref.edit().putString(key, value).apply()

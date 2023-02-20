@@ -10,3 +10,4 @@
 /.idea
 buildSrc/build/
 buildSrc/buildSrc.iml
+/build

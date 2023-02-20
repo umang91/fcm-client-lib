@@ -67,7 +67,6 @@ public class Logger private constructor(private val className: String) {
                     Log.d(tag, "$className ${message()}")
                 }
                 LogLevel.NONE -> {
-
                 }
             }
         } catch (e: Exception) {

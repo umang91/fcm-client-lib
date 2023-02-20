@@ -8,7 +8,7 @@ import dev.assemblage.fcm.client.listener.FirebaseMessageListener
  * @author Umang Chamaria
  * Date: 28/04/20
  */
-class FcmListener1: FirebaseMessageListener {
+class FcmListener1 : FirebaseMessageListener {
     override fun onTokenAvailable(token: String) {
         Log.v("FcmListener1", "Token: $token")
     }

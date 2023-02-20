@@ -3,7 +3,6 @@ package dev.assemblage.fcm.client.util
 import android.content.Context
 import android.content.pm.ApplicationInfo
 
-
 /**
  * @author Umang Chamaria
  * Date: 01/05/20

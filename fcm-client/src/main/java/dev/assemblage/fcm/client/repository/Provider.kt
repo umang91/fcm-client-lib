@@ -24,7 +24,7 @@ internal object Provider {
     private var repository: Repository? = null
 
     internal fun getRepository(context: Context): Repository {
-        return repository ?: synchronized(Provider::class.java){
+        return repository ?: synchronized(Provider::class.java) {
             val instance = repository ?: Repository(context)
             repository = instance
             instance

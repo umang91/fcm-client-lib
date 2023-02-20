@@ -38,4 +38,4 @@ dependencies {
     implementation(libs.kotlin.stdLib)
     implementation(project(":fcm-client"))
 }
-apply(plugin= "com.google.gms.google-services")
+apply(plugin = "com.google.gms.google-services")
