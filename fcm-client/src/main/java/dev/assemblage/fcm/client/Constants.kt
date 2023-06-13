@@ -1,4 +1,4 @@
-package com.umang.fcmclient
+package dev.assemblage.fcm.client
 
 /**
  * @author Umang Chamaria

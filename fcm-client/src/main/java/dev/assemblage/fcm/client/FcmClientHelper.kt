@@ -7,7 +7,6 @@ import android.os.Looper
 import androidx.lifecycle.ProcessLifecycleOwner
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.RemoteMessage
-import com.umang.fcmclient.DEFAULT_RETRY_INTERVAL
 import dev.assemblage.fcm.client.listener.FirebaseMessageListener
 import dev.assemblage.fcm.client.repository.Provider
 import dev.assemblage.fcm.client.util.Logger

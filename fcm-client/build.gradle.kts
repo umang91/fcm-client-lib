@@ -9,12 +9,14 @@ plugins {
 val libVersionName = project.findProperty("VERSION_NAME") as String
 
 android {
-    compileSdk = 31
+    compileSdk = libs.versions.compileSdk.get().toInt()
     namespace = "dev.assemblage.fcm.client"
     defaultConfig {
-        minSdk = 21
-        targetSdk = 31
+        minSdk = libs.versions.minSdk.get().toInt()
         buildConfigField("String", "FCM_CLIENT_VERSION", "\"$libVersionName\"")
+    }
+    buildFeatures {
+        buildConfig = true
     }
     buildTypes {
         getByName("release") {

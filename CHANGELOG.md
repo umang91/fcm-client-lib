@@ -1,6 +1,8 @@
 ## Next Release
 - Ktlint integration.
 - Firebase Cloud Messaging version updated, `23.0.7` --> `23.1.1`
+- `compileSdk` updated to 33
+- Android Gradle Plugin updated to 8.0.2
 
 ## 5.0.0(16-10-2022)
 - Android Gradle Plugin updated to `7.3.1`
