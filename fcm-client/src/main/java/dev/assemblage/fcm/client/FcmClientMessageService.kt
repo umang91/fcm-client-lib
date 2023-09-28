@@ -2,7 +2,7 @@ package dev.assemblage.fcm.client
 
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import dev.assemblage.fcm.client.util.Logger
+import dev.assemblage.fcm.client.internal.util.Logger
 
 /**
  * Class to handle callbacks from Firebase Messaging Library.

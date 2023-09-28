@@ -7,10 +7,13 @@ import android.os.Looper
 import androidx.lifecycle.ProcessLifecycleOwner
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.RemoteMessage
+import dev.assemblage.fcm.client.internal.AppLifecycleObserver
+import dev.assemblage.fcm.client.internal.AsyncExecutor
+import dev.assemblage.fcm.client.internal.DEFAULT_RETRY_INTERVAL
+import dev.assemblage.fcm.client.internal.repository.Provider
+import dev.assemblage.fcm.client.internal.util.Logger
+import dev.assemblage.fcm.client.internal.util.isDebugBuild
 import dev.assemblage.fcm.client.listener.FirebaseMessageListener
-import dev.assemblage.fcm.client.repository.Provider
-import dev.assemblage.fcm.client.util.Logger
-import dev.assemblage.fcm.client.util.isDebugBuild
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 

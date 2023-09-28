@@ -1,4 +1,4 @@
-package dev.assemblage.fcm.client
+package dev.assemblage.fcm.client.internal
 
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors

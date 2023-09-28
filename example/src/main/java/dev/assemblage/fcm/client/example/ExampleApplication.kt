@@ -3,7 +3,7 @@ package dev.assemblage.fcm.client.example
 import android.app.Application
 import android.os.StrictMode
 import dev.assemblage.fcm.client.FcmClientHelper
-import dev.assemblage.fcm.client.util.Logger
+import dev.assemblage.fcm.client.internal.util.Logger
 
 /**
  * @author Umang Chamaria

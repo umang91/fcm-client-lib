@@ -1,4 +1,4 @@
-package dev.assemblage.fcm.client.util
+package dev.assemblage.fcm.client.internal.util
 
 import android.content.Context
 import android.content.pm.ApplicationInfo

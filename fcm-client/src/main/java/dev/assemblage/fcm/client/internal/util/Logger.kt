@@ -1,4 +1,4 @@
-package dev.assemblage.fcm.client.util
+package dev.assemblage.fcm.client.internal.util
 
 import android.util.Log
 import dev.assemblage.fcm.client.BuildConfig

@@ -1,7 +1,7 @@
-package dev.assemblage.fcm.client.repository
+package dev.assemblage.fcm.client.internal.repository
 
 import android.content.Context
-import dev.assemblage.fcm.client.AsyncExecutor
+import dev.assemblage.fcm.client.internal.AsyncExecutor
 
 /**
  *

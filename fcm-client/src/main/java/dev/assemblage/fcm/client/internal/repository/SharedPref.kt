@@ -1,8 +1,8 @@
-package dev.assemblage.fcm.client.repository
+package dev.assemblage.fcm.client.internal.repository
 
 import android.content.Context
 import android.content.SharedPreferences
-import dev.assemblage.fcm.client.SHARED_PREFERENCE_FILE_NAME
+import dev.assemblage.fcm.client.internal.SHARED_PREFERENCE_FILE_NAME
 
 /**
  * Helper class to save strings in [SharedPreferences]
