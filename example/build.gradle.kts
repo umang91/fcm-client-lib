@@ -6,13 +6,13 @@ plugins {
 }
 
 android {
-    compileSdk = 31
+    compileSdk = 34
 
     defaultConfig {
         namespace = "dev.assemblage.fcm.client.example"
         applicationId = "dev.assemblage.fcm.client.example"
         minSdk = 21
-        targetSdk = 31
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

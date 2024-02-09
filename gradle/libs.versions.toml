@@ -1,8 +1,8 @@
 [versions]
 processLifecycle = "2.4.0"
-fcm = "23.1.1"
-kotlinVersion = "1.6.0"
-android-build-tools-plugins = "8.0.2"
+fcm = "23.4.0"
+kotlinVersion = "1.9.20"
+android-build-tools-plugins = "8.2.2"
 kotlin-dokka = "1.7.10"
 minSdk = "21"
 compileSdk = "33"
