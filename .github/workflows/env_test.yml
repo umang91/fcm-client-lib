@@ -3,10 +3,10 @@ on:
   workflow_dispatch:
 
 env:
-  mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
-  signingInMemoryKeyPassword: ${{ secrets.GPG_PASSWORD }}
-  signingInMemoryKey: ${{ secrets.GPG_KEY }}
-  mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+  MAVEN_CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+  GPG_PASSWORD: ${{ secrets.GPG_PASSWORD }}
+  GPG_KEY: ${{ secrets.GPG_KEY }}
+  MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
 
 jobs:
   publish:
@@ -19,9 +19,9 @@ jobs:
       - name: read variables
         run: |
           echo $${{ secrets.MAVEN_CENTRAL_USERNAME }}
-          echo $signingInMemoryKey
-          echo $signingInMemoryKeyPassword
-          echo $mavenCentralUsername
-          echo $mavenCentralPassword
+          echo $GPG_KEY
+          echo $GPG_PASSWORD
+          echo $MAVEN_CENTRAL_USERNAME
+          echo $MAVEN_CENTRAL_PASSWORD
           echo ${{ secrets.GPG_KEY }}
     
