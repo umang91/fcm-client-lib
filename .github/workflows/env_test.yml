@@ -17,6 +17,7 @@ jobs:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
         run: |
+          echo ${{ secrets.GPG_KEY }}
           echo $ORG_GRADLE_PROJECT_signingInMemoryKey
           echo $ORG_GRADLE_PROJECT_signingInMemoryKeyPassword
           echo $ORG_GRADLE_PROJECT_mavenCentralUsername
