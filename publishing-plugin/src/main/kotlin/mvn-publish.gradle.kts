@@ -79,10 +79,10 @@ publishing {
 }
 
 signing {
-    val gpgKey = project.findProperty("signingInMemoryKey") as? String ?: "key not found"
-    val gpgPassword = project.findProperty("signingInMemoryKeyPassword") as? String ?: "password not found"
+    val gpgKey = System.getenv("signingInMemoryKey") as? String ?: "key not found"
+    val gpgPassword = System.getenv("signingInMemoryKeyPassword") as? String ?: "password not found"
     println("environment config")
-    println("Repository username: repositoryUsername")
+    println("Repository username: $repositoryUsername")
     println("Signing key: $gpgKey")
     println("Singing password: $gpgPassword")
     useInMemoryPgpKeys(gpgKey, gpgPassword)
