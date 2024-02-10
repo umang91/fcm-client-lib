@@ -12,14 +12,14 @@ jobs:
         uses: actions/checkout@v3
       - name: read variables
         env:
-          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_KEY }}
-          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_PASSWORD }}
-          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
-          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+          signingInMemoryKey: ${{ secrets.GPG_KEY }}
+          signingInMemoryKeyPassword: ${{ secrets.GPG_PASSWORD }}
+          mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+          mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
         run: |
           echo ${{ secrets.GPG_KEY }}
-          echo $ORG_GRADLE_PROJECT_signingInMemoryKey
-          echo $ORG_GRADLE_PROJECT_signingInMemoryKeyPassword
-          echo $ORG_GRADLE_PROJECT_mavenCentralUsername
-          echo $ORG_GRADLE_PROJECT_mavenCentralPassword
+          echo $signingInMemoryKey
+          echo $signingInMemoryKeyPassword
+          echo $mavenCentralUsername
+          echo $mavenCentralPassword
     
