@@ -81,6 +81,8 @@ publishing {
 signing {
     val gpgKey = project.findProperty("GPG_KEY") as? String ?: ""
     val gpgPassword = project.findProperty("GPG_PASSWORD") as? String ?: ""
+    print("key: $gpgKey")
+    print("password: $gpgPassword")
     useInMemoryPgpKeys(gpgKey, gpgPassword)
     sign(publishing.publications["release"])
 }
