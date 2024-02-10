@@ -53,6 +53,6 @@ tasks.dokkaHtml.configure {
 }
 
 tasks.register("printProperty") {
-    println("ORG_GRADLE_PROJECT_signingInMemoryKey: " + System.getenv("ORG_GRADLE_PROJECT_signingInMemoryKey"))
-    println("signingInMemoryKey: " + System.getenv("ORG_GRADLE_PROJECT_signingInMemoryKey"))
+    println("ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: " + System.getenv("ORG_GRADLE_PROJECT_signingInMemoryKeyPassword"))
+    println("signingInMemoryKeyPassword: " + System.getenv("signingInMemoryKeyPassword"))
 }
