@@ -5,7 +5,6 @@ on:
 env:
   MAVEN_CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USER }}
   GPG_PASSWORD: ${{ secrets.GPG_PASSWORD }}
-  GPG_KEY: ${{ secrets.GPG_KEY }}
   MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
 
 jobs:
@@ -19,9 +18,7 @@ jobs:
       - name: read variables
         run: |
           echo $${{ secrets.MAVEN_CENTRAL_USER }}
-          echo $GPG_KEY
           echo $GPG_PASSWORD
           echo $MAVEN_CENTRAL_USERNAME
           echo $MAVEN_CENTRAL_PASSWORD
-          echo ${{ secrets.GPG_KEY }}
     
