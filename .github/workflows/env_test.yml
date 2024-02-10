@@ -3,9 +3,9 @@ on:
   workflow_dispatch:
 
 env:
-  signingInMemoryKey: ${{ secrets.GPG_KEY }}
-  signingInMemoryKeyPassword: ${{ secrets.GPG_PASSWORD }}
   mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+  signingInMemoryKeyPassword: ${{ secrets.GPG_PASSWORD }}
+  signingInMemoryKey: ${{ secrets.GPG_KEY }}
   mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
 
 jobs:
@@ -18,10 +18,10 @@ jobs:
         uses: actions/checkout@v3
       - name: read variables
         run: |
-          echo ${{ secrets.GPG_KEY }}
           echo $${{ secrets.MAVEN_CENTRAL_USERNAME }}
           echo $signingInMemoryKey
           echo $signingInMemoryKeyPassword
           echo $mavenCentralUsername
           echo $mavenCentralPassword
+          echo ${{ secrets.GPG_KEY }}
     
