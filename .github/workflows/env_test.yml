@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
 env:
-  MAVEN_CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+  MAVEN_CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USER }}
   GPG_PASSWORD: ${{ secrets.GPG_PASSWORD }}
   GPG_KEY: ${{ secrets.GPG_KEY }}
   MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v3
       - name: read variables
         run: |
-          echo $${{ secrets.MAVEN_CENTRAL_USERNAME }}
+          echo $${{ secrets.MAVEN_CENTRAL_USER }}
           echo $GPG_KEY
           echo $GPG_PASSWORD
           echo $MAVEN_CENTRAL_USERNAME
