@@ -2,6 +2,12 @@ name: EnvTest
 on:
   workflow_dispatch:
 
+env:
+  signingInMemoryKey: ${{ secrets.GPG_KEY }}
+  signingInMemoryKeyPassword: ${{ secrets.GPG_PASSWORD }}
+  mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+  mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+
 jobs:
   publish:
     name: EnvTest
@@ -11,13 +17,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: read variables
-        env:
-          signingInMemoryKey: ${{ secrets.GPG_KEY }}
-          signingInMemoryKeyPassword: ${{ secrets.GPG_PASSWORD }}
-          mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
-          mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
         run: |
           echo ${{ secrets.GPG_KEY }}
+          echo $${{ secrets.MAVEN_CENTRAL_USERNAME }}
           echo $signingInMemoryKey
           echo $signingInMemoryKeyPassword
           echo $mavenCentralUsername
