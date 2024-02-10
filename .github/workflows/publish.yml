@@ -28,7 +28,7 @@ jobs:
       - name: Publish Library
         run: |
           echo "Publishing library🚀"
-          ./gradlew fcm-client:publish --no-daemon --no-parallel
+          ./gradlew printProperty
           echo "Published✅"
         env:
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_KEY }}

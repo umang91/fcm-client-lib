@@ -51,3 +51,8 @@ dependencies {
 tasks.dokkaHtml.configure {
     outputDirectory.set(rootDir.resolve("docs"))
 }
+
+tasks.register("printProperty") {
+     println("ORG_GRADLE_PROJECT_signingInMemoryKey: " + System.getenv("ORG_GRADLE_PROJECT_signingInMemoryKey"))
+     println("signingInMemoryKey: " + System.getenv("ORG_GRADLE_PROJECT_signingInMemoryKey"))
+}
