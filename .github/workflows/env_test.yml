@@ -20,7 +20,7 @@ jobs:
           echo ${{ secrets.MAVEN_CENTRAL_USER }}
           echo ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
           echo ${{ secrets.GPG_PASSWORD }}
-          echo $GPG_PASSWORD
-          echo $MAVEN_CENTRAL_USERNAME
-          echo $MAVEN_CENTRAL_PASSWORD
+          echo ${#GPG_PASSWORD}
+          echo ${#MAVEN_CENTRAL_USERNAME}
+          echo ${#MAVEN_CENTRAL_PASSWORD
     
