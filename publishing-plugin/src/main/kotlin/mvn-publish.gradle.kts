@@ -24,8 +24,8 @@ val developerName = project.findProperty("DEVELOPER_NAME") as String
 val scmConnection = project.findProperty("SCM_CONNECTION") as String
 val scmDevConnection = project.findProperty("SCM_DEV_CONNECTION") as String
 
-val repositoryUsername = project.findProperty("mavenCentralUsername") as? String ?: ""
-val repositoryPassword = project.findProperty("mavenCentralPassword") as? String ?: ""
+val repositoryUsername = System.getenv("mavenCentralUsername") ?: ""
+val repositoryPassword = System.getenv("mavenCentralPassword") ?: ""
 
 publishing {
     publications {
@@ -79,12 +79,8 @@ publishing {
 }
 
 signing {
-    val gpgKey = System.getenv("signingInMemoryKey") as? String ?: "key not found"
-    val gpgPassword = System.getenv("signingInMemoryKeyPassword") as? String ?: "password not found"
-    println("environment config")
-    println("Repository username: $repositoryUsername")
-    println("Signing key: $gpgKey")
-    println("Singing password: $gpgPassword")
+    val gpgKey = System.getenv("signingInMemoryKey") ?: "key not found"
+    val gpgPassword = System.getenv("signingInMemoryKeyPassword") ?: "password not found"
     useInMemoryPgpKeys(gpgKey, gpgPassword)
     sign(publishing.publications["release"])
 }

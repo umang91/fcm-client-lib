@@ -28,10 +28,10 @@ jobs:
       - name: Publish Library
         run: |
           echo "Publishing library🚀"
-          ./gradlew printProperty
+          ./gradlew fcm-client-lib:publish --no-daemon --no-parallel
           echo "Published✅"
         env:
-          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_KEY }}
-          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_PASSWORD }}
-          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
-          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+          signingInMemoryKey: ${{ secrets.GPG_KEY }}
+          signingInMemoryKeyPassword: ${{ secrets.GPG_PASSWORD }}
+          mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+          mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
