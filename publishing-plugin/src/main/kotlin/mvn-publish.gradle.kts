@@ -28,10 +28,14 @@ val repositoryUsername = System.getenv("mavenCentralUsername") ?: ""
 val repositoryPassword = System.getenv("mavenCentralPassword") ?: ""
 if (repositoryUsername.isBlank()) {
     println("repository user name not read")
+} else {
+    println("repository user name read")
 }
 
 if (repositoryPassword.isBlank()) {
     println("repository password not read")
+} else {
+    println("repository password read")
 }
 
 publishing {
@@ -98,6 +102,7 @@ signing {
     } else {
         println("gpg password was found and read.")
     }
+    useGpgCmd()
     useInMemoryPgpKeys(gpgKey, gpgPassword)
     sign(publishing.publications["release"])
 }
