@@ -26,6 +26,13 @@ val scmDevConnection = project.findProperty("SCM_DEV_CONNECTION") as String
 
 val repositoryUsername = System.getenv("mavenCentralUsername") ?: ""
 val repositoryPassword = System.getenv("mavenCentralPassword") ?: ""
+if (repositoryUsername.isBlank()) {
+    println("repository user name not read")
+}
+
+if (repositoryPassword.isBlank()) {
+    println("repository password not read")
+}
 
 publishing {
     publications {
@@ -79,8 +86,18 @@ publishing {
 }
 
 signing {
-    val gpgKey = System.getenv("signingInMemoryKey") ?: "key not found"
-    val gpgPassword = System.getenv("signingInMemoryKeyPassword") ?: "password not found"
+    val gpgKey = System.getenv("signingInMemoryKey") ?: ""
+    val gpgPassword = System.getenv("signingInMemoryKeyPassword") ?: ""
+    if (gpgKey.isBlank()) {
+        println("gpg key wasn't read or is empty")
+    } else {
+        println("gpg key was found and read")
+    }
+    if (gpgPassword.isBlank()) {
+        println("gpg password wasn't read or is empty")
+    } else {
+        println("gpg password was found and read.")
+    }
     useInMemoryPgpKeys(gpgKey, gpgPassword)
     sign(publishing.publications["release"])
 }
