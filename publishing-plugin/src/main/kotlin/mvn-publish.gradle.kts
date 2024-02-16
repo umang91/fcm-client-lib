@@ -37,6 +37,9 @@ if (repositoryPassword.isBlank()) {
 } else {
     println("repository password read")
 }
+println("group-id: $group")
+println("artifact-id: $artifactName")
+println("version: $version")
 
 publishing {
     publications {
