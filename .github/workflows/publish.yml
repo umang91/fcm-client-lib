@@ -35,3 +35,4 @@ jobs:
           signingInMemoryKeyPassword: ${{ secrets.GPG_PASSWORD }}
           mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
           mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+          signingKeyId: ${{ secrets.SIGNING_KEY_ID }}

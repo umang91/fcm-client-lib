@@ -92,6 +92,7 @@ publishing {
 signing {
     val gpgKey = System.getenv("signingInMemoryKey") ?: ""
     val gpgPassword = System.getenv("signingInMemoryKeyPassword") ?: ""
+    val keyId = System.getenv("signingKeyId") ?: ""
     if (gpgKey.isBlank()) {
         println("gpg key wasn't read or is empty")
     } else {
@@ -102,7 +103,10 @@ signing {
     } else {
         println("gpg password was found and read.")
     }
+    if (keyId.isBlank()) {
+        println("keyId ")
+    }
     useGpgCmd()
-    useInMemoryPgpKeys(gpgKey, gpgPassword)
+    useInMemoryPgpKeys(keyId, gpgKey, gpgPassword)
     sign(publishing.publications["release"])
 }
