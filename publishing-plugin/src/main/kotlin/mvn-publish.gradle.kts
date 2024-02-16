@@ -106,7 +106,6 @@ signing {
     if (keyId.isBlank()) {
         println("keyId ")
     }
-    useGpgCmd()
     useInMemoryPgpKeys(keyId, gpgKey, gpgPassword)
     sign(publishing.publications["release"])
 }
