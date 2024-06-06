@@ -2,7 +2,7 @@
 plugins {
     alias(libs.plugins.plugin.android.application)
     alias(libs.plugins.plugin.kotlin.android)
-    id("com.google.gms.google-services")
+    alias(libs.plugins.plugin.gms)
 }
 
 android {
@@ -34,7 +34,7 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation("androidx.appcompat:appcompat:1.1.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
     implementation(libs.kotlin.stdLib)
     implementation(project(":fcm-client"))
 }

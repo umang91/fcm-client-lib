@@ -1,11 +1,11 @@
 [versions]
-processLifecycle = "2.4.0"
+processLifecycle = "2.7.0"
 fcm = "23.4.0"
 kotlinVersion = "1.9.20"
-android-build-tools-plugins = "8.2.2"
+android-build-tools-plugins = "8.4.1"
 kotlin-dokka = "1.7.10"
 minSdk = "21"
-compileSdk = "33"
+compileSdk = "34"
 
 [libraries]
 fcm = { module = "com.google.firebase:firebase-messaging", version.ref = "fcm" }
@@ -17,3 +17,5 @@ plugin-android-application = { id = "com.android.application", version.ref = "an
 plugin-android-library = { id = "com.android.library", version.ref = "android-build-tools-plugins" }
 plugin-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinVersion" }
 plugin-dokka = { id = "org.jetbrains.dokka", version.ref = "kotlin-dokka" }
+plugin-ktlint = { id = "org.jlleitschuh.gradle.ktlint", version = "11.2.0" }
+plugin-gms = { id = "com.google.gms.google-services", version = "4.4.1" }
