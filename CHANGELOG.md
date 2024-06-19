@@ -1,4 +1,4 @@
-## Next Release
+## 5.1.0(06-06-2024)
 - Ktlint integration.
 - Firebase Cloud Messaging version updated, `23.0.7` --> `23.4.0`
 - `compileSdk` updated to 34
