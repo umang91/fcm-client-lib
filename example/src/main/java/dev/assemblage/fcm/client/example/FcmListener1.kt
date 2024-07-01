@@ -14,6 +14,6 @@ class FcmListener1 : FirebaseMessageListener {
     }
 
     override fun onPushReceived(remoteMessage: RemoteMessage) {
-        Log.v("FcmListener1", "Push Message: $remoteMessage")
+        Log.v("FcmListener1", "Push Message: ${remoteMessage.data}")
     }
 }
