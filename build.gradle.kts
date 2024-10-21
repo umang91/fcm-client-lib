@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.plugin.dokka) apply false
     alias(libs.plugins.plugin.gms) apply false
     alias(libs.plugins.plugin.ktlint)
+    alias(libs.plugins.plugin.publish) apply false
 }
 
 tasks.register<Delete>("clean") {

@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.plugin.android.library)
     alias(libs.plugins.plugin.kotlin.android)
     alias(libs.plugins.plugin.dokka)
-    id("mvn-publish")
+    alias(libs.plugins.plugin.publish)
 }
 
 val libVersionName = project.findProperty("VERSION_NAME") as String
