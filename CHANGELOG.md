@@ -1,4 +1,4 @@
-## Next Release
+## 5.2.1(22-9-2024)
 - Android Gradle Plugin updated to `8.7.1`
 
 ## 5.1.0(06-06-2024)
