@@ -44,4 +44,4 @@ jobs:
           ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.signingInMemoryKeyId }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.signingInMemoryKeyPassword }}
         run: |
-          kotlin ./github/scripts/release.main.kts  ${{github.event.inputs.releaseType}}
+          kotlin .github/scripts/release.main.kts  ${{github.event.inputs.releaseType}}
