@@ -1,7 +1,23 @@
 #!/usr/bin/env kotlin
 
+@file:Import("utils.main.kts")
+
+import java.util.Locale
+
 enum class UpgradeType {
     MAJOR, MINOR, PATCH
+}
+
+fun updateLibraryVersion(upgradeInput: String): String {
+    if (upgradeInput.isBlank()) {
+        throw IllegalStateException("upgrade type argument required. Possible values major, minor, patch")
+    }
+    val upgradeType = UpgradeType.valueOf(upgradeInput.uppercase(Locale.getDefault()))
+    val properties = readProperties("./fcm-client/gradle.properties")
+    val versionName = properties.getProperty("VERSION_NAME") ?: throw IllegalStateException("VERSION_NAME cannot be empty")
+    val updatedVersion = getUpdatedVersion(versionName, upgradeType)
+    writeUpdatedVersion("./fcm-client/gradle.properties", properties, "VERSION_NAME", updatedVersion)
+    return updatedVersion
 }
 
 fun getUpdatedVersion(versionName: String, upgradeType: UpgradeType): String {

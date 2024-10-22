@@ -1,6 +1,11 @@
 name: Publish
 on:
   workflow_dispatch:
+    inputs:
+      releaseType:
+        description: Enter release type
+        required: true
+
 
 jobs:
   publish:
@@ -10,6 +15,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Set up JDK
         uses: actions/setup-java@v4
@@ -23,6 +30,12 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
+      - name: Configure git
+        shell: bash
+        run: |
+          git config --global user.name "umang91"
+          git config --global user.email "umang91@users.noreply.github.com"
+
       - name: Publish Library
         env:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.mavenCentralUsername }}
@@ -31,4 +44,4 @@ jobs:
           ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.signingInMemoryKeyId }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.signingInMemoryKeyPassword }}
         run: |
-          ./gradlew fcm-client:publishToMavenRepository -PlogLevel=5
+          kotlin ./github/scripts/release.main.kts  ${{github.event.inputs.releaseType}}
