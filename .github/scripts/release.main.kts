@@ -13,7 +13,9 @@ val calendar = Calendar.getInstance()
 val date =
     "${calendar[Calendar.DAY_OF_MONTH]}-${calendar[Calendar.MONTH]}-${calendar[Calendar.YEAR]}"
 replaceTextInFile("CHANGELOG.md", "Next Release", "$updatedVersion($date)")
-
+// build project
+executeCommandOnShell("./gradlew assemble")
+// publish to central portal
 executeCommandOnShell("./gradlew fcm-client:publishToMavenRepository -PlogLevel=4")
 
 // commit changes
