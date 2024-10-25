@@ -11,7 +11,7 @@ val upgradeInput = args[0]
 val updatedVersion = updateLibraryVersion(upgradeInput)
 val calendar = Calendar.getInstance()
 val date =
-    "${calendar[Calendar.DAY_OF_MONTH]}-${calendar[Calendar.MONTH]}-${calendar[Calendar.YEAR]}"
+    "${calendar[Calendar.DAY_OF_MONTH]}-${calendar[Calendar.MONTH]+1}-${calendar[Calendar.YEAR]}"
 replaceTextInFile("CHANGELOG.md", "Next Release", "$updatedVersion($date)")
 // build project
 executeCommandOnShell("./gradlew assemble")
