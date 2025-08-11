@@ -5,9 +5,7 @@ import android.os.StrictMode
 import dev.assemblage.fcm.client.FcmClientHelper
 import dev.assemblage.fcm.client.internal.util.Logger
 
-/**
- * @author Umang Chamaria
- */
+/** @author Umang Chamaria */
 class ExampleApplication : Application() {
     override fun onCreate() {
         StrictMode.setThreadPolicy(
@@ -16,8 +14,7 @@ class ExampleApplication : Application() {
                 .detectDiskWrites()
                 .detectNetwork() // or .detectAll() for all detectable problems
                 .penaltyLog()
-                .build()
-        )
+                .build())
         super.onCreate()
         // initialize sdk
         FcmClientHelper.getInstance(applicationContext).initialise(Logger.LogLevel.VERBOSE, 4)

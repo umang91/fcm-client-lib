@@ -48,6 +48,4 @@ dependencies {
     api(libs.fcm)
 }
 
-tasks.dokkaHtml.configure {
-    outputDirectory.set(rootDir.resolve("docs"))
-}
+tasks.dokkaHtml.configure { outputDirectory.set(rootDir.resolve("docs")) }

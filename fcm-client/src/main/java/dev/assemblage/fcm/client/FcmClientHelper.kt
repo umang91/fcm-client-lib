@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit
 
 /**
  * Main interaction class for the FCM client
+ *
  * @author Umang Chamaria
  */
 public class FcmClientHelper internal constructor(private var context: Context) {
@@ -35,6 +36,7 @@ public class FcmClientHelper internal constructor(private var context: Context) 
 
     /**
      * Register a callback for FCM events.
+     *
      * @param listener instance of [FirebaseMessageListener]
      */
     public fun addListener(listener: FirebaseMessageListener) {
@@ -43,6 +45,7 @@ public class FcmClientHelper internal constructor(private var context: Context) 
 
     /**
      * Remove of a registered callback for FCM events
+     *
      * @param listener instance of registered [FirebaseMessageListener]
      */
     public fun removeListener(listener: FirebaseMessageListener) {
@@ -50,14 +53,15 @@ public class FcmClientHelper internal constructor(private var context: Context) 
     }
 
     /**
-     * Initialize the FCM client. This needs to be called from the onCreate() of [Application] class.
+     * Initialize the FCM client. This needs to be called from the onCreate() of [Application]
+     * class.
      *
      * @param logLevel optional parameter takes in the level of logs which should be printed by the
-     * SDK when the application is running in debug mode. By default, only error logs are printed.
-     * Refer to [Logger.LogLevel] for more details.
-     * @param retryInterval optional parameter which takes the time interval(in seconds) after
-     * which the SDK should retry registering for Push Token in case of any failure. Default
-     * value is 30 seconds.
+     *   SDK when the application is running in debug mode. By default, only error logs are printed.
+     *   Refer to [Logger.LogLevel] for more details.
+     * @param retryInterval optional parameter which takes the time interval(in seconds) after which
+     *   the SDK should retry registering for Push Token in case of any failure. Default value is 30
+     *   seconds.
      */
     @JvmOverloads
     public fun initialise(
@@ -89,6 +93,7 @@ public class FcmClientHelper internal constructor(private var context: Context) 
 
     /**
      * Subscribe to the given list of topics
+     *
      * @param topics list of topics to subscribe
      */
     public fun subscribeToTopics(topics: List<String>) {
@@ -96,10 +101,10 @@ public class FcmClientHelper internal constructor(private var context: Context) 
             try {
                 for (topic in topics) {
                     logger.log { "Subscribing to $topic" }
-                    FirebaseMessaging.getInstance().subscribeToTopic(topic)
-                        .addOnCompleteListener { task ->
-                            logger.log { "subscribeToTopic() isSuccess ${task.isSuccessful}" }
-                        }
+                    FirebaseMessaging.getInstance().subscribeToTopic(topic).addOnCompleteListener {
+                        task ->
+                        logger.log { "subscribeToTopic() isSuccess ${task.isSuccessful}" }
+                    }
                 }
             } catch (e: Exception) {
                 logger.log(Logger.LogLevel.ERROR, e) { " subscribeToTopic()" }
@@ -109,6 +114,7 @@ public class FcmClientHelper internal constructor(private var context: Context) 
 
     /**
      * To un-subscribe from messaging topics.
+     *
      * @param topics list of topics to be un-subscribed from.
      */
     public fun unSubscribeTopic(topics: List<String>) {
@@ -200,7 +206,9 @@ public class FcmClientHelper internal constructor(private var context: Context) 
 
     private fun shutdownRetryScheduler() {
         if (!scheduledExecutor.isShutdown) {
-            logger.log(Logger.LogLevel.ERROR) { " shutdownRetryScheduler() Shutting down retry scheduler." }
+            logger.log(Logger.LogLevel.ERROR) {
+                " shutdownRetryScheduler() Shutting down retry scheduler."
+            }
             scheduledExecutor.shutdownNow()
         }
     }
@@ -229,7 +237,9 @@ public class FcmClientHelper internal constructor(private var context: Context) 
         val mainThread = Handler(Looper.getMainLooper())
         mainThread.post {
             try {
-                ProcessLifecycleOwner.get().lifecycle.addObserver(AppLifecycleObserver(context.applicationContext))
+                ProcessLifecycleOwner.get()
+                    .lifecycle
+                    .addObserver(AppLifecycleObserver(context.applicationContext))
             } catch (e: Exception) {
                 logger.log(Logger.LogLevel.ERROR, e) { " registerLifecycleCallback() " }
             }
@@ -241,16 +251,18 @@ public class FcmClientHelper internal constructor(private var context: Context) 
 
         /**
          * Get instance of [FcmClientHelper]
+         *
          * @param context instance of [Context]
          * @return instance of [FcmClientHelper]
          */
         @JvmStatic
         public fun getInstance(context: Context): FcmClientHelper {
-            return instance ?: synchronized(FcmClientHelper::class.java) {
-                val inst = instance ?: FcmClientHelper(context)
-                instance = inst
-                inst
-            }
+            return instance
+                ?: synchronized(FcmClientHelper::class.java) {
+                    val inst = instance ?: FcmClientHelper(context)
+                    instance = inst
+                    inst
+                }
         }
     }
 }

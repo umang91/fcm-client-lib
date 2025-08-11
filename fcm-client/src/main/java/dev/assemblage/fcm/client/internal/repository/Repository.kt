@@ -3,11 +3,7 @@ package dev.assemblage.fcm.client.internal.repository
 import android.content.Context
 import dev.assemblage.fcm.client.internal.AsyncExecutor
 
-/**
- *
- * @author Umang Chamaria
- * Date: 28/04/20
- */
+/** @author Umang Chamaria Date: 28/04/20 */
 private const val PREF_KEY_PUSH_TOKEN = "push_token"
 
 internal class Repository(private val context: Context) {
@@ -15,9 +11,7 @@ internal class Repository(private val context: Context) {
     private val sharedPref = SharedPref(context)
 
     internal fun saveToken(token: String) {
-        AsyncExecutor.submit {
-            sharedPref.putString(PREF_KEY_PUSH_TOKEN, token)
-        }
+        AsyncExecutor.submit { sharedPref.putString(PREF_KEY_PUSH_TOKEN, token) }
     }
 
     internal fun getToken(): String {
