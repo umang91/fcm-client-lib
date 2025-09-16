@@ -6,11 +6,13 @@ import dev.assemblage.fcm.client.internal.SHARED_PREFERENCE_FILE_NAME
 
 /**
  * Helper class to save strings in [SharedPreferences]
+ *
  * @author Umang Chamaria
  */
 internal class SharedPref(context: Context) {
 
-    private val pref = context.getSharedPreferences(SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE)
+    private val pref =
+        context.getSharedPreferences(SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE)
 
     internal fun putString(key: String, value: String?) {
         pref.edit().putString(key, value).apply()

@@ -15,19 +15,17 @@ package dev.assemblage.fcm.client.internal.repository
 
 import android.content.Context
 
-/**
- * @author Umang Chamaria
- * Date: 2020/12/12
- */
+/** @author Umang Chamaria Date: 2020/12/12 */
 internal object Provider {
 
     private var repository: Repository? = null
 
     internal fun getRepository(context: Context): Repository {
-        return repository ?: synchronized(Provider::class.java) {
-            val instance = repository ?: Repository(context)
-            repository = instance
-            instance
-        }
+        return repository
+            ?: synchronized(Provider::class.java) {
+                val instance = repository ?: Repository(context)
+                repository = instance
+                instance
+            }
     }
 }

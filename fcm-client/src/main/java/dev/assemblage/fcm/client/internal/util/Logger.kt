@@ -3,43 +3,27 @@ package dev.assemblage.fcm.client.internal.util
 import android.util.Log
 import dev.assemblage.fcm.client.BuildConfig
 
-/**
- * @author Umang Chamaria
- */
+/** @author Umang Chamaria */
 public class Logger private constructor(private val className: String) {
 
-    /**
-     * Logging level
-     */
+    /** Logging level */
     public enum class LogLevel {
-        /**
-         * Priority constant for printing no logs.
-         */
+        /** Priority constant for printing no logs. */
         NONE,
 
-        /**
-         * Priority constant for printing info logs.
-         */
+        /** Priority constant for printing info logs. */
         INFO,
 
-        /**
-         * Priority constant for printing error logs.
-         */
+        /** Priority constant for printing error logs. */
         ERROR,
 
-        /**
-         * Priority constant for printing warning logs.
-         */
+        /** Priority constant for printing warning logs. */
         WARN,
 
-        /**
-         * Priority constant for printing debug logs.
-         */
+        /** Priority constant for printing debug logs. */
         DEBUG,
 
-        /**
-         * Priority constant for printing verbose logs.
-         */
+        /** Priority constant for printing verbose logs. */
         VERBOSE
     }
 
@@ -66,11 +50,9 @@ public class Logger private constructor(private val className: String) {
                 LogLevel.DEBUG -> {
                     Log.d(tag, "$className ${message()}")
                 }
-                LogLevel.NONE -> {
-                }
+                LogLevel.NONE -> {}
             }
-        } catch (e: Exception) {
-        }
+        } catch (e: Exception) {}
     }
 
     public companion object {

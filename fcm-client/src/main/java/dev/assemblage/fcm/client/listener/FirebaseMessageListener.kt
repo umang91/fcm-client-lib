@@ -11,12 +11,14 @@ import com.google.firebase.messaging.RemoteMessage
 public interface FirebaseMessageListener {
     /**
      * Callback for new token generation.
+     *
      * @param token Token generated received from FCM callback.
      */
     public fun onTokenAvailable(token: String)
 
     /**
      * Callback for Push Message received from FCM
+     *
      * @param remoteMessage instance of [RemoteMessage] received from firebase.
      */
     public fun onPushReceived(remoteMessage: RemoteMessage)
