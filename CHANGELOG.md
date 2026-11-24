@@ -1,4 +1,4 @@
-## Next Release
+## 6.2.1(24-11-2026)
 - Android Gradle Plugin updated to `9.3.2`
 - Kotlin version updated to `2.3.20`
 - Min SDK updated from 21 --> 23
