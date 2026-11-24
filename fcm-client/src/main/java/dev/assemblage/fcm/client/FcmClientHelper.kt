@@ -130,7 +130,7 @@ public class FcmClientHelper internal constructor(private var context: Context) 
         }
     }
 
-    internal fun onNewToken(token: String) {
+    internal fun onRegistered(token: String) {
         AsyncExecutor.submit {
             try {
                 Provider.getRepository(context).saveToken(token)
@@ -173,26 +173,7 @@ public class FcmClientHelper internal constructor(private var context: Context) 
 
     private fun registerForPush() {
         logger.log { " registerForPush(): Will register for push." }
-        FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
-            try {
-                if (!task.isSuccessful) {
-                    logger.log { " registerForPush(): Token registration failed." }
-                    scheduleRetry()
-                    return@addOnCompleteListener
-                }
-                val token = task.result
-                if (token.isNullOrEmpty()) {
-                    logger.log { " registerForPush(): Token null or empty." }
-                    scheduleRetry()
-                    return@addOnCompleteListener
-                }
-                logger.log(Logger.LogLevel.INFO) { " registerForPush() Token: $token" }
-                onNewToken(token)
-            } catch (e: Exception) {
-                logger.log(Logger.LogLevel.ERROR, e) { "registerForPush(): " }
-                scheduleRetry()
-            }
-        }
+        FirebaseMessaging.getInstance().register()
     }
 
     private fun scheduleRetry() {

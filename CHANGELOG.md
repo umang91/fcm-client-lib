@@ -1,5 +1,12 @@
 ## Next Release
-- Android Gradle Plugin updated to `9.3.1`
+- Android Gradle Plugin updated to `9.3.2`
+- Kotlin version updated to `2.3.20`
+- Min SDK updated from 21 --> 23
+- Compile SDK and Target SDK updated from 34 --> 36
+- Firebase Cloud Messaging updated from `23.4.0` --> `26.0.2`
+- `androidx.lifecycle:lifecycle-process` updated to `2.11.1`
+- Gradle plugins updated: Dokka `2.2.0`, Google Services `4.5.0`, Maven Publish `2.0.1`, Spotless `8.10.1`
+- Code formatting migrated to Ktfmt with Spotless
 
 ## 5.2.1(22-10-2024)
 - Android Gradle Plugin updated to `8.7.1`

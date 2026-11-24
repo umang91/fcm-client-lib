@@ -19,9 +19,9 @@ public class FcmClientMessageService : FirebaseMessagingService() {
         FcmClientHelper.getInstance(applicationContext).onPushReceived(remoteMessage)
     }
 
-    override fun onNewToken(token: String) {
-        super.onNewToken(token)
-        logger.log { " onNewToken(): $token" }
-        FcmClientHelper.getInstance(applicationContext).onNewToken(token)
+    override fun onRegistered(installationId: String) {
+        super.onRegistered(installationId)
+        logger.log { "onRegistered(): $installationId" }
+        FcmClientHelper.getInstance(applicationContext).onRegistered(installationId)
     }
 }

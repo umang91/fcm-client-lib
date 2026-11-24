@@ -1,3 +1,5 @@
+import com.diffplug.spotless.kotlin.KtfmtStep.TrailingCommaManagementStrategy
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.plugin.android.application) apply false
@@ -22,9 +24,9 @@ subprojects {
 
     spotless {
         kotlin {
-            ktfmt("0.56").kotlinlangStyle().configure {
+            ktfmt("0.62").kotlinlangStyle().configure {
                 it.setMaxWidth(100)
-                it.setManageTrailingCommas(false)
+                it.setTrailingCommaManagementStrategy(TrailingCommaManagementStrategy.NONE)
             }
             target("src/**/*.kt") // Specify which files to format
             targetExclude("**/build/**") // Exclude files in build directories
